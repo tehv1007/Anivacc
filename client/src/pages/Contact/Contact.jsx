@@ -93,7 +93,9 @@ export default function Contact() {
               style={{ border: 0 }}
               loading="lazy"
               allowFullScreen
-              src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJc3T-N8JVNDERwJ1OqbTYoJI&key=AIzaSyA81a5dr84kmpaCJLT3rvQ5hNi25Cy95BM"
+              src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJc3T-N8JVNDERwJ1OqbTYoJI&key=${
+                import.meta.env.VITE_GOOGLE_MAP_API
+              }`}
             />
           </a>
         </div>
