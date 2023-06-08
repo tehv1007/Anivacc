@@ -1,3 +1,161 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "FuturaLTMedium";
+  src: local("FuturaLTMedium"),
+    url(./assets/fonts/Futura_LT_Medium.ttf) format("truetype");
+}
+
+body {
+  font-family: "Poppins", "Montserrat", sans-serif;
+}
+
+.postContainer {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+li:focus {
+  color: white;
+  background-color: #003d79;
+}
+
+@keyframes slideRight {
+  0% {
+    width: 50%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.group:hover .bg-transparent {
+  animation: slideRight 0.3s ease-in-out forwards;
+}
+
+/* Learn more button */
+.learn-button {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 360ms;
+}
+
+.learn-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(30 64 175);
+  transition: left 0.36s ease-in-out;
+}
+
+.learn-button:hover::before {
+  left: 0;
+}
+
+.product-group:hover .product-arrow svg {
+  fill: #003d79;
+}
+.product-arrow svg {
+  fill: #ffffff;
+}
+
+/* Slider Arrow */
+.swiper-button {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  cursor: pointer;
+  background-color: #ededed;
+  border-radius: 100%;
+  padding: 10px;
+  height: 50px;
+  width: 50px;
+  transition: all 300ms ease-in;
+}
+.image-swiper-button-prev {
+  left: -50px;
+}
+.image-swiper-button-next {
+  right: -50px;
+}
+.swiper-button-disabled {
+  opacity: 0.5;
+}
+
+.image-swiper-button-prev:hover,
+.image-swiper-button-next:hover {
+  background-color: #003d79;
+}
+
+.home-after {
+  position: absolute;
+  bottom: -8px;
+  border: solid 5px;
+  transform: rotate(135deg) translateX(-50%);
+  border-color: #003d79 #003d79 transparent transparent;
+  left: 45%;
+}
+
+.learn-more:hover span {
+  transform: scaleX(1);
+}
+
+/* Solution */
+.box_1:hover .img_1 a::before,
+.box_3:hover .img_5 a::before,
+.box_2:hover .box_2_a .img_2 a::before,
+.box_2:hover .box_2_b .img_3 a::before,
+.box_2:hover .box_2_b .img_4 a::before {
+  top: 0;
+  left: 0;
+  right: 100%;
+  bottom: 100%;
+  border-top: 5px solid;
+  border-left: 5px solid;
+  border-color: #003d79;
+  /* background: rgba(255, 255, 255, 0.3); */
+  content: "";
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  box-shadow: none;
+  transition: all 0.5s ease;
+}
+
+.box_1:hover .img_1 a::after,
+.box_3:hover .img_5 a::after,
+.box_2:hover .box_2_a .img_2 a::after,
+.box_2:hover .box_2_b .img_3 a::after,
+.box_2:hover .box_2_b .img_4 a::after {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  box-shadow: none;
+  transition: all 0.5s ease;
+  left: 100%;
+  top: 100%;
+  bottom: 0;
+  right: 0;
+  border-bottom: 5px solid;
+  border-right: 5px solid;
+  border-color: #003d79;
+  /* background: hsla(0, 0, 100%, 0.2); */
+}
+
+.title-line {
+  width: 30px;
+  height: 3px;
+  position: absolute;
+  bottom: 40px;
+  left: 42px;
+  background-color: #003d79;
+}

@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-
 import { supabase } from "../config/supabase";
 import pagination from "../utils/pagination";
 
@@ -13,7 +12,7 @@ export const useGetPosts = (page, limit = 7) => {
     async () => {
       const { data, error } = await supabase
         .from("posts")
-        .select(`title, description, id, thumbnail, user:user(username)`)
+        .select(`title, description, id, thumbnail`)
         .order("created_at", { ascending: false })
         .range(FROM, LIMIT);
 
@@ -34,7 +33,7 @@ export const useGetPostById = (id) => {
     async () => {
       const { data, error } = await supabase
         .from("posts")
-        .select("*, user:user(username)")
+        .select("*")
         .eq("id", id)
         .limit(1)
         .single();
@@ -58,7 +57,7 @@ export const useGetPostsByAuthor = (authorID, page = 1, limit = 7) => {
     async () => {
       const { data, error } = await supabase
         .from("posts")
-        .select("*, user:user(username)")
+        .select("*, user:user(uuid)")
         .eq("author_id", authorID)
         .range(FROM, LIMIT);
 
