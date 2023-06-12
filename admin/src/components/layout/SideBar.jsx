@@ -46,10 +46,10 @@ const SideBar = () => {
             <SidebarItem title="Product List" navLink="/products/list">
               <AiOutlineUnorderedList className="w-5 h-5" />
             </SidebarItem>
-            <SidebarItem title="Add News" navLink="/news/add-news">
+            <SidebarItem title="Add News" navLink="/posts/add-news">
               <AiOutlineFileAdd className="w-5 h-5" />
             </SidebarItem>
-            <SidebarItem title="News List" navLink="/news/list">
+            <SidebarItem title="News List" navLink="/posts">
               <HiOutlineNewspaper className="w-5 h-5" />
             </SidebarItem>
             <SidebarItem title="User Require" navLink="/users/require">

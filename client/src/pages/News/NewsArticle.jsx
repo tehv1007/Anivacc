@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -13,24 +13,31 @@ import {
   TwitterIcon,
   WhatsappIcon,
 } from "react-share";
+import { useGetPostById } from "../../hooks/usePost";
+import { formatDate } from "../../utils/formatDate";
+import parser from "html-react-parser";
+import GlobalSpinner from "../../components/Common/loading/GlobalSpinner";
 
 const NewsArticle = ({ title, thumbnail }) => {
   //   const location = useLocation();
   //   const url = `${window.location.origin}${location.pathname}`;
   const url = window.location.href;
+  const { postId } = useParams();
+  const { data: post, isLoading } = useGetPostById(postId);
+
+  if (isLoading) return <GlobalSpinner />;
 
   return (
     <div className="max-w-[1200px] mx-auto py-10">
       <div className="flex-col lg:max-w-[990px] xl:max-w-[1200px] mx-auto px-[10px] text-center">
         <h1 className="text-gray-800 text-3xl font-bold leading-[44px]">
-          New Research Found Launched by SINDER, Lanzhou University and
-          Veterinary Institute of Chinese Academy of Agricultural.
+          {post.title}
         </h1>
         <p className="leading-7">
-          Views:
-          <span>22</span>
+          {/* Views:
+          <span>22</span> */}
           &nbsp;&nbsp;&nbsp;&nbsp; Author: Site Editor&nbsp;&nbsp;&nbsp;&nbsp;
-          Publish Time: 2023-05-09
+          Publish Time: {formatDate(post.created_at)}
         </p>
 
         {/* Social sharing */}
@@ -56,7 +63,7 @@ const NewsArticle = ({ title, thumbnail }) => {
         </div>
 
         {/* News content */}
-        <section></section>
+        <section className="text-left">{parser(`${post.content}`)}</section>
 
         {/* Post navigation */}
         <ul className="text-gray-700 leading-7 text-center mt-[30px] mb-[10px] flex gap-[176px]">

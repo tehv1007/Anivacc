@@ -1,5 +1,5 @@
 import { useRef, useContext } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import PostEditor from "./post/PostEditor";
@@ -9,7 +9,20 @@ import { schemaCreatePost } from "../../config/schema";
 import Field from "../../components/common/form/Field";
 import Label from "../../components/common/form/Label";
 import { AuthContext } from "../auth/Auth";
+import FormRow from "../../components/common/form/FormRow";
+import FormRowError from "../../components/common/form/FormRowError";
+import Select from "react-select";
 
+const categories = [
+  {
+    label: "Tin tức công ty",
+    value: 1,
+  },
+  {
+    label: "Tin tức trong ngành",
+    value: 2,
+  },
+];
 const AddNews = () => {
   const { isLoggedIn: session } = useContext(AuthContext);
   const editorRef = useRef(null);
@@ -17,8 +30,10 @@ const AddNews = () => {
 
   const {
     register,
+    control,
     formState: { errors },
     handleSubmit,
+    setValue,
   } = useForm({
     mode: "onSubmit",
     resolver: yupResolver(schemaCreatePost),
@@ -27,7 +42,6 @@ const AddNews = () => {
   const handleCreatePost = (values) => {
     postMutation.mutate({
       ...values,
-      // @ts-ignore
       content: editorRef.current.getContent(),
       author_id: session?.user?.id,
     });
@@ -40,7 +54,6 @@ const AddNews = () => {
       </h2>
 
       <form
-        // @ts-ignore
         onSubmit={handleSubmit(handleCreatePost)}
         className="flex flex-col w-full gap-y-5"
       >
@@ -62,6 +75,33 @@ const AddNews = () => {
             placeholder="Nhập thumbnail"
             type="url"
           />
+        </div>
+
+        <div className="flex flex-col gap-y-5 lg:flex-row lg:gap-x-10">
+          <FormRow label="Category">
+            <div className="col-span-8 sm:col-span-4">
+              <Controller
+                control={control}
+                name="category"
+                register={register}
+                setValue={setValue}
+                defaultValues={null}
+                render={({ field: { onChange, onBlur, value, name, ref } }) => (
+                  <Select
+                    required
+                    options={categories}
+                    onChange={onChange}
+                    isMulti={false}
+                    onBlur={onBlur}
+                    value={value}
+                    name={name}
+                    ref={ref}
+                  />
+                )}
+              />
+              <FormRowError error={errors.category} />
+            </div>
+          </FormRow>
 
           <Field
             register={register}
@@ -73,7 +113,7 @@ const AddNews = () => {
           />
         </div>
 
-        <div className="flex flex-col gap-y-2">
+        <div className="flex flex-col gap-y-2 mt-10">
           <Label text={"Nội dung"} htmlFor={"content"} />
 
           <PostEditor

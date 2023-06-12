@@ -23,7 +23,8 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "/",
-            element: <Dashboard />,
+            // element: <Dashboard />,
+            element: <AddNews />,
           },
           {
             path: "/products/list",
@@ -38,15 +39,15 @@ export const router = createBrowserRouter([
             element: <ProductDetail />,
           },
           {
-            path: "/news/list",
+            path: "/posts",
             element: <NewsList />,
           },
           {
-            path: "/news/add-news",
+            path: "/posts/add-news",
             element: <AddNews />,
           },
           {
-            path: "/news/:postID",
+            path: "/posts/:postID",
             element: <NewsDetail />,
           },
         ],

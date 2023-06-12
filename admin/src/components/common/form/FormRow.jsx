@@ -1,7 +1,7 @@
 const FormRow = ({ label, className, children }) => {
   return (
-    <div className={`form-control w-full ${className}`}>
-      <label className="label">
+    <div className={`form-control w-full ${className} `}>
+      <label className="label mb-5">
         <span className="label-text">{label}</span>
       </label>
       {children}

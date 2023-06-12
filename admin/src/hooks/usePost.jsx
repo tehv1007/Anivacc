@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "../config/supabase";
 import pagination from "../utils/pagination";
 
-export const useGetPosts = (page, limit = 7) => {
+export const useGetPosts = (page, limit = 3) => {
   const { FROM, LIMIT } = pagination(page, limit);
 
   return useQuery(
@@ -12,7 +12,7 @@ export const useGetPosts = (page, limit = 7) => {
     async () => {
       const { data, error } = await supabase
         .from("posts")
-        .select(`title, description, id, thumbnail`)
+        .select(`title, description, id, thumbnail, category`)
         .order("created_at", { ascending: false })
         .range(FROM, LIMIT);
 
@@ -135,20 +135,14 @@ export const useCreatePost = () => {
   const navigate = useNavigate();
 
   return useMutation(
-    async ({ author_id, content, description, thumbnail, title }) => {
-      console.log({
-        author_id,
-        content,
-        description,
-        thumbnail,
-        title,
-      });
+    async ({ author_id, content, description, thumbnail, title, category }) => {
       await supabase.from("posts").insert({
         title,
         thumbnail,
         description,
         content,
         author_id,
+        category: category.label == "Tin tức công ty" ? "company" : "industry",
       });
     },
     {

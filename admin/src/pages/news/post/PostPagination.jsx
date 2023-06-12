@@ -3,17 +3,17 @@ import ReactPaginate from "react-paginate";
 import { withErrorBoundary } from "react-error-boundary";
 import ErrorComponent from "../components/ErrorComponent";
 
-const PostPagination = ({ perPage = 7, changePage, count }) => {
+const PostPagination = ({ perPage = 4, changePage, count }) => {
   return (
     <ReactPaginate
       className="flex items-center justify-center gap-x-2 lg:gap-x-5"
-      nextLabel=">"
-      previousLabel="<"
+      nextLabel="Next >"
+      previousLabel="< Previous"
       pageRangeDisplayed={3}
       onPageChange={(e) => changePage(e.selected + 1)}
       activeClassName="bg-green-500 text-black font-bold rounded-lg"
       pageLinkClassName="p-2 font-semibold"
-      pageClassName="p-2"
+      pageClassName="p-2 border"
       breakLabel="..."
       disabledClassName="opacity-40"
       pageCount={Math.ceil(count / perPage)}
