@@ -170,7 +170,7 @@ const ProductOffer = () => {
 
       {selectedCategory && (
         <>
-          <div className="product-slider hidden bigScreen w-[calc(100%-80px)] mx-auto relative mt-10 mb-[62px]">
+          <div className="product-slider hidden bigScreen w-[calc(100%-80px)] mx-auto relative z-1 mt-10 mb-[62px]">
             <div className="swiper-button image-swiper-button-next">
               <ArrowRight />
             </div>

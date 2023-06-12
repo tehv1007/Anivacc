@@ -4,6 +4,7 @@ import Services from "./Coponents/Services";
 import Certificate from "./Coponents/Certificate";
 import InformationCenter from "./Coponents/InformationCenter";
 import Solution from "./Coponents/Solution";
+import OnlineService from "../../components/Layout/FixComponent/OnlineService";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Services />
       <Certificate />
       <InformationCenter />
+      <OnlineService/>
     </div>
   );
 };
