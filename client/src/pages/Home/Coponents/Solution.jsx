@@ -1,15 +1,10 @@
 import { Link } from "react-router-dom";
 import Heading from "../../../components/Common/Heading";
-import Cattle from "../..//../assets/images/solution/Cattle-Breeding.webp";
-import Chicken from "../..//../assets/images/solution/Chicken-Breeding.webp";
-import Duck from "../..//../assets/images/solution/Duck-Goose-Breeding.webp";
-import Pig from "../..//../assets/images/solution/Pig-Breeding.webp";
-import Shrimp from "../..//../assets/images/solution/Shrimp-Breeding.webp";
 
 const Title = ({ title }) => {
   return (
     <div>
-      <div className="absolute bottom-[25px] left-[25px] xl:bottom-[50px] xl:left-[42px] xl:w-[calc(100%-62px)] w-[calc(100%-45px)] z-99 line-clamp-2 overflow-ellipsis text-white overflow-hidden title_1">
+      <div className="absolute bottom-[25px] left-[25px] xl:bottom-[50px] xl:left-[42px] xl:w-[calc(100%-62px)] w-[calc(100%-45px)] z-[99] line-clamp-2 overflow-ellipsis text-white overflow-hidden title_1">
         <span className="text-[20px]">
           <strong>
             <span className="font-[Montserrat]">{title}</span>
@@ -27,16 +22,16 @@ const Solution = () => {
       <div className="max-w-[1200px] mx-auto pb-5">
         <Heading title="Khu vực áp dụng sản phẩm của chúng tôi" />
       </div>
-      <div className="box flex flex-col gap-[10px] sm:flex-row max-w-[1756px] mx-auto px-[10px]">
+      <div className="box flex flex-row sm:flex-nowrap flex-wrap gap-[10px] sm:flex-row max-w-[1756px] mx-auto px-[10px]">
         {/* Box 1 */}
-        <div className="box_1 group sm:w-3/12 relative max-h-[838px]">
+        <div className="box_1 order-1 w-[calc(50%-5px)] group sm:w-3/12 relative max-h-[838px]">
           <div className="box_img img_1 w-full h-full object-cover block">
             <Link className="blocks-image" to="/solutions">
               <picture>
-                <source media="(max-width:768px)" />
+                {/* <source media="(max-width:768px)" /> */}
                 <img
-                  src={Cattle}
-                  alt="Cattle Breeding"
+                  src="/images/solution/Cattle-Breeding.webp"
+                  alt="Bệnh trên đại gia súc"
                   className="w-full h-full object-cover block"
                 />
               </picture>
@@ -46,15 +41,15 @@ const Solution = () => {
         </div>
 
         {/* Box 2 */}
-        <div className="box_2 sm:w-6/12 max-h-[868px] flex flex-wrap gap-[10px]">
+        <div className="box_2 order-2 sm:w-6/12 max-h-[868px] flex flex-wrap gap-[10px]">
           <div className="box_2_a w-full relative max-h-1/2 mt-5px">
             <div className="box_img img_2">
               <Link className="blocks-image" to="/solutions">
                 <picture>
-                  <source media="(max-width:768px)" />
+                  {/* <source media="(max-width:768px)" /> */}
                   <img
-                    src={Duck}
-                    alt="Duck&Goose Breeding"
+                    src="/images/solution/Duck-Goose-Breeding.webp"
+                    alt="Bệnh gia cầm"
                     className="w-full h-full object-cover block"
                   />
                 </picture>
@@ -69,10 +64,10 @@ const Solution = () => {
               <div className="box_img img_3">
                 <Link className="blocks-image" to="/solutions">
                   <picture>
-                    <source media="(max-width:768px)" />
+                    {/* <source media="(max-width:768px)" /> */}
                     <img
-                      src={Pig}
-                      alt="Pig Breeding"
+                      src="/images/solution/Pig-Breeding.webp"
+                      alt="Bệnh trên lợn"
                       className="w-full h-full object-cover block"
                     />
                   </picture>
@@ -84,10 +79,10 @@ const Solution = () => {
               <div className="box_img img_4">
                 <Link className="blocks-image" to="/solutions">
                   <picture>
-                    <source media="(max-width:768px)" />
+                    {/* <source media="(max-width:768px)" /> */}
                     <img
-                      src={Shrimp}
-                      alt="Shrimp Breeding"
+                      src="/images/solution/Shrimp-Breeding.webp"
+                      alt="Bệnh trên thủy sản"
                       className="w-full h-full object-cover block"
                     />
                   </picture>
@@ -99,14 +94,14 @@ const Solution = () => {
         </div>
 
         {/* Box 3 */}
-        <div className="box_3 sm:w-3/12 relative max-h-[838px]">
+        <div className="box_3 order-1 w-[calc(50%-5px)] sm:order-3 sm:w-3/12 relative max-h-[838px]">
           <div className="w-full h-full object-cover block box_img img_5">
             <Link className="blocks-image" to="/solutions">
               <picture>
-                <source media="(max-width:768px)" />
+                {/* <source media="(max-width:768px)" /> */}
                 <img
-                  src={Chicken}
-                  alt="Chicken Breeding"
+                  src="/images/solution/Chicken-Breeding.webp"
+                  alt="Giải pháp khử trùng"
                   className="w-full h-full object-cover block"
                 />
               </picture>

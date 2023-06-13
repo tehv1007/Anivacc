@@ -7,9 +7,15 @@
   src: local("FuturaLTMedium"),
     url(./assets/fonts/Futura_LT_Medium.ttf) format("truetype");
 }
+@font-face {
+  font-family: "GardeGothic";
+  src: local("GardeGothic"),
+    url(./assets/fonts/ITC\ Avant\ Garde\ Gothic\ Book\ Regular.otf)
+      format("truetype");
+}
 
 body {
-  font-family: "Poppins", "Montserrat", sans-serif;
+  font-family: "Roboto", "Montserrat", sans-serif;
 }
 
 .postContainer {
@@ -210,4 +216,69 @@ li:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Navigation */
+.parent:hover .child {
+  opacity: 1;
+  height: auto;
+  overflow: none;
+  transform: translateY(0);
+}
+.child {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transform: translateY(-10%);
+}
+
+.navigation > ul > li > a:before {
+  transform: rotateY(0);
+}
+
+.navigation ul li a:before {
+  content: "";
+  position: absolute;
+  left: -4%;
+  bottom: -20px;
+  height: 2px;
+  width: 110%;
+  /* transform: rotateY(90deg); */
+  /* background: #fff; */
+  background: #ccc;
+  transition: ease-in-out 0.4s;
+}
+
+/* HA + Son */
+.like {
+  clip-path: polygon(100% 6%, 0 6%, 0 100%);
+}
+
+.preSale {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffffff !important;
+  background: rgba(52, 52, 52, 0.463);
+}
+
+.swiper-button-next:active,
+.swiper-button-prev:active {
+  color: rgb(0, 0, 0) !important;
+  background: rgba(255, 255, 255, 0.57);
+}
+
+.swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  background: rgb(0, 149, 255);
+}
+.swiper-cube .swiper-cube-shadow::before {
+  background: #b8b8b8;
+}
+
+.swiper-cube .swiper-slide {
+  height: 300px;
 }

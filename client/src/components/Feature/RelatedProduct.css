@@ -1,0 +1,12 @@
+.swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    background: rgb(0, 149, 255);
+}
+.swiper-cube .swiper-cube-shadow::before {
+    background: #b8b8b8;
+}
+
+.swiper-cube .swiper-slide {
+    height: 300px;
+}

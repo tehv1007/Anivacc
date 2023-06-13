@@ -20,5 +20,5 @@ export default {
       // => @media (min-width: 1450px) { ... }
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };

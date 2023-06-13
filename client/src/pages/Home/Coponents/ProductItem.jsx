@@ -16,7 +16,7 @@ const ProductItem = ({ product }) => {
           <div className="items-center bg-gray-200 group-hover:bg-blue-900 flex justify-between p-5 text-left">
             <Link
               to={`/products/${product.id}`}
-              className="line-clamp-2 text-gray-800 group-hover:text-white text-lg text-left"
+              className="line-clamp-2 h-[50px] text-gray-800 group-hover:text-white text-lg text-left"
             >
               {product.title}
             </Link>

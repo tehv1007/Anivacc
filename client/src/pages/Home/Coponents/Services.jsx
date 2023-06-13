@@ -23,7 +23,7 @@ const ServiceItem = ({ title, icon }) => {
 
 const Services = () => {
   return (
-    <section className="bg-blue-900 bg-cover bg-[url('../../../src/assets/images/service-bg.webp')] bg-[50% 50%]">
+    <section className="bg-blue-900 bg-cover bg-[url('/images/service-bg.webp')] bg-[50% 50%]">
       <div className="max-w-[1700px] mx-auto px-[10px] md:px-5 xl:px-10">
         <div className="py-[62px]">
           <div className="pb-5">

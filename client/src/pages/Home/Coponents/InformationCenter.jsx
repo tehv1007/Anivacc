@@ -75,12 +75,12 @@ const InformationCenter = () => {
             <div className="px-[5px] hidden md:block">
               <ul className="flex gap-[10px]">
                 <li className="bg-blue-900 border text-white text-xs leading-7 text-left px-[22px] rounded-[30px] capitalize">
-                  <Link to="/posts/company" title="Company News">
+                  <Link to="/posts/category/company" title="Company News">
                     Tin tức công ty
                   </Link>
                 </li>
                 <li className="border-gray-500 border text-gray-600 hover:bg-blue-900 hover:text-white transition-all duration-360 ease-linear text-xs leading-7 text-left px-[22px] rounded-[30px] capitalize">
-                  <Link to="/posts/industry" title="Industry News">
+                  <Link to="/posts/category/industry" title="Industry News">
                     Tin trong ngành
                   </Link>
                 </li>

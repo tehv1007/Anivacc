@@ -38,7 +38,7 @@ const OnlineService = () => {
 
   return (
     <section className="relative">
-      <div className="fixed z-99 left-auto right-0 mr-5 top-1/2 transform -translate-y-1/2 text-center">
+      <div className="fixed z-[99] left-auto right-0 mr-5 top-1/2 transform -translate-y-1/2 text-center">
         <div className="text-base leading-7 text-gray-700 font-normal tracking-normal text-left">
           <ul className="rounded-[30px]">
             {/* Phone */}
@@ -84,7 +84,7 @@ const OnlineService = () => {
           </ul>
         </div>
       </div>
-      {showPopup && <PopUp />}
+      {showPopup && <PopUp showPopup={showPopup} setShowPopup={setShowPopup} />}
     </section>
   );
 };

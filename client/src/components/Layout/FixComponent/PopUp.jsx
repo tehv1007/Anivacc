@@ -1,135 +1,189 @@
-import React from "react";
+import FormRowError from "../../Feature/FormRowError";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { inquirySchema } from "../../../utils/inquirySchema";
+import { supabase } from "../../../config/supabase";
 
-const PopUp = () => {
+const PopUp = ({ setShowPopup, showPopup }) => {
+  const handleClose = () => {
+    setShowPopup(false);
+  };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(inquirySchema),
+  });
+
+  const onSubmit = async (data) => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: "success",
+      title: "Đã gửi thông tin yêu cầu thành công",
+    });
+    await supabase.from("inquire").insert(data);
+    reset();
+  };
+
   return (
-    <section className="popup-overlay">
-      <div
-        className="overflow-hidden max-w-screen-md absolute z-9999 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border border-gray-600 bg-gray-100 px-4 py-8 sm:px-6 lg:px-8"
-        aria-modal="true"
-        role="dialog"
-        tabIndex={-1}
-      >
-        <div className="relative">
-          <button className="absolute end-4 top-4 text-gray-600 transition hover:scale-110">
-            <span className="sr-only">Close cart</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+    <>
+      {showPopup ? (
+        <section className="popup-overlay z-[99]">
+          <div
+            className="overflow-hidden w-2/3 md:w-[760px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border border-gray-600 bg-gray-100"
+            aria-modal="true"
+            role="dialog"
+            tabIndex={-1}
+          >
+            <div className="relative">
+              <button
+                onClick={handleClose}
+                className="absolute end-4 top-4 text-gray-600 transition hover:scale-110"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="h-5 w-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <div className="flex">
+                <div className="hidden md:block basis-[45%]">
+                  <img
+                    src="/images/contact.webp"
+                    alt="Contact"
+                    className="block h-full w-full object-cover"
+                  />
+                </div>
 
-          <div className="relative flex flex-wrap lg:h-screen lg:items-center">
-            <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
-              <div className="mx-auto max-w-lg text-center">
-                <h1 className="text-2xl font-bold sm:text-3xl">
-                  Get started today!
-                </h1>
-                <p className="mt-4 text-gray-500">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                  libero nulla eaque error neque ipsa culpa autem, at itaque
-                  nostrum!
-                </p>
+                {/* form */}
+                <form
+                  onSubmit={handleSubmit(onSubmit)}
+                  className="text-sm text-left basis-[55%]"
+                >
+                  <div className="px-8 pt-16 pb-8">
+                    <div span={24} className="drawing-item my-[10px]">
+                      <div>
+                        <div className="l-edit text-left font-bold text-[32px] text-blue-800">
+                          <p>
+                            <span className="text-[28px]">
+                              SEND US A MESSAGE
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div span={24} className="drawing-item my-[10px]">
+                      <div>
+                        <div className="l-edit text-left text-sm text-black/70">
+                          <p>
+                            Xin vui lòng để lại tin nhắn của bạn. Chúng tôi sẽ
+                            phản hồi nhanh nhất có thể.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Name */}
+                    <div span={24} className="my-[10px]">
+                      <div className="flex items-center border border-gray-600 text-black/60 w-full bg-white text-xs h-9">
+                        <span className="pr-2 text-red-500 bg-inherit">*</span>
+                        <input
+                          type="text"
+                          clearable="true"
+                          placeholder="Name"
+                          className="pr-[15px] mx-0 inline-block w-full h-full outline-none"
+                          {...register("name")}
+                        />
+                      </div>
+                      <FormRowError error={errors.name} />
+                    </div>
+                    {/* Email */}
+                    <div span={24} className="my-[10px]">
+                      <div className="flex items-center border border-gray-600 text-black/60 w-full bg-white text-xs h-9">
+                        <span className="pr-2 text-red-500 bg-inherit">*</span>
+                        <input
+                          type="text"
+                          clearable="true"
+                          placeholder="Email"
+                          className="pr-[15px] mx-0 inline-block w-full h-full outline-none"
+                          {...register("email")}
+                        />
+                      </div>
+                      <FormRowError error={errors.email} />
+                    </div>
+                    {/* Phone */}
+                    <div span={24} className="my-[10px]">
+                      <div className="flex items-center border border-gray-600 text-black/60 w-full bg-white text-xs h-9">
+                        <span className="pr-2 text-red-500 bg-inherit">*</span>
+                        <input
+                          type="text"
+                          clearable="true"
+                          placeholder="Phone"
+                          className="pr-[15px] mx-0 inline-block w-full h-full outline-none"
+                          {...register("tel")}
+                        />
+                      </div>
+                      <FormRowError error={errors.tel} />
+                    </div>
+                    {/* Message */}
+                    <div span={24} className="my-[10px]">
+                      <div className="flex  border border-gray-600 text-black/60 w-full bg-white text-xs">
+                        <span className="pr-2 pt-2 text-red-500 bg-inherit ">
+                          *
+                        </span>
+                        <textarea
+                          autoComplete="off"
+                          rows={4}
+                          clearable="true"
+                          placeholder="Message"
+                          className="l-textarea_inner min-h-[32px] w-full border-0 py-[10px] outline-none resize-none"
+                          {...register("message")}
+                        />
+                      </div>
+                      <FormRowError error={errors.message} />
+                    </div>
+                    {/* Button */}
+                    <div className="form-btn text-center my-5">
+                      <button
+                        type="submit"
+                        className="submitBtn text-lg text-center py-[10px] px-5 my-5 border-none cursor-pointer text-white bg-blue-800 w-full"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </form>
               </div>
-              <form className="mx-auto mb-0 mt-8 max-w-md space-y-4">
-                <div>
-                  <label htmlFor="email" className="sr-only">
-                    Email
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="email"
-                      className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                      placeholder="Enter email"
-                    />
-                    <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-gray-400"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="password" className="sr-only">
-                    Password
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="password"
-                      className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                      placeholder="Enter password"
-                    />
-                    <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 text-gray-400"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between">
-                  <p className="text-sm text-gray-500">
-                    No account?
-                    <a className="underline" href="#">
-                      Sign up
-                    </a>
-                  </p>
-                  <button
-                    type="submit"
-                    className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
-                  >
-                    Sign in
-                  </button>
-                </div>
-              </form>
-            </div>
-            <div className="relative h-auto w-full hidden sm:block lg:h-full lg:w-1/2">
-              <img
-                alt="Welcome"
-                src="https://images.unsplash.com/photo-1630450202872-e0829c9d6172?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      ) : (
+        ""
+      )}
+    </>
   );
 };
 

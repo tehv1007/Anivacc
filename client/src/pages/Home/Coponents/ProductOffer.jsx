@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Poultry from "../../../assets/images/productTypes/Poultry-480-480.webp";
-import Swine from "../../../assets/images/productTypes/Swine-480-480.webp";
-import Bovine from "../../../assets/images/productTypes/Bovine-Sheep-480-480.webp";
-import Pet from "../../../assets/images/productTypes/pet.jpg";
-import Disinfectant from "../../../assets/images/productTypes/Disinfectant-480-480.webp";
+import Poultry from "/images/productTypes/Poultry-480-480.webp";
+import Swine from "/images/productTypes/Swine-480-480.webp";
+import Bovine from "/images/productTypes/Bovine-Sheep-480-480.webp";
+import Pet from "/images/productTypes/pet.jpg";
+import Disinfectant from "/images/productTypes/Disinfectant-480-480.webp";
 import Heading from "../../../components/Common/Heading";
 import { useProductsByCategory } from "../../../hooks/useProduct";
 import ProductItem from "./ProductItem";
 import ArrowRight from "./arrows/ArrowRight";
 import ArrowLeft from "./arrows/ArrowLeft";
 import { Link } from "react-router-dom";
+import GlobalSpinner from "../../../components/Common/loading/GlobalSpinner";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -66,7 +67,10 @@ const CategoryItem = ({
         <div className="">
           <img className="" src={category.image} alt={category.name} />
         </div>
-        <Link to={`/${category.label}`} className="text-gray-800 text-[16px]">
+        <Link
+          to={`/${category.label}`}
+          className="text-gray-800 text-[16px] h-auto md:h-[48px] inline-block"
+        >
           {category.name}
         </Link>
 
@@ -107,11 +111,6 @@ const ProductOffer = () => {
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-  console.log(data);
 
   return (
     <section className="max-w-[1440px] mx-auto px-[10px] md:px-5 xl:px-10">
@@ -170,7 +169,7 @@ const ProductOffer = () => {
 
       {selectedCategory && (
         <>
-          <div className="product-slider hidden bigScreen w-[calc(100%-80px)] mx-auto relative z-1 mt-10 mb-[62px]">
+          <div className="product-slider hidden bigScreen w-[calc(100%-80px)] mx-auto relative z-[1] mt-10 mb-[62px]">
             <div className="swiper-button image-swiper-button-next">
               <ArrowRight />
             </div>
@@ -187,13 +186,17 @@ const ProductOffer = () => {
                 disabledClass: "swiper-button-disabled",
               }}
             >
-              {data.map((product) => (
-                <SwiperSlide key={product.id}>
-                  <div className="product-item">
-                    <ProductItem product={product} />
-                  </div>
-                </SwiperSlide>
-              ))}
+              {isLoading ? (
+                <GlobalSpinner />
+              ) : (
+                data.map((product) => (
+                  <SwiperSlide key={product.id}>
+                    <div className="product-item">
+                      <ProductItem product={product} />
+                    </div>
+                  </SwiperSlide>
+                ))
+              )}
             </Swiper>
           </div>
 
@@ -212,13 +215,17 @@ const ProductOffer = () => {
                 },
               }}
             >
-              {data.map((product) => (
-                <SwiperSlide key={product.id}>
-                  <div className="product-item">
-                    <ProductItem product={product} />
-                  </div>
-                </SwiperSlide>
-              ))}
+              {isLoading ? (
+                <GlobalSpinner />
+              ) : (
+                data.map((product) => (
+                  <SwiperSlide key={product.id}>
+                    <div className="product-item">
+                      <ProductItem product={product} />
+                    </div>
+                  </SwiperSlide>
+                ))
+              )}
               <div className="swiper-pagination !relative !bottom-0 mt-5"></div>
             </Swiper>
           </div>
