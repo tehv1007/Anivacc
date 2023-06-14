@@ -6,7 +6,7 @@ import { supabase } from "../../../config/supabase";
 export default function NavBar() {
   const [navHeight, setNavHeight] = useState(`h-[80px]`);
   const [color, setColor] = useState("bg-black/30");
-
+  const [active, setActive] = useState([false, false, false, false, false, false, false]);
   const [categoryType, solutionType] = useQueries({
     queries: [
       {
@@ -22,6 +22,15 @@ export default function NavBar() {
     ],
   });
 
+  const handleUnderline = (id) => {
+    setActive(active.map( (e, index) => {
+      if (index === id) {
+        return true
+      } else {
+        return false
+      }
+    }))
+  }
   useEffect(() => {
     const handleScroll = () => {
       if (window.pageYOffset > 0) {
@@ -76,12 +85,16 @@ export default function NavBar() {
 
             {/* NAVIGATION */}
             <div className="xl:flex hidden">
-              <ul className="menu menu-horizontal hover:text-white text-[16px] flex [&>li]:relative [&>li]:w-fit [&>li]:after:content-[''] [&>li]:after:block [&>li]:after:w-0 [&>li]:after:h-[3px] [&>li]:after:bg-white [&>li]:after:mx-auto hover:[&>li]:hover:after:w-full [&>li]:after:transition-all [&>li]:hover:transition-all [&>li]:after:duration-[0.8s] [&>li]:hover:duration-[0.8s] [&>li]:after:absolute [&>li]:after:bottom-[-30%] capitalize [&>li>ul]:absolute [&>li>ul]:shadow-xl [&>li>ul]:text-black [&>li>ul]:top-[150%] [&>li>ul]:bg-white [&>li>ul>li]:pl-6 [&>li>ul>li]:pr-2 [&>li>ul>li]:py-3 [&>li>ul]:flex-col [&>li>ul]:text-sm hover:[&>li>ul>li]:hover:bg-black/20 [&>li>ul>li>a]:block [&>li>ul>li>a]:w-full p-0">
-                <li>
-                  <Link to="/">Trang chủ</Link>
+              <ul className="menu menu-horizontal hover:text-white text-[16px] flex [&>li]:relative [&>li]:w-fit [&>li]:after:content-[''] [&>li]:after:block  [&>li]:after:w-0 [&>li]:after:h-[3px] [&>li]:after:bg-white [&>li]:after:mx-auto  hover:[&>li]:hover:after:w-full [&>li]:after:transition-all [&>li]:hover:transition-all [&>li]:after:duration-[0.8s] [&>li]:hover:duration-[0.8s] [&>li]:after:absolute [&>li]:after:bottom-[-30%] capitalize [&>li>ul]:absolute [&>li>ul]:shadow-xl [&>li>ul]:text-black [&>li>ul]:top-[150%] [&>li>ul]:bg-white [&>li>ul>li]:pl-6 [&>li>ul>li]:pr-2 [&>li>ul>li]:py-3 [&>li>ul]:flex-col [&>li>ul]:text-sm hover:[&>li>ul>li]:hover:bg-black/20 [&>li>ul>li>a]:block [&>li>ul>li>a]:w-full p-0">
+                <li onClick={()=>handleUnderline(0)} className={`${active[0] ? `after:animate-still` : ``}`}>
+                  <Link to="/">
+                    <span className="hover:text-white text-white">Trang chủ</span>
+                  </Link>
                 </li>
-                <li className="group [&>ul]:hidden before:content-[''] before:w-full before:h-full before:bg-transparent before:block before:absolute relative before:top-[100%]">
-                  <Link to="/about">Giới thiệu</Link>
+                <li onClick={()=>handleUnderline(1)} className={`${active[1] ? `after:animate-still` : ``} group [&>ul]:hidden before:content-[''] before:w-full before:h-full before:bg-transparent before:block before:absolute relative before:top-[100%]`}>
+                  <Link to="/about">
+                    <span className="hover:text-white text-white">Giới thiệu</span>
+                  </Link>
                   <ul className="pl-0 group-hover:transition-all group-hover:animate-change group-hover:[&>ul]:opacity-100 group-hover:flex">
                     <li>
                       <Link to={`/about`}>Về chúng tôi</Link>
@@ -92,8 +105,10 @@ export default function NavBar() {
                   </ul>
                 </li>
 
-                <li className="group [&>ul]:hidden before:content-[''] before:w-full before:h-full before:bg-transparent before:block before:absolute relative before:top-[100%]">
-                  <Link to="/products">Sản phẩm</Link>
+                <li onClick={()=>handleUnderline(2)} className={`${active[2] ? `after:animate-still` : ``} group [&>ul]:hidden before:content-[''] before:w-full before:h-full before:bg-transparent before:block before:absolute relative before:top-[100%]`}>
+                  <Link to="/products">
+                    <span className="hover:text-white text-white">Sản phẩm</span>
+                  </Link>
                   <ul className="pl-0 group-hover:transition-all group-hover:animate-change  group-hover:[&>ul]:opacity-100 group-hover:flex">
                     {categoryType.data.map((type) => (
                       <li key={type.id}>
@@ -108,8 +123,10 @@ export default function NavBar() {
                   </ul>
                 </li>
 
-                <li className="group  [&>ul]:hidden before:content-[''] before:w-full before:h-full before:bg-transparent before:block before:absolute relative before:top-[100%]">
-                  <Link to="/solutions">Phòng thí nghiệm CNC</Link>
+                <li onClick={()=>handleUnderline(3)} className={`${active[3] ? `after:animate-still` : ``} group  [&>ul]:hidden before:content-[''] before:w-full before:h-full before:bg-transparent before:block before:absolute relative before:top-[100%]`}>
+                  <Link to="/solutions">
+                    <span className="hover:text-white text-white">Phòng thí nghiệm CNC</span>
+                  </Link>
                   <ul className="pl-0 group-hover:transition-all group-hover:animate-change  group-hover:[&>ul]:opacity-100   group-hover:flex">
                     {solutionType.data.map((type) => (
                       <li key={type.id}>
@@ -124,8 +141,10 @@ export default function NavBar() {
                   </ul>
                 </li>
 
-                <li className="group [&>ul]:hidden before:content-[''] before:w-full before:h-full before:bg-transparent before:block before:absolute relative before:top-[100%]">
-                  <Link to="/posts">Tin tức</Link>
+                <li  onClick={()=>handleUnderline(4)} className={`${active[4] ? `after:animate-still` : ``} group [&>ul]:hidden before:content-[''] before:w-full before:h-full before:bg-transparent before:block before:absolute relative before:top-[100%]`}>
+                  <Link to="/posts">
+                    <span className="hover:text-white text-white">Tin tức</span>
+                  </Link>
                   <ul className="pl-0 group-hover:transition-all group-hover:animate-change group-hover:[&>ul]:opacity-100 group-hover:flex">
                     <li>
                       <Link to={`/posts/category/company`}>Tin công ty</Link>
@@ -138,8 +157,12 @@ export default function NavBar() {
                   </ul>
                 </li>
 
-                <li className="group [&>ul]:hidden before:content-[''] before:w-full before:h-full before:bg-transparent before:block before:absolute relative before:top-[100%]">
-                  <Link to="/faq">Tài nguyên</Link>
+                <li  onClick={()=>handleUnderline(5)} className={`${active[5] ? `after:animate-still` : ``} group [&>ul]:hidden before:content-[''] before:w-full before:h-full before:bg-transparent before:block before:absolute relative before:top-[100%]`}>
+                  <Link to="/faq">
+                    <span className="hover:text-white text-white">
+                      Tài nguyên
+                    </span>
+                  </Link>
                   <ul className="pl-0 group-hover:transition-all group-hover:animate-change group-hover:[&>ul]:opacity-100 group-hover:flex">
                     <li>
                       <Link to={`/faq`}>FAQ</Link>
@@ -150,8 +173,10 @@ export default function NavBar() {
                   </ul>
                 </li>
 
-                <li>
-                  <Link to="/contact">Liên hệ</Link>
+                <li onClick={()=>handleUnderline(6)} className={`${active[6] ? `after:animate-still` : ``} `}>
+                  <Link to="/contact">
+                    <span className="hover:text-white text-white">Liên hệ</span>
+                  </Link>
                 </li>
               </ul>
             </div>
