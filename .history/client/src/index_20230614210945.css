@@ -1,0 +1,286 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.fuck::after {
+  display: none
+}
+@font-face {
+  font-family: "FuturaLTMedium";
+  src: local("FuturaLTMedium"),
+    url(/fonts/Futura_LT_Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: "GardeGothic";
+  src: local("GardeGothic"),
+    url(/fonts/ITC\ Avant\ Garde\ Gothic\ Book\ Regular.otf) format("truetype");
+}
+
+body {
+  font-family: "Roboto", "Montserrat", sans-serif;
+}
+
+.postContainer {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+li:focus {
+  color: white;
+  background-color: #003d79;
+}
+
+@keyframes slideRight {
+  0% {
+    width: 50%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.group:hover .bg-transparent {
+  animation: slideRight 0.3s ease-in-out forwards;
+}
+
+/* Learn more button */
+.learn-button {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 360ms;
+  color: #fff;
+}
+
+.learn-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  transition: all 0.36s ease-in-out;
+}
+
+.certificate::before {
+  background-color: rgb(30 64 175);
+}
+
+.service::before {
+  background-color: #fff;
+}
+.service:hover {
+  color: #003d79;
+}
+
+.learn-button:hover::before {
+  left: 0;
+}
+
+.rotateY:hover {
+  transform: rotateY(360deg);
+  transition: transform 1s;
+}
+
+/* product arrow */
+.product-group:hover .product-arrow svg {
+  fill: #003d79;
+}
+.product-arrow svg {
+  fill: #ffffff;
+}
+
+.home-after {
+  position: absolute;
+  bottom: -8px;
+  border: solid 5px;
+  transform: rotate(135deg) translateX(-50%);
+  border-color: #003d79 #003d79 transparent transparent;
+  left: 45%;
+}
+
+.learn-more:hover span {
+  transform: scaleX(1);
+}
+
+/* Solution */
+.box_img:hover a::before {
+  bottom: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.box_img:hover a::after {
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+
+.box_img a::before {
+  top: 0;
+  left: 0;
+  right: 100%;
+  bottom: 100%;
+  border-top: 5px solid;
+  border-left: 5px solid;
+  border-color: #003d79;
+  background: rgba(255, 255, 255, 0.3);
+  content: "";
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  box-shadow: none;
+  transition: all 0.5s ease;
+}
+
+.box_img a::after {
+  content: "";
+  position: absolute;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 3;
+  box-shadow: none;
+  transition: all 0.5s ease;
+  left: 100%;
+  top: 100%;
+  bottom: 0;
+  right: 0;
+  border-bottom: 5px solid;
+  border-right: 5px solid;
+  border-color: #003d79;
+}
+
+/* Swiper arrow */
+.swiper-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: #ededed;
+  border-radius: 50%;
+}
+.swiper-button:hover {
+  background-color: #003d79;
+}
+
+.swiper-button svg {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image-swiper-button-prev {
+  left: -70px;
+}
+.image-swiper-button-prev svg {
+  left: 46%;
+}
+.image-swiper-button-next {
+  right: -70px;
+}
+.image-swiper-button-next svg {
+  left: 51%;
+}
+
+@media (min-width: 510px) {
+  .categorySmall {
+    display: none;
+  }
+
+  .categoryBig {
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  .smallScreen {
+    display: none;
+  }
+
+  .bigScreen {
+    display: block;
+  }
+}
+
+.blocks-items:hover .blocks-tips {
+  width: 200px;
+  background-color: #003d79;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Màu nền với độ mờ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Navigation */
+.parent:hover .child {
+  opacity: 1;
+  height: auto;
+  overflow: none;
+  transform: translateY(0);
+}
+.child {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transform: translateY(-10%);
+}
+
+.navigation > ul > li > a:before {
+  transform: rotateY(0);
+}
+
+.navigation ul li a:before {
+  content: "";
+  position: absolute;
+  left: -4%;
+  bottom: -20px;
+  height: 2px;
+  width: 110%;
+  /* transform: rotateY(90deg); */
+  /* background: #fff; */
+  background: #ccc;
+  transition: ease-in-out 0.4s;
+}
+
+/* HA + Son */
+.like {
+  clip-path: polygon(100% 6%, 0 6%, 0 100%);
+}
+
+.preSale {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffffff !important;
+  background: rgba(52, 52, 52, 0.463);
+}
+
+.swiper-button-next:active,
+.swiper-button-prev:active {
+  color: rgb(0, 0, 0) !important;
+  background: rgba(255, 255, 255, 0.57);
+}
+
+.swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  background: rgb(0, 149, 255);
+}
+.swiper-cube .swiper-cube-shadow::before {
+  background: #b8b8b8;
+}
+
+.swiper-cube .swiper-slide {
+  height: 300px;
+}
