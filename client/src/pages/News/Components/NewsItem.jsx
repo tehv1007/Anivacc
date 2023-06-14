@@ -7,7 +7,7 @@ const NewsItem = ({ post }) => {
   const parts = date.split("-");
 
   return (
-    <div className="p-[10px] text-[16px] text-gray-500 text-left w-full ">
+    <div className="p-[10px] text-[16px] text-gray-500 text-left w-full">
       <div className="group hover:bg-blue-900 leading-7 mb-5 p-2 transition-all duration-500 ease-in-out flex flex-col md:flex-row items-center">
         {/* Time */}
         <div className="date w-[100px] flex-shrink-0 text-gray-800 text-center flex flex-col justify-center items-center leading-7 gap-1 group-hover:text-white">
@@ -20,8 +20,8 @@ const NewsItem = ({ post }) => {
         </div>
 
         {/* Thumbnail */}
-        <div className="md:aspect-video w-full">
-          <div className="border border-gray-200 md:w-[388px] md:h-[255px] overflow-clip float-left w-full">
+        <div className="">
+          <div className="border border-gray-200 md:w-[388px] md:h-[255px] float-left w-full overflow-clip">
             <Link to={`/posts/${post.id}`} className="block">
               <img
                 className="w-full h-full block object-cover"
@@ -33,7 +33,7 @@ const NewsItem = ({ post }) => {
         </div>
 
         {/* Summary */}
-        <div className="flex-grow pl-[15px] pr-3 pt-[18px] self-stretch h-full">
+        <div className="flex-grow pl-[15px] pr-3 pt-[18px] self-stretch h-full overflow-hidden">
           <div className="line-clamp-1 text-lg text-gray-900 leading-8 text-left mb-3 group-hover:text-white">
             <Link to={`/posts/${post.id}`}>{post.title}</Link>
           </div>

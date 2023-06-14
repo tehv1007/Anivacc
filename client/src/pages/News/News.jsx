@@ -15,7 +15,7 @@ const News = () => {
     <>
       <Header imgUrl={"/images/news-bg.webp"} />
       <div className="max-w-[1200px] mx-auto py-10">
-        <div className="flex-col lg:max-w-[990px] xl:max-w-[1200px] mx-auto px-[10px]">
+        <div className="flex-col mx-auto px-[10px]">
           <h1 className="text-gray-700 text-center">
             <span className="text-4xl font-medium text-left capitalize">
               Tin tức

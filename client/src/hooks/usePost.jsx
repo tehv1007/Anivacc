@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { useQuery } from "@tanstack/react-query";
+import { useQueries, useQuery } from "@tanstack/react-query";
 import { supabase } from "../config/supabase";
 import pagination from "../utils/pagination";
 
@@ -118,6 +118,50 @@ export const useGetPostById = (id) => {
         .eq("id", id)
         .limit(1)
         .single();
+
+      if (error) throw error;
+
+      return data;
+    },
+    {
+      onError: () => toast.error("Lấy thông tin bài đăng thất bại!"),
+      refetchOnWindowFocus: false,
+    }
+  );
+};
+
+export const useGetNextPost = (id) => {
+  return useQuery(
+    ["nextPost", { id }],
+    async () => {
+      const { data, error } = await supabase
+        .from("posts")
+        .select("*")
+        .gt("id", id)
+        .order("id", { ascending: true })
+        .limit(1);
+
+      if (error) throw error;
+
+      return data;
+    },
+    {
+      onError: () => toast.error("Lấy thông tin bài đăng thất bại!"),
+      refetchOnWindowFocus: false,
+    }
+  );
+};
+
+export const useGetPrevPost = (id) => {
+  return useQuery(
+    ["prevPost", { id }],
+    async () => {
+      const { data, error } = await supabase
+        .from("posts")
+        .select("*")
+        .lt("id", id)
+        .order("id", { ascending: false })
+        .limit(1);
 
       if (error) throw error;
 

@@ -116,16 +116,16 @@ const ProductOffer = () => {
     <section className="max-w-[1440px] mx-auto px-[10px] md:px-5 xl:px-10">
       {/* Heading */}
       <div className="">
-        <Heading title="See What Products We Offer" />
+        <Heading title="Những sản phẩm chúng tôi cung cấp" />
         <div className="text-gray-800 text-4xl leading-[51px] pb-5 font-[Montserrat] font-bold text-center">
           <span className="text-gray-800 inline font-bold leading-5 text-center text-sm">
-            Focus on{"  "}
+            Tập trung vào{"  "}
             <a href="https://www.sinderanimalhealth.com/Feed-Additives-pl3477388.html">
               <span className="text-blue-900">
-                <strong>Feed Additives</strong>
+                <strong>Vaccine phòng bệnh gia cầm</strong>
               </span>
             </a>
-            , PCR test kit, Pig Vaccine, Poultry Medicine, Poultry Vaccine
+            , Chế phẩm sinh học, Thuốc sát trùng, Thức ăn bổ sung
           </span>
         </div>
       </div>

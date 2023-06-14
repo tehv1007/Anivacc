@@ -42,9 +42,9 @@ export default function Cart({ cart, setCart }) {
         onClick={() => setAni(true)}
         className="cursor-pointer fixed bottom-[20%] right-[20px] z-[99] flex "
       >
-        <div className="bg-[#003d79] p-4 rounded-full relative">
-          <i className="fa-solid fa-cart-shopping text-white text-lg"></i>
-          <p className="absolute text-white top-[-50%] bg-red-500 font-bold text-md p-3 rounded-full right-0">
+        <div className="bg-gray-400 p-3 rounded-full relative">
+          <i className="fa-solid fa-cart-shopping text-white text-lg rounded-full"></i>
+          <p className="absolute text-white top-[-20%] bg-red-500 font-bold text-md px-[6px] rounded-full right-0">
             {cart.length}
           </p>
         </div>

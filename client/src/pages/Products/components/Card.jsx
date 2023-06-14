@@ -8,11 +8,11 @@ export default function Card({ product }) {
       className=" text-center text-2xl hover:[&_img]:scale-110 [&_*]:transition relative block w-full col-span-1"
     >
       {/* PRESALE */}
-      {preSale && (
+      {/* {preSale && (
         <div className=" preSale absolute left-0 top-0 z-10 w-12 bg-red-500 pb-4 text-white ">
           <p className="text-[14px] font-bold leading-[20px]  ">Pre Sale</p>
         </div>
-      )}
+      )} */}
       <div className="absolute z-10 right-[-4px] top-0">
         {/* NEW */}
         {isNew && (
@@ -40,7 +40,7 @@ export default function Card({ product }) {
       </div>
       {/* IMG */}
       <div className="border-[#003d79] border-[2px] overflow-hidden relative">
-        <img className="  " src={thumbnail} alt={title} />
+        <img className=" " src={thumbnail} alt={title} />
       </div>
       {/* NAME */}
       {title && (

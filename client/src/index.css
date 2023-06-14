@@ -5,13 +5,12 @@
 @font-face {
   font-family: "FuturaLTMedium";
   src: local("FuturaLTMedium"),
-    url(./assets/fonts/Futura_LT_Medium.ttf) format("truetype");
+    url(/fonts/Futura_LT_Medium.ttf) format("truetype");
 }
 @font-face {
   font-family: "GardeGothic";
   src: local("GardeGothic"),
-    url(./assets/fonts/ITC\ Avant\ Garde\ Gothic\ Book\ Regular.otf)
-      format("truetype");
+    url(/fonts/ITC\ Avant\ Garde\ Gothic\ Book\ Regular.otf) format("truetype");
 }
 
 body {

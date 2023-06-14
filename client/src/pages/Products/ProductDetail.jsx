@@ -15,11 +15,12 @@ import { supabase } from "../../config/supabase";
 import Button from "../../components/Feature/Button";
 import RelatedArticles from "../../components/Feature/RelatedArticles";
 import ContactLg from "../../components/Contact/ContactLg";
+import parse from "html-react-parser";
 
 export default function ProductDetail({ cart, setCart }) {
   const { id } = useParams();
   const navigate = useNavigate();
-  
+
   const {
     isLoading,
     isError,
@@ -118,9 +119,9 @@ export default function ProductDetail({ cart, setCart }) {
           <h1 className=" text-[#003d79] font-bold text-[30px]">
             {product.title}
           </h1>
-          <p className="text-[#141414] grow-1 leading-8 text-justify text-[20px]">
-            {product.short_desc}
-          </p>
+          <div className="text-[#141414] grow-1 leading-8 text-justify text-[20px]">
+            {parse(product.short_desc)}
+          </div>
           <div className=" flex gap-5">
             <Button
               onClick={() => {

@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -13,7 +13,11 @@ import {
   TwitterIcon,
   WhatsappIcon,
 } from "react-share";
-import { useGetPostById } from "../../hooks/usePost";
+import {
+  useGetNextPost,
+  useGetPostById,
+  useGetPrevPost,
+} from "../../hooks/usePost";
 import { formatDate } from "../../utils/formatDate";
 import parser from "html-react-parser";
 import GlobalSpinner from "../../components/Common/loading/GlobalSpinner";
@@ -25,77 +29,95 @@ const NewsArticle = ({ title, thumbnail }) => {
   const url = window.location.href;
   const { postId } = useParams();
   const { data: post, isLoading } = useGetPostById(postId);
-
-  if (isLoading) return <GlobalSpinner />;
+  const { data: nextPosts, isLoading: nextLoading } = useGetNextPost(postId);
+  const { data: prevPosts, isLoading: prevLoading } = useGetPrevPost(postId);
 
   return (
     <>
       <Header imgUrl={"/images/news-bg.webp"} />
       <div className="max-w-[1200px] mx-auto py-10">
-        <div className="flex-col lg:max-w-[990px] xl:max-w-[1200px] mx-auto px-[10px] text-center">
-          <h1 className="text-gray-800 text-3xl font-bold leading-[44px]">
-            {post.title}
-          </h1>
-          <p className="leading-7">
-            &nbsp;&nbsp;&nbsp;&nbsp; Author: Site Editor&nbsp;&nbsp;&nbsp;&nbsp;
-            Publish Time: {formatDate(post.created_at)}
-          </p>
-          {/* Social sharing */}
-          <div className="mb-[10px] mt-[5px] flex justify-center items-center gap-[10px]">
-            <FacebookShareButton url={url} quote={title}>
-              <FacebookIcon size={32} round={true} />
-            </FacebookShareButton>
-            <TwitterShareButton url={url} title={title}>
-              <TwitterIcon size={32} round={true} />
-            </TwitterShareButton>
-            <LineShareButton url={url} title={title}>
-              <LineIcon size={32} round={true} />
-            </LineShareButton>
-            <LinkedinShareButton url={url} title={title}>
-              <LinkedinIcon size={32} round={true} />
-            </LinkedinShareButton>
-            <WhatsappShareButton url={url} title={title}>
-              <WhatsappIcon size={32} round={true} />
-            </WhatsappShareButton>
-            <PinterestShareButton
-              url={url}
-              description={title}
-              media={thumbnail}
-            >
-              <PinterestIcon size={32} round={true} />
-            </PinterestShareButton>
+        {isLoading ? (
+          <GlobalSpinner />
+        ) : (
+          <div className="flex-col lg:max-w-[990px] xl:max-w-[1200px] mx-auto px-[10px] text-center">
+            <h1 className="text-gray-800 text-3xl font-bold leading-[44px]">
+              {post.title}
+            </h1>
+            <p className="leading-7">
+              &nbsp;&nbsp;&nbsp;&nbsp; Author: Site
+              Editor&nbsp;&nbsp;&nbsp;&nbsp; Publish Time:{" "}
+              {formatDate(post.created_at)}
+            </p>
+            {/* Social sharing */}
+            <div className="mb-[10px] mt-[5px] flex justify-center items-center gap-[10px]">
+              <FacebookShareButton url={url} quote={title}>
+                <FacebookIcon size={32} round={true} />
+              </FacebookShareButton>
+              <TwitterShareButton url={url} title={title}>
+                <TwitterIcon size={32} round={true} />
+              </TwitterShareButton>
+              <LineShareButton url={url} title={title}>
+                <LineIcon size={32} round={true} />
+              </LineShareButton>
+              <LinkedinShareButton url={url} title={title}>
+                <LinkedinIcon size={32} round={true} />
+              </LinkedinShareButton>
+              <WhatsappShareButton url={url} title={title}>
+                <WhatsappIcon size={32} round={true} />
+              </WhatsappShareButton>
+              <PinterestShareButton
+                url={url}
+                description={title}
+                media={thumbnail}
+              >
+                <PinterestIcon size={32} round={true} />
+              </PinterestShareButton>
+            </div>
+
+            {/* News content */}
+            <section className="text-left">{parser(`${post.content}`)}</section>
+
+            {/* Post navigation */}
+            <ul className="text-gray-700 leading-7 text-center mt-[30px] mb-[10px] flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-10">
+              {/* Previous */}
+              {prevLoading ? (
+                <GlobalSpinner />
+              ) : (
+                prevPosts.length > 0 && (
+                  <li className="sm:max-w-[45%] py-[5px] px-[14px] hover:bg-gray-200 hover:text-blue-900 border-gray-400 border-solid border rounded-[10px] font-light leading-7 float-left">
+                    <Link
+                      to={`/posts/${prevPosts[0].id}`}
+                      className="line-clamp-1 float-left font-bold"
+                    >
+                      Previous:{" "}
+                      <span className="font-normal">{prevPosts[0].title}</span>
+                    </Link>
+                    {/* <img src={prevPosts[0].thumbnail} /> */}
+                  </li>
+                )
+              )}
+
+              {/* Next */}
+              {nextLoading ? (
+                <GlobalSpinner />
+              ) : (
+                nextPosts.length > 0 && (
+                  <li className="sm:max-w-[45%] py-[5px] px-[14px] hover:bg-gray-200 hover:text-blue-900 border-gray-400 border-solid border rounded-[10px] font-light leading-7 float-right">
+                    <Link
+                      to={`/posts/${nextPosts[0].id}`}
+                      className="line-clamp-1 float-left font-bold"
+                    >
+                      Next:{" "}
+                      <span className="font-normal">{nextPosts[0].title}</span>
+                    </Link>
+                    {/* <img src={nextPosts[0].thumbnail} /> */}
+                  </li>
+                )
+              )}
+            </ul>
+            {/* Tags */}
           </div>
-          {/* News content */}
-          <section className="text-left">{parser(`${post.content}`)}</section>
-          {/* Post navigation */}
-          <ul className="text-gray-700 leading-7 text-center mt-[30px] mb-[10px] flex gap-[176px]">
-            <li className="previous py-[5px] px-[14px] hover:bg-gray-200 hover:text-blue-900 border-gray-400 border-solid border rounded-[10px] font-light leading-7 text-center">
-              <a
-                className="line-clamp-1"
-                href="/New-Research-Found-Launched-by-SINDER-Lanzhou-University-and-Veterinary-Institute-of-Chinese-Academy-of-Agricultural-id42006037.html"
-              >
-                Previous :
-                <span className="">
-                  New Research Found Launched by SINDER, Lanzhou University and
-                  Veterinary Institute of Chinese Academy of Agricultural.
-                </span>
-              </a>
-            </li>
-            <li className="previous py-[5px] px-[14px] hover:bg-gray-200 hover:text-blue-900 border-gray-400 border-solid border rounded-[10px] font-light leading-7 text-center">
-              <a
-                className="line-clamp-1"
-                href="/The-3rd-Technology-Seminar-of-China-Poultry-Grandparent-Parent-Generation-Breeding-Enterprise-id44317447.html"
-              >
-                Next :&nbsp;
-                <span className="">
-                  The 3rd Technology Seminar of China Poultry Grandparent &amp;
-                  Parent Generation Breeding Enterprise
-                </span>
-              </a>
-            </li>
-          </ul>
-          {/* Tags */}
-        </div>
+        )}
       </div>
     </>
   );
