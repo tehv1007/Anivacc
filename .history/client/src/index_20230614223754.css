@@ -283,3 +283,6 @@ li:focus {
   height: 300px;
 }
 
+.hoverObject {
+  transition: all 1s e
+}

@@ -283,3 +283,12 @@ li:focus {
   height: 300px;
 }
 
+.hoverObject {
+  transition: all 1s ease-in-out
+}
+
+.hoverObject:hover {
+  transition: all 1s ease-in-out;
+  background-color: #003d79;
+  
+}

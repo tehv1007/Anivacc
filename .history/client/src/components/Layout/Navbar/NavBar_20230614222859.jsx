@@ -86,7 +86,7 @@ export default function NavBar() {
 
             {/* LOGO IMAGE */}
             <div className="px-2 mx-2">
-              <Link to="/">
+              <Link>
                 <img
                   src="/images/logo-white.png"
                   alt="CÔNG TY CỔ PHẦN SẢN XUẤT VÀ THƯƠNG MẠI THUỐC THÚ Y CNC"

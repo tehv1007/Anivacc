@@ -283,3 +283,11 @@ li:focus {
   height: 300px;
 }
 
+.hoverObject {
+  transition: all 1s;
+}
+
+.hoverObject:hover {
+  background-color: #003d79;
+  color: white;
+}
