@@ -1,11 +1,11 @@
-import ProductOffer from "./Coponents/ProductOffer";
-import About from "./Coponents/About";
-import Services from "./Coponents/Services";
-import Certificate from "./Coponents/Certificate";
-import InformationCenter from "./Coponents/InformationCenter";
-import Solution from "./Coponents/Solution";
-import Hero from "./Coponents/Hero";
-import Partner from "./Coponents/Partner/Partner";
+import ProductOffer from "./Components/ProductOffer";
+import About from "./Components/About";
+import Services from "./Components/Services";
+import Certificate from "./Components/Certificate";
+import InformationCenter from "./Components/InformationCenter";
+import Solution from "./Components/Solution";
+import Hero from "./Components/Hero";
+import Partner from "./Components/Partner/Partner";
 
 const Home = () => {
   return (

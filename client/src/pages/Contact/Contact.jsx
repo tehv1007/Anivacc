@@ -5,8 +5,11 @@ import Swal from "sweetalert2";
 import { supabase } from "../../config/supabase";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { inquirySchema } from "../../utils/inquirySchema";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+  const { t } = useTranslation();
+
   const {
     register,
     handleSubmit,
@@ -49,26 +52,21 @@ export default function Contact() {
               <div className="lg:basis-5/12 float-left">
                 <h1 className="text-gray-700 text-left">
                   <span className="text-4xl font-medium text-left capitalize">
-                    Liên hệ
+                    {t("contact")}
                   </span>
                 </h1>
                 <div className="resize h-[38px]"></div>
                 <p className="text-gray-700 text-sm leading-6 text-left pt-2 pb-5">
-                  Chúng tôi luôn sẵn sàng 24/7 qua fax, e-mail hoặc qua điện
-                  thoại. Bạn cũng có thể sử dụng biểu mẫu liên hệ nhanh để đặt
-                  câu hỏi về các dịch vụ của chúng tôi.
+                  {t("contact_info")}
                 </p>
                 <ul className="text-[15px] text-gray-700 leading-7 text-left">
                   <li className="flex items-center">
                     <i className="mr-4 fa-solid fa-location-dot"></i>
-                    <p>
-                      Địa chỉ: Lô số 28 KCN Quang Minh, TT. Quang Minh, H. Mê
-                      Linh, TP. Hà Nội
-                    </p>
+                    <p>{t("contact_address")}</p>
                   </li>
                   <li className="flex items-center">
                     <i className="mr-4 fa-solid fa-phone"></i>
-                    <a href="#">Điện thoại: 0246 684 6622</a>
+                    <a href="#">{t("contact_phone")}</a>
                   </li>
                   <li className="flex items-center">
                     <i className="mr-4 fa-solid fa-envelope"></i>
@@ -105,7 +103,7 @@ export default function Contact() {
               <div className="lg:basis-6/12 float-right w-full py-[10px]">
                 <div className="py-5 px-[30px] shadow-[0_0_8px_0_rgba(0,0,0,0.2)] bg-white border">
                   <h2 className="text-gray-800 text-3xl leading-12 font-bold text-left font-[Montserrat] mb-[10px] capitalize">
-                    Liên hệ với chúng tôi
+                    {t("contact_form")}
                   </h2>
 
                   <form
@@ -114,7 +112,7 @@ export default function Contact() {
                   >
                     <FormInput
                       register={register}
-                      placeholder="*Họ tên"
+                      placeholder={`*${t("placeholder_name")}`}
                       errors={errors.name}
                       name="name"
                     />
@@ -126,7 +124,7 @@ export default function Contact() {
                     />
                     <FormInput
                       register={register}
-                      placeholder="*Điện thoại"
+                      placeholder={`*${t("placeholder_tel")}`}
                       errors={errors.tel}
                       name="tel"
                       type="tel"
@@ -134,7 +132,7 @@ export default function Contact() {
                     <FormInput
                       register={register}
                       style={{ height: "80px" }}
-                      placeholder="*Nội dung"
+                      placeholder={`*${t("placeholder_message")}`}
                       errors={errors.message}
                       name="message"
                     />

@@ -52,7 +52,7 @@ const SideBar = () => {
             <SidebarItem title="News List" navLink="/posts">
               <HiOutlineNewspaper className="w-5 h-5" />
             </SidebarItem>
-            <SidebarItem title="User Require" navLink="/users/require">
+            <SidebarItem title="User Require" navLink="/inquiry">
               <AiOutlineUsergroupAdd className="w-5 h-5" />
             </SidebarItem>
 

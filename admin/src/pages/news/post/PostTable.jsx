@@ -1,9 +1,6 @@
 import { memo } from "react";
 import { useNavigate } from "react-router-dom";
-// import Image from "react-cool-img";
-
 import Button from "../Button";
-
 import { useDeletePost } from "../../hooks/usePost";
 import LoadingSkeleton from "../loading/LoadingSkeleton";
 
@@ -37,7 +34,7 @@ const PostTable = ({ posts, isLoading }) => {
                   </td>
                   <td>
                     <h4
-                      onClick={() => navigate(`/post/${post.id}`)}
+                      onClick={() => navigate(`/posts/${post.id}`)}
                       className="text-sm font-semibold text-green-300 cursor-pointer lg:text-base hover:underline"
                     >
                       {post.title}

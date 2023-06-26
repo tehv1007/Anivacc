@@ -13,39 +13,6 @@ const DeleteModal = ({ handleClose, id, isModalOpen }) => {
 
   return (
     <div>
-      {/* <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">"Are you sure?"</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Do you really wan to delete this product? This process cannot be
-            undone.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={() => deleteProductMutation.mutate(id)}
-            color="warning"
-            variant="outlined"
-            startIcon={deleteProductMutation.isLoading && <CircularProgress />}
-          >
-            Delete
-          </Button>
-          <Button
-            onClick={handleClose}
-            autoFocus
-            variant="outlined"
-            color="info"
-          >
-            Cancel
-          </Button>
-        </DialogActions>
-      </Dialog> */}
-
       {isModalOpen && (
         <div className="fixed left-0 top-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
           <div className="max-w-[500px] modal-content bg-white rounded-lg border border-gray-300">
@@ -57,8 +24,8 @@ const DeleteModal = ({ handleClose, id, isModalOpen }) => {
               &times;
             </span>
             <form className="container p-4 text-center">
-              <h1 className="text-3xl font-bold my-5 text-center">
-                Delete Account
+              <h1 className="text-2xl font-bold my-5 text-center">
+                Delete Product
               </h1>
               <p>Are you sure you want to delete this product?</p>
               <div className="clearfix">

@@ -13,24 +13,27 @@ import Header from "../../components/Feature/Header";
 export default function Solutions() {
   const [typeId, setTypeId] = useState(1);
   const posts = solutionPost.filter((post) => post.type_id == typeId);
+
   const [widthScreen, setWidthScreen] = useState(window.innerWidth);
   const handleResize = () => setWidthScreen(window.innerWidth);
+
   useEffect(() => {
     window.addEventListener("resize", handleResize);
   }, [widthScreen]);
 
   return (
     <>
-      <Header imgUrl={"/images/header2.jpg"}/>
+      <Header imgUrl={"/images/header2.jpg"} />
       <Container>
         <div className="flex flex-col items-center justify-between gap-8 ">
           <h1 className="text-3xl font-bold text-[#003d79]">
             Phòng thí nghiệm CNC
           </h1>
           <p className="text-center">
-            For more information about Feed Additives, PCR test kit, Pig
-            Vaccine, Poultry Medicine, Poultry Vaccine, welcome to our website
-            now!
+            Để biết thêm thông tin về chẩn đoán xét nghiệm bệnh động vật, kháng
+            sinh đồ, các phép thử PCR, các phép thử ELISA, phân lập vi sinh vật,
+            các phép thử huyết thanh học khác, chào mừng bạn đến với trang web
+            của chúng tôi!
           </p>
           <div className="grid grid-cols-3 lg:grid-cols-6 gap-5">
             {solutionCategory.map((solutionCategory) => (
@@ -58,11 +61,11 @@ export default function Solutions() {
               <SwiperSlide key={post.imgUrl} className=" overflow-visible p-5 ">
                 <div className="group [&>div]:hover:transition-all [&>div]:hover:duration-[0.5s]  [&>div]:duration-[0.5s] [&>div]:transition-all cursor-pointer border-2 border-slate-200 h-[400px] relative rounded-lg overflow-hidden transition-all hover:transition-all  hover:shadow-xl hover:drop-shadow-xl hover:scale-105 hover:translate-y-[-10px]">
                   <img
-                    className=" w-full h-full object-cover rounded-lg   "
+                    className=" w-full h-full object-cover rounded-lg"
                     src={post.imgUrl}
                     alt=""
                   />
-                  <p className="group-hover:opacity-0 transition-all opacity-100 group-hover:transition-all  group:hover:duration-[2s] duration-[2s]  text-[25px] font-bold absolute z-20 bottom-0 text-white p-5">
+                  <p className="group-hover:opacity-0 transition-all opacity-100 group-hover:transition-all group:hover:duration-[2s] duration-[2s] text-[25px] font-bold absolute z-20 bottom-0 text-white p-5">
                     {post.title}
                   </p>
                   <div className="absolute w-full h-full bg-black/0 top-0 group-hover:bg-black/60 "></div>

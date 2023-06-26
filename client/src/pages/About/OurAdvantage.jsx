@@ -5,7 +5,7 @@ import AdvantageBody from "./components/AdvantageBody";
 export default function OurAdvantage() {
   return (
     <div>
-      <Header imgUrl={"/images/index_main_im01.jpg"} />
+      <Header imgUrl={"/images/products-bg.webp"} />
       <Container>
         <AdvantageBody />
       </Container>

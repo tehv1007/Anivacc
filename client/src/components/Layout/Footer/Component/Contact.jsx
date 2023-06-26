@@ -2,10 +2,20 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { supabase } from "../../../../config/supabase";
-import { inquirySchema } from "../../../../utils/inquirySchema";
 import FormRowError from "../../../Feature/FormRowError";
+import { useTranslation } from "react-i18next";
+import { buildInquirySchema } from "../../../../utils/buildInquirySchema";
 
 const Contact = () => {
+  const { t } = useTranslation();
+  const translations = {
+    schema_required: t("schema_required"),
+    schema_phoneNumber: t("schema_phoneNumber"),
+    schema_email: t("schema_email"),
+  };
+
+  const inquirySchema = buildInquirySchema(translations);
+
   const {
     register,
     handleSubmit,
@@ -30,7 +40,7 @@ const Contact = () => {
 
     Toast.fire({
       icon: "success",
-      title: "Đã gửi thông tin yêu cầu thành công",
+      title: t("toast-success"),
     });
     await supabase.from("inquire").insert(data);
     reset();
@@ -40,14 +50,14 @@ const Contact = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <p className="text-white font-semibold text-lg text-left font-montserrat">
-          Contact Us
+          {t("form_title")}
         </p>
         <div className="text-[#b5ccec] mt-4 bg-inherit">
           <div className="mb-2.5">
             <input
               className="w-full bg-transparent py-1 px-2 border border-solid border-white "
               type="text"
-              placeholder="*Họ tên"
+              placeholder={`*${t("placeholder_name")}`}
               {...register("name")}
             />
             <FormRowError error={errors.name} />
@@ -67,7 +77,7 @@ const Contact = () => {
             <input
               className="w-full bg-transparent py-1 px-2 border border-solid border-white"
               type="text"
-              placeholder="*Điện thoại"
+              placeholder={`*${t("placeholder_tel")}`}
               {...register("tel")}
             />
             <FormRowError error={errors.tel} />
@@ -77,7 +87,7 @@ const Contact = () => {
             <textarea
               className="w-full bg-transparent py-1 px-2 border border-solid border-white pb-10"
               type="text"
-              placeholder="*Nội dung"
+              placeholder={`*${t("placeholder_message")}`}
               {...register("message")}
             />
             <FormRowError error={errors.message} />

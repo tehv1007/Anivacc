@@ -10,12 +10,14 @@ export default function Pagination({ newProducts, pagin, setPagin }) {
     setPos(index - 1);
   }
   return (
-    <div className=" absolute top-[110%] join  rounded-none gap-3 left-1/2 ">
+    <div className="mt-[10px] join rounded-none gap-3">
       {pageList.map((page, index) => {
         return (
           <button
             key={index}
-            className={`join-item border-[#003d79] btn ${pos === index && `bg-white`}`}
+            className={`join-item border-[#003d79] btn ${
+              pos === index && `bg-white`
+            }`}
             disabled={pos === index}
             onClick={() => handlePage(index + 1)}
           >

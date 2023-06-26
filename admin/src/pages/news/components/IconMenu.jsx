@@ -10,7 +10,6 @@ const IconMenu = ({ className, onClick }) => {
       viewBox="0 0 24 24"
       stroke="currentColor"
       strokeWidth="2"
-      // @ts-ignore
       onClick={onClick}
     >
       <path

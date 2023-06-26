@@ -1,46 +1,48 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const QuickLink = () => {
+  const { t } = useTranslation();
   return (
     <>
-      <div className="pl-10">
+      <div className="lg:pl-10">
         <p className="text-white font-semibold text-lg text-left font-montserrat">
-          Quick Links
+          {t("footer_quicklink")}
         </p>
         <ul className="list-disc list-inside text-[#b5ccec] mt-5">
           <li>
             <Link className="hover:text-white leading-7" to="/">
-              Trang chủ
+              {t("nav-home")}
             </Link>
           </li>
           <li>
             <Link className="hover:text-white leading-7" to="/products">
-              Sản phẩm
+              {t("nav-products")}
             </Link>
           </li>
           <li>
             <Link className="hover:text-white leading-7" to="/solutions">
-              Giải pháp
+              {t("nav-solutions")}
             </Link>
           </li>
           <li>
             <Link className="hover:text-white leading-7" to="/about">
-              Về chúng tôi
+              {t("nav-about-us")}
             </Link>
           </li>
           <li>
             <Link className="hover:text-white leading-7" to="/resource">
-              Tài nguyên
+              {t("nav-resources")}
             </Link>
           </li>
           <li>
             <Link className="hover:text-white leading-7" to="/news">
-              Tin tức
+              {t("nav-news")}
             </Link>
           </li>
           <li>
             <Link className="hover:text-white leading-7" to="/contact">
-              Liên hệ
+              {t("nav-contact")}
             </Link>
           </li>
         </ul>

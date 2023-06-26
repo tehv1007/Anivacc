@@ -3,7 +3,7 @@ import Label from "./Label";
 
 const Field = ({ error, register, labelText, name, placeholder, type }) => {
   return (
-    <div className="flex flex-col gap-y-[10px] w-full">
+    <div className="flex flex-col gap-y-[4px] w-full dark:text-white">
       <Label text={labelText} htmlFor={name} />
       <Input
         type={type}

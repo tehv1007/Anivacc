@@ -37,55 +37,95 @@ const OnlineService = () => {
   }, []);
 
   return (
-    <section className="relative">
-      <div className="fixed z-[99] left-auto right-0 mr-5 top-1/2 transform -translate-y-1/2 text-center">
-        <div className="text-base leading-7 text-gray-700 font-normal tracking-normal text-left">
-          <ul className="rounded-[30px]">
-            {/* Phone */}
-            <ServiceItem
-              icon="fa-solid fa-phone"
-              href="tel:+84-2466846622"
-              content="+84-2466846622"
-            />
-            {/* Email */}
-            <ServiceItem
-              icon="fa-solid fa-envelope"
-              onClick={handleItemClick}
-              type="button"
-              content="thuocthuycnc@gmail.com"
-            />
-            {/* Whatsapp */}
-            <ServiceItem
-              icon="fa-brands fa-whatsapp"
-              target="blank"
-              href="https://api.whatsapp.com/send?phone=842466846622"
-              content="+84246.684.6622"
-            />
-            {/* To top */}
-            {showButton && (
-              <button
-                className="bg-transparent w-[50px] h-[50px] relative mb-0 whitespace-nowrap"
-                style={{ display: "list-item" }}
-                onClick={handleScrollToTop}
-              >
-                <a
-                  className="block w-full h-full text-center text-white box-border border-b-0 bg-gray-400 overflow-hidden"
-                  rel="nofollow"
-                  href="#"
+    <div>
+      {/* Thanh bên phải (>900px) */}
+      <section className="relative max-[900px]:hidden rounded-full">
+        <div className="fixed z-[99] left-auto right-[10px] top-1/2 transform -translate-y-1/2 text-center">
+          <div className="text-base leading-7 text-gray-700 font-normal tracking-normal text-left">
+            <ul className="w-[50px]">
+              {/* Phone */}
+              <ServiceItem
+                icon="fa-solid fa-phone"
+                href="tel:+84-2466846622"
+                content="+84-2466846622"
+              />
+              {/* Email */}
+              <ServiceItem
+                icon="fa-solid fa-envelope"
+                onClick={handleItemClick}
+                type="button"
+                content="thuocthuycnc@gmail.com"
+              />
+              {/* Whatsapp */}
+              <ServiceItem
+                icon="fa-brands fa-whatsapp"
+                target="blank"
+                href="https://api.whatsapp.com/send?phone=842466846622"
+                content="+84246.684.6622"
+              />
+              {/* To top */}
+              {showButton && (
+                <button
+                  className="w-[50px] h-[50px] relative mb-0 whitespace-nowrap bg-gray-600/30"
+                  style={{ display: "list-item" }}
+                  onClick={handleScrollToTop}
                 >
-                  <div className="relative p-0 w-32 h-12 border-0 transition-all duration-200 bg-transparent">
-                    <div className="w-[50px] h-[50px] p-0 rounded-none relative float-left border-0 text-white bg-transparent">
-                      <i className="fa-solid fa-arrow-up-from-bracket bg-blue-900 text-base w-10 block h-10 leading-10 mt-1 absolute ml-0 rounded-1/2 left-1/2 transform -translate-x-1/2"></i>
+                  <a
+                    className="block w-full h-full text-center text-white box-border border-b-0 overflow-hidden"
+                    rel="nofollow"
+                    href="#"
+                  >
+                    <div className="relative p-0 w-32 h-12 border-0 transition-all duration-200">
+                      <div className="w-[50px] h-[50px] p-0 rounded-none relative float-left border-0 text-white">
+                        <i className="fa-solid fa-arrow-up-from-bracket bg-blue-900 text-base w-10 block h-10 leading-10 mt-1 absolute ml-0 rounded-1/2 left-1/2 transform -translate-x-1/2 hover:scale-105"></i>
+                      </div>
                     </div>
-                  </div>
-                </a>
-              </button>
-            )}
-          </ul>
+                  </a>
+                </button>
+              )}
+            </ul>
+          </div>
         </div>
-      </div>
-      {showPopup && <PopUp showPopup={showPopup} setShowPopup={setShowPopup} />}
-    </section>
+        {showPopup && (
+          <PopUp showPopup={showPopup} setShowPopup={setShowPopup} />
+        )}
+      </section>
+
+      {/* Thanh bên dưới (<900px) */}
+      <section className="relative min-[899px]:hidden">
+        <div className="fixed z-[99] bottom-0 top-auto mr-5 max-[900px]:mr-0 text-center w-full">
+          <div className="text-base leading-7 text-gray-700 font-normal tracking-normal text-left">
+            <ul className="flex items-center justify-center">
+              {/* Phone */}
+              <ServiceItem
+                icon="fa-solid fa-phone"
+                href="tel:+84-2466846622"
+                content="+84-2466846622"
+                position={"left-0"}
+              />
+              {/* Email */}
+              <ServiceItem
+                icon="fa-solid fa-envelope"
+                onClick={handleItemClick}
+                type="button"
+                content="thuocthuycnc@gmail.com"
+              />
+              {/* Whatsapp */}
+              <ServiceItem
+                icon="fa-brands fa-whatsapp"
+                target="blank"
+                href="https://api.whatsapp.com/send?phone=842466846622"
+                content="+84246.684.6622"
+                position={"right-0"}
+              />
+            </ul>
+          </div>
+        </div>
+        {showPopup && (
+          <PopUp showPopup={showPopup} setShowPopup={setShowPopup} />
+        )}
+      </section>
+    </div>
   );
 };
 

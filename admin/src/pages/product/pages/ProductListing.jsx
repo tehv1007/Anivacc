@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import { useState } from "react";
 import { supabase } from "../../../config/supabase";
 import Pagination from "../components/Pagination";
 import ProductTable from "../components/ProductTable";
@@ -12,18 +12,15 @@ const ProductListing = () => {
   const [page, setPage] = useState(1);
   const ITEMS_PER_PAGE = 7;
 
-  const {
-    isLoading,
-    data: products,
-    error,
-  } = useQuery({
+  const { isLoading, data: products } = useQuery({
     queryKey: ["products"],
     queryFn: () =>
       supabase
         .from("product")
         .select(
           "id,title,product_code,long_desc, short_desc, thumbnail, categories, brand(name)"
-        ),
+        )
+        .order("created_at", { ascending: false }),
     select: (res) => {
       return res.data.map((product) => ({
         ...product,

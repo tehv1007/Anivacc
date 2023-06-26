@@ -14,11 +14,6 @@ const DeleteAction = ({ id }) => {
 
   return (
     <div>
-      {/* <Tooltip title="Delete" placement="top">
-        <IconButton aria-label="Delete" onClick={handleOpen}>
-          <DeleteIcon />
-        </IconButton>
-      </Tooltip> */}
       <button
         onClick={handleOpen}
         className="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-700"

@@ -32,7 +32,7 @@ const ProductTable = ({ products }) => {
                 <td className="flex items-center gap-2 whitespace-nowrap px-4 py-2 text-gray-700">
                   <img
                     className="w-12 h-12 object-contain"
-                    src={product.thumbnail}
+                    src={product.thumbnail[0]}
                     alt={product.title}
                   />
                   {product.title}

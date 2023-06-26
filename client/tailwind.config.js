@@ -2,7 +2,22 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        still: {
+          "0%": { width: "80%", transform: "translateX(-50%)", left: "50%" },
+          "100%": { width: "80%", transform: "translateX(-50%)", left: "50%" },
+        },
+        change: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
+      animation: {
+        still: "still 1s ease-in-out infinite",
+        change: "change 1s",
+      },
+    },
     screens: {
       sm: "510px",
       // => @media (min-width: 540px) { ... }

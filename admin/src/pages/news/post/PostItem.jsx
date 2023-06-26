@@ -5,10 +5,10 @@ import { NavLink } from "react-router-dom";
 const PostItem = ({ author, description, title, thumbnail, id }) => {
   return (
     <NavLink
-      to={`/news/${id}`}
+      to={`/posts/${id}`}
       className="block h-full duration-100 shadow-2xl select-none hover:opacity-60"
     >
-      <div className="bg-[#1C1C24] rounded-lg h-full flex flex-col">
+      <div className="bg-[#1C1C24] rounded-lg h-full flex flex-col text-white">
         <div className="h-[250px] w-full rounded-t-lg overflow-hidden">
           <Image
             src={thumbnail}

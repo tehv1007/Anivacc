@@ -7,49 +7,66 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { supabase } from "../../config/supabase";
+import ArrowRight from "../../pages/Home/Components/arrows/ArrowRight";
+import ArrowLeft from "../../pages/Home/Components/arrows/ArrowLeft";
+import GlobalSpinner from "../Common/loading/GlobalSpinner";
+import { useTranslation } from "react-i18next";
 
 export default function RandomProduct() {
   const [widthScreen, setWidthScreen] = useState(window.innerWidth);
   const handleResize = () => setWidthScreen(window.innerWidth);
+  const { t } = useTranslation();
+
   useEffect(() => {
     window.addEventListener("resize", handleResize);
   }, [widthScreen]);
-  const {
-    isLoading,
-    isError,
-    data: products,
-    error,
-  } = useQuery({
+
+  const { isLoading, data: products } = useQuery({
     queryKey: ["products"],
     queryFn: () => supabase.from("product").select(),
 
     select: (res) => res.data,
   });
 
-  if (isLoading || isError) return "";
-
   return (
     <div className="mt-5">
-      <h3 className="text-3xl font-bold text-[#003d79]">Random Products</h3>
-      <Swiper
-        slidesPerView={widthScreen >= 600 ? (widthScreen >= 1000 ? 5 : 3) : 2}
-        spaceBetween={25}
-        pagination={{
-          type: "fraction",
-        }}
-        navigation={true}
-        modules={[Navigation]}
-        className="mySwiper w-full"
-      >
-        {products.map((product) => (
-          <SwiperSlide key={product.thumbnail}>
-            <Link to={`/products/${product.id}`}>
-              <img src={product.thumbnail} alt="" />
-              <p className="line-clamp-2">{product.title}</p>
-            </Link>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <h3 className="text-2xl font-bold text-[#003d79]">
+        {t("random_products")}
+      </h3>
+      {isLoading ? (
+        <GlobalSpinner />
+      ) : (
+        <div className="product-slider w-[calc(100%-80px)] mx-auto relative z-[1] mt-10 mb-[62px]">
+          <div className="swiper-button image-swiper-button-next">
+            <ArrowRight className="w-[14px] h-[14px]" />
+          </div>
+          <div className="swiper-button image-swiper-button-prev">
+            <ArrowLeft className="w-[14px] h-[14px]" />
+          </div>
+          <Swiper
+            slidesPerView={
+              widthScreen >= 600 ? (widthScreen >= 1000 ? 5 : 3) : 2
+            }
+            spaceBetween={25}
+            navigation={{
+              nextEl: ".image-swiper-button-next",
+              prevEl: ".image-swiper-button-prev",
+              disabledClass: "swiper-button-disabled",
+            }}
+            modules={[Navigation]}
+            className="mySwiper w-full swiper-container"
+          >
+            {products.map((product) => (
+              <SwiperSlide key={product.thumbnail}>
+                <Link to={`/products/${product.id}`}>
+                  <img src={product.thumbnail} alt="" />
+                  <p className="line-clamp-2">{product.title}</p>
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      )}
     </div>
   );
 }

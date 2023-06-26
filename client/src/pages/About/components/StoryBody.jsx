@@ -1,63 +1,44 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export default function StoryBody() {
+  const { t } = useTranslation();
+
   return (
     <div className="my-[56px]">
       <div className="grid grid-cols-1 min-[990px]:grid-cols-2">
         <div className="p-[10px]">
-          <h1 className="font-montserrat text-[34px] font-bold">
-            TỔNG QUAN VỀ CÔNG TY
+          <h1 className="font-montserrat text-[34px] font-bold uppercase">
+            {t("about_title")}
           </h1>
           <br />
           <div className="font-poppins text-[#545454] text-left">
-            <h2 className="font-bold text-lg">1. Tổng quan</h2>
-            AniVacC là thương hiệu chuyên về Nghiên cứu, sản xuất và kinh doanh
-            các sản phẩm vắc xin và chế phẩm sinh học công nghệ cao dành cho
-            động vật.
+            <h2 className="font-bold text-lg">1. {t("about_sub1_header")}</h2>
+            <span className="text-[#003d79] font-bold text-lg">AniVacC </span>
+            {t("about_sub1_content1")}
             <Link className="text-[#003d79] font-bold" href="/products">
-              <p className="cursor-pointer">
-                Sản xuất vắc xin và chế phẩm sinh học dùng cho thú y.
-              </p>
-              <p className="cursor-pointer">
-                Sản xuất thuốc thú y, thủy sản, chế phẩm sinh học dùng trong thú
-                y và thủy sản.
-              </p>
-              <p className="cursor-pointer">
-                Xuất nhập khẩu các mặt hàng công ty kinh doanh.
-              </p>
-              <p className="cursor-pointer">
-                Tư vấn chuyển giao công nghệ trong lĩnh vực vắc xin và chế phẩm
-                sinh học dùng cho thú y và thú y thủy sản.
-              </p>
+              <p className="cursor-pointer">{t("about_sub1_content2")}</p>
+              <p className="cursor-pointer">{t("about_sub1_content3")}</p>
+              <p className="cursor-pointer">{t("about_sub1_content4")}</p>
+              <p className="cursor-pointer">{t("about_sub1_content5")}</p>
             </Link>
             <br />
             <div>
-              <h2 className="font-bold text-lg">2. Giải pháp thương hiệu</h2>
+              <h2 className="font-bold text-lg">2. {t("about_sub2_header")}</h2>
               <div>
-                Phù hợp với lĩnh vực hoạt động,{" "}
-                <span className="text-[#003d79] font-bold">AniVacC</span> logo
-                lấy ý tưởng chủ đạo là:
+                {t("about_sub2_content1")}{" "}
+                <span className="text-[#003d79] font-bold">AniVacC</span>{" "}
+                {t("about_sub2_content2")}
                 <div className="text-[#003d79] font-bold">
-                  “Ani = Animal” – Động vật, “Vac = Vaccine” – Vắc xin, “C =
-                  Company” – Công ty và GMP-WHO là tiêu chuẩn cho các công ty
-                  sản xuất vắc xin thú y.
+                  {t("about_sub2_content3")}
                 </div>
               </div>
               <br />
-              <h2 className="font-bold text-lg">3. Thông điệp truyền tải.</h2>
-              <div>
-                Ý tưởng chữ AniVacC nằm trên quả địa cầu có ý nghĩa khẳng định
-                chất lượng sản phẩm của công ty đáp ứng tiêu chuẩn chất lượng
-                trong nước và trên thế giới. Sản phẩm của công ty không chỉ cung
-                ứng phục vụ trong nước mà còn xuất khẩu nhiều nơi trên thế giới.
-              </div>
+              <h2 className="font-bold text-lg">3. {t("about_sub3_header")}</h2>
+              <div>{t("about_sub3_content")}</div>
               <br />
-              <h2 className="font-bold text-lg">4. Màu sắc của Logo</h2>
-              <div>
-                Kết hợp giữa hai màu xanh là màu xanh dương đậm và màu xanh
-                dương nhạt tạo cảm giác an toàn và tin tưởng và làm màu chủ đạo
-                cho công ty.
-              </div>
+              <h2 className="font-bold text-lg">4. {t("about_sub4_header")}</h2>
+              <div>{t("about_sub4_content")}</div>
             </div>
           </div>
         </div>
@@ -67,7 +48,7 @@ export default function StoryBody() {
           alt="Image"
         />
       </div>
-      <div className="grid grid-cols-1 min-[990px]:grid-cols-2">
+      {/* <div className="grid grid-cols-1 min-[990px]:grid-cols-2">
         <img className="p-[10px]" src="/images/certificate.png" alt="Image" />
         <div className="p-[10px]">
           <h1 className="font-montserrat text-[34px] font-bold">
@@ -117,7 +98,7 @@ export default function StoryBody() {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

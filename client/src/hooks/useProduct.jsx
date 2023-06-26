@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../config/supabase";
-import { toast } from "react-toastify";
 
 export const useProductsByCategory = (categoryType) => {
   return useQuery(
@@ -16,10 +15,21 @@ export const useProductsByCategory = (categoryType) => {
         throw new Error(error.message);
       }
       return data;
-    },
-    {
-      onError: () => toast.error("Lấy thông tin sản phẩm thất bại!"),
-      refetchOnWindowFocus: false,
+    }
+  );
+};
+
+export const useSearchPosts = (keyword) => {
+  return useQuery(
+    ["products", { keyword }],
+    async () => {
+      const { data } = await supabase
+        .from("product")
+        .select()
+        .ilike("title", `%${keyword.toLowerCase()}%`)
+        .range(0, 5);
+
+      return data || [];
     }
   );
 };

@@ -46,7 +46,7 @@ const News = () => {
           <div className="">
             {isLoading ? (
               <GlobalSpinner />
-            ) : (
+            ) : postList ? (
               postList.map((post) => {
                 return (
                   <div key={post.id}>
@@ -54,7 +54,7 @@ const News = () => {
                   </div>
                 );
               })
-            )}
+            ) : null}
           </div>
         </div>
         {countPost ? (

@@ -1,11 +1,14 @@
-import { useMutation, useQueries, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueries } from "@tanstack/react-query";
 import { supabase } from "../../../config/supabase";
 import { useForm } from "react-hook-form";
 import ProductForm from "./ProductForm";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Loading from "../../../components/common/loading/Loading";
-import { generateFilePath } from "../../../helpers/generateFilePath";
+import { storage } from "../../../config/firebase";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
 
 const productSchema = yup
   .object({
@@ -17,6 +20,13 @@ const productSchema = yup
   .required();
 
 export default function AddProduct() {
+  const [isFileUploading, setIsFileUploading] = useState(false);
+  const [urls, setUrls] = useState([]);
+  const [imageFiles, setImageFiles] = useState([]);
+  const [images, setImages] = useState([]);
+  const [showPreview, setShowPreview] = useState(true);
+  const imageTypeRegex = /image\/(png|jpg|jpeg|webp)/gm;
+
   const {
     register,
     handleSubmit,
@@ -33,8 +43,10 @@ export default function AddProduct() {
       short_desc: "",
       long_desc: "",
       brand_id: "",
-      categories: [],
-      imageFile: "",
+      parentCategory: "",
+      childCategory: "",
+      status: "",
+      lang_code: [],
     },
   });
 
@@ -57,71 +69,140 @@ export default function AddProduct() {
     mutationFn: (newProduct) => supabase.from("product").insert(newProduct),
     onSuccess: () => {
       reset();
-      console.log("OK");
+      toast.success("Tạo sản phẩm thành công!");
     },
   });
 
-  const uploadFileMutation = useMutation({
-    mutationFn: ({ file }) => {
-      const filePath = generateFilePath(file);
-
-      return supabase.storage
-        .from("anivacc")
-        .upload(`products/${filePath}`, file, {
-          cacheControl: "3600",
-          upsert: false,
-        });
-    },
-    select: (res) => {},
-  });
-
+  // const imagePreview = watch("imageFile", null);
   const isLoading = [categoryQuery, brandQuery].some(
     (query) => query.isLoading
   );
 
-  const isProductUploading =
-    addProductMutation.isLoading || uploadFileMutation.isLoading;
+  const handleChange = (e) => {
+    const files = [...e.target.files];
 
-  async function handleAddProduct(data) {
-    console.log(data);
-    const { data: file } = await uploadFileMutation.mutateAsync({
-      file: data.imageFile[0],
+    const validImageFiles = [];
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (file.type.match(imageTypeRegex)) {
+        validImageFiles.push(file);
+      }
+    }
+    if (validImageFiles.length) {
+      console.log(validImageFiles);
+      setImageFiles(validImageFiles);
+      setShowPreview(true);
+      return;
+    }
+    alert("Selected images are not of valid type!");
+  };
+
+  const ImagesHandleSubmit = () => {
+    imageFiles.map((file) => {
+      const storageRef = ref(storage, `anivacc/products/${file.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+      // promises.push(uploadTask);
+
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          switch (snapshot.state) {
+            case "running":
+              setIsFileUploading(true);
+              break;
+          }
+        },
+        (error) => {
+          // Handle unsuccessful uploads
+          console.log(error);
+        },
+        () => {
+          // Upload completed successfully, now we can get the download URL
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            setUrls((prevState) => [...prevState, downloadURL]);
+            setIsFileUploading(false);
+          });
+        }
+      );
     });
+  };
+  // console.log(urls);
 
-    const { data: thumbnail } = supabase.storage
-      .from("anivacc")
-      .getPublicUrl(file.path);
-    console.log(thumbnail);
+  useEffect(() => {
+    const images = [],
+      fileReaders = [];
+    let isCancel = false;
+    if (imageFiles.length) {
+      imageFiles.forEach((file) => {
+        const fileReader = new FileReader();
+        fileReaders.push(fileReader);
+        fileReader.onload = (e) => {
+          const { result } = e.target;
+          if (result) {
+            images.push(result);
+          }
+          if (images.length === imageFiles.length && !isCancel) {
+            setImages(images);
+          }
+        };
+        fileReader.readAsDataURL(file);
+      });
+    }
+    return () => {
+      isCancel = true;
+      fileReaders.forEach((fileReader) => {
+        if (fileReader.readyState === 1) {
+          fileReader.abort();
+        }
+      });
+    };
+  }, [imageFiles]);
 
-    const { imageFile, brand_id, categories, ...product } = data;
+  const onSubmit = (data) => {
+    const {
+      brand_id,
+      parentCategory,
+      childCategory,
+      lang_code,
+      status,
+      ...product
+    } = data;
 
+    console.log(urls);
     addProductMutation.mutate({
       ...product,
-      thumbnail: thumbnail.publicUrl,
+      thumbnail: urls,
       brand_id: brand_id.value,
-      categories:
-        categories.length != undefined
-          ? categories.map(({ label }) => label)
-          : [categories.label],
+      categories: [parentCategory.label, childCategory.label],
+      status:
+        status?.length > 1 ? status?.map((s) => s.value) : [status[0].value],
+      lang_code: lang_code.value,
     });
-  }
+    setShowPreview(false);
+    setImageFiles([]);
+    setUrls([]);
+  };
   if (isLoading) return <Loading />;
 
   return (
     <ProductForm
-      addProductMutation={addProductMutation}
-      uploadFileMutation={uploadFileMutation}
-      isLoading={isProductUploading}
+      isLoading={addProductMutation.isLoading}
+      isLoadingImage={isFileUploading}
       title="Add New Product"
-      type="Add"
+      type="Add Product"
       categoryQuery={categoryQuery}
       brandQuery={brandQuery}
       control={control}
       register={register}
-      onSubmit={handleSubmit(handleAddProduct)}
+      onSubmit={handleSubmit(onSubmit)}
       watch={watch}
       errors={errors}
       setValue={setValue}
+      handleChange={handleChange}
+      images={images}
+      showPreview={showPreview}
+      handleSubmit={ImagesHandleSubmit}
+      urls={urls}
     />
   );
 }

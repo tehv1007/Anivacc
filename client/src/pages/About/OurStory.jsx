@@ -6,7 +6,7 @@ import StoryBody from "./components/StoryBody";
 export default function OurStory() {
   return (
     <div>
-      <Header imgUrl={"/images/1611131227_banner-DVH.jpg"} />
+      <Header imgUrl={"/images/large-bg.jpg"} />
       <Container>
         <StoryBody />
         <div className="bg-[#f8f8f8] pt-[50px] px-[30px]">

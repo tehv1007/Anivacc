@@ -1,67 +1,77 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";
-import { Autoplay, EffectCube, Pagination } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../../config/supabase";
+import GlobalSpinner from "../Common/loading/GlobalSpinner";
+import { useTranslation } from "react-i18next";
 
 export default function RelatedProducts() {
-  const {
-    isLoading,
-    isError,
-    data: products,
-    error,
-  } = useQuery({
+  const { t } = useTranslation();
+
+  const { isLoading, data: products } = useQuery({
     queryKey: ["products"],
     queryFn: () => supabase.from("product").select(),
 
     select: (res) => res.data,
   });
 
-  if (isLoading || isError) {
-    return <></>;
-  }
   return (
-    <div>
-      <Swiper
-        effect={"cube"}
-        grabCursor={true}
-        autoplay={{
-          delay: 3000,
-        }}
-        cubeEffect={{
-          shadow: true,
-          slideShadows: true,
-          shadowOffset: 20,
-          shadowScale: 0.94,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[EffectCube, Pagination, Autoplay]}
-        className="mySwiper"
-      >
-        {products.map((product, index) => {
-          if (index <= 3) {
-            return (
-              <SwiperSlide key={index}>
-                <img src={product.thumbnail} alt="" />
-                <Link
-                  to={`/products/${product.id}`}
-                  className="absolute z-40 w-7 h-7 top-3 right-2 bg-blue-500 flex justify-center items-center "
-                >
-                  <i className="fa-solid fa-arrow-up-right-from-square text-white p-2 "></i>
-                </Link>
-                <p className="absolute bottom-[10%] w-full text-center text-lg line-clamp-1 ">
-                  {product.title}
-                </p>
-              </SwiperSlide>
-            );
-          }
-        })}
-      </Swiper>
-    </div>
+    <section className="mt-5">
+      <h3 className="text-2xl text-center font-bold text-[#003d79]">
+        {t("related_products")}
+      </h3>
+      <div className="product-slider border">
+        {isLoading ? (
+          <GlobalSpinner />
+        ) : (
+          <Swiper
+            autoplay={{
+              delay: 3000,
+            }}
+            pagination={{
+              el: ".swiper-pagination",
+              clickable: true,
+            }}
+            breakpoints={{
+              510: {
+                slidesPerView: 2,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              990: {
+                slidesPerView: 1,
+              },
+            }}
+            modules={[Pagination, Autoplay]}
+            className="swiper-container !overflow-hidden"
+          >
+            {products.map((product, index) => {
+              if (index <= 3) {
+                return (
+                  <SwiperSlide key={index}>
+                    <Link
+                      to={`/products/${product.id}`}
+                      // className="absolute z-40 w-7 h-7 top-3 right-2 bg-blue-500 flex justify-center items-center "
+                    >
+                      <img src={product.thumbnail} alt="" />
+                      {/* <i className="fa-solid fa-arrow-up-right-from-square text-white p-2 "></i> */}
+                    </Link>
+                    <p className="w-full text-center text-base line-clamp-2 px-1">
+                      {product.title}
+                    </p>
+                  </SwiperSlide>
+                );
+              }
+            })}
+            <div className="swiper-pagination !relative !bottom-0 mt-5"></div>
+          </Swiper>
+        )}
+      </div>
+    </section>
   );
 }

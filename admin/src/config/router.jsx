@@ -9,7 +9,9 @@ import AddNews from "../pages/news/AddNews";
 import NewsDetail from "../pages/news/NewsDetail";
 import Login from "../pages/auth/Login";
 import AuthLayout from "../components/layout/AuthLayout";
-import Dashboard from "../pages/Dashboard/Dashboard";
+import Dashboard from "../pages/dashboard/Dashboard";
+import InquiryList from "../pages/inquiry/InquiryList";
+import InquiryDetail from "../pages/inquiry/InquiryDetail";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +51,14 @@ export const router = createBrowserRouter([
           {
             path: "/posts/:postID",
             element: <NewsDetail />,
+          },
+          {
+            path: "/inquiry",
+            element: <InquiryList />,
+          },
+          {
+            path: "/inquiry/:inquiryId",
+            element: <InquiryDetail />,
           },
         ],
       },

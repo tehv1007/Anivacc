@@ -11,10 +11,10 @@ const Pagination = ({ paginationParams, setPage }) => {
   } = paginationParams;
 
   return (
-    <section className="flex justify-center items-center mt-6 gap-4">
+    <section className="flex justify-center gap-1 text-sm font-medium mt-5">
       {currentPage !== 1 && previousPage !== 1 ? (
         <Link
-          className="bg-gray-400 text-white px-3 py-2 rounded-md"
+          className="block h-8 w-8 rounded border border-gray-400 bg-white text-center leading-8 text-gray-900"
           to="?page=1"
           type="submit"
           onClick={() => setPage(1)}
@@ -26,7 +26,7 @@ const Pagination = ({ paginationParams, setPage }) => {
       )}
       {hasPreviousPage ? (
         <Link
-          className="bg-gray-400 text-white px-3 py-2 rounded-md"
+          className="block h-8 w-8 rounded border border-gray-400 bg-white text-center leading-8 text-gray-900"
           to={`?page=${previousPage}`}
           type="submit"
           onClick={() => setPage(previousPage)}
@@ -39,7 +39,7 @@ const Pagination = ({ paginationParams, setPage }) => {
       {currentPage ? (
         <Link
           to={`?page=${currentPage}`}
-          className="bg-black text-white px-3 py-2 rounded-md"
+          className="block h-8 w-8 rounded border-blue-900 bg-blue-900 text-center leading-8 text-white"
           type="submit"
           onClick={() => setPage(currentPage)}
         >
@@ -51,7 +51,7 @@ const Pagination = ({ paginationParams, setPage }) => {
 
       {hasNextPage ? (
         <Link
-          className="bg-gray-400 text-white px-3 py-2 rounded-md"
+          className="block h-8 w-8 rounded border border-gray-400 bg-white text-center leading-8 text-gray-900"
           to={`?page=${nextPage}`}
           type="submit"
           onClick={() => setPage(nextPage)}
@@ -63,7 +63,7 @@ const Pagination = ({ paginationParams, setPage }) => {
       )}
       {lastPage !== currentPage && nextPage !== lastPage && lastPage != 0 ? (
         <Link
-          className="bg-gray-400 text-white px-3 py-2 rounded-md"
+          className="block h-8 w-8 rounded border border-gray-400 bg-white text-center leading-8 text-gray-900"
           to={`?page=${lastPage}`}
           type="submit"
           onClick={() => setPage(lastPage)}

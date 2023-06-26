@@ -6,6 +6,10 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./config/router";
 import "./index.css";
 import "./index.scss";
+import axios from "axios";
+
+// Config baseURL for axios
+// axios.defaults.baseURL = `http://admin.cnc-animalhealth.com`;
 
 const queryClient = new QueryClient();
 

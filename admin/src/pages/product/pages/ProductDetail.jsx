@@ -54,9 +54,9 @@ const ProductDetail = () => {
                   {product.title}
                 </h2>
                 <div className="flex gap-1.5">
-                  <p className="mb-[10px] font-bold sm:text-xl lg:text-3xl">
+                  <div className="mb-[10px] font-bold sm:text-xl lg:text-3xl">
                     {product.brand}
-                  </p>
+                  </div>
                 </div>
               </span>
 
