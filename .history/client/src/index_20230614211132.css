@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.fuck {
+  transition: none;
+}
 @font-face {
   font-family: "FuturaLTMedium";
   src: local("FuturaLTMedium"),
@@ -156,7 +158,7 @@ li:focus {
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
-  background: #e5e7eb;
+  background: #ededed;
   border-radius: 50%;
 }
 .swiper-button:hover {
@@ -170,13 +172,13 @@ li:focus {
 }
 
 .image-swiper-button-prev {
-  left: -60px;
+  left: -70px;
 }
 .image-swiper-button-prev svg {
   left: 46%;
 }
 .image-swiper-button-next {
-  right: -60px;
+  right: -70px;
 }
 .image-swiper-button-next svg {
   left: 51%;
@@ -202,9 +204,8 @@ li:focus {
 }
 
 .blocks-items:hover .blocks-tips {
-  width: 180px;
+  width: 200px;
   background-color: #003d79;
-  /* border-radius: 30px; */
 }
 
 .popup-overlay {
@@ -283,4 +284,3 @@ li:focus {
 .swiper-cube .swiper-slide {
   height: 300px;
 }
-
