@@ -8,25 +8,34 @@ import {
 import GlobalSpinner from "../../components/Common/loading/GlobalSpinner";
 import PostPagination from "./Components/PostPagination";
 import Header from "../../components/Feature/Header";
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 
-const NewsByType = () => {
+const NewsByType = ({ lang_code }) => {
+  const { t } = useTranslation();
   const { categoryType } = useParams();
 
   const { page, changePage } = useChangePage(`/posts/category/${categoryType}`);
-  const { data: postList, isLoading } = useGetPostsByCategory(
+  const { data: postList, isLoading: getPostsLoading } = useGetPostsByCategory(
     categoryType,
+    lang_code,
     page
   );
-  const { data: countPost } = useCountPostsByCategory(categoryType);
+  const { data: countPost, isLoading: getCountLoading } =
+    useCountPostsByCategory(categoryType, lang_code);
+
+  useEffect(() => {
+    changePage(1); // Reset giá trị page về 1 khi lang_code thay đổi
+  }, [lang_code]);
 
   return (
     <>
-      <Header imgUrl={"/images/news-bg.webp"} />
+      <Header imgUrl={"/images/background/news-bg.webp"} />
       <div className="max-w-[1200px] mx-auto py-10">
         <div className="flex-col lg:max-w-[990px] xl:max-w-[1200px] mx-auto px-[10px]">
           <h1 className="text-gray-700 text-center">
             <span className="text-4xl font-medium text-left capitalize">
-              Tin tức
+              {t("home_news")}
             </span>
           </h1>
           {/* News category */}
@@ -42,7 +51,7 @@ const NewsByType = () => {
                 to={`/posts/category/company`}
                 className="table-cell w-[230px] h-[44px] border-solid border-0 rounded-none align-middle text-center transition-all duration-300 ease-in-out hover:text-white hover:bg-blue-900"
               >
-                Tin tức công ty
+                {t("home_news_cate1")}
               </Link>
             </li>
             <li
@@ -56,14 +65,14 @@ const NewsByType = () => {
                 to={`/posts/category/industry`}
                 className="table-cell w-[230px] h-[44px] border-solid border-0 rounded-none align-middle text-center transition-all duration-300 ease-in-out hover:text-white hover:bg-blue-900"
               >
-                Tin trong ngành
+                {t("home_news_cate2")}
               </Link>
             </li>
           </ul>
           <div className="resizee h-5" />
           {/* News List */}
           <div className="">
-            {isLoading ? (
+            {getPostsLoading || getCountLoading ? (
               <GlobalSpinner />
             ) : (
               postList.map((post) => {
@@ -77,7 +86,11 @@ const NewsByType = () => {
           </div>
           {countPost ? (
             <PostPagination changePage={changePage} count={countPost} />
-          ) : null}
+          ) : (
+            <div>
+              <p className="text-center">{t("home_news_info")}</p>
+            </div>
+          )}
         </div>
       </div>
     </>

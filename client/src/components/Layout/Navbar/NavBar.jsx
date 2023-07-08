@@ -6,10 +6,10 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { LANGUAGES } from "../../../utils/language";
 import { useTranslation } from "react-i18next";
 
-export default function NavBar() {
+export default function NavBar({ setLangCode, setPage }) {
   const navigate = useNavigate();
   const [navHeight, setNavHeight] = useState(`h-[80px]`);
-  const [color, setColor] = useState("bg-black/30");
+  const [color, setColor] = useState("bg-black/20");
   const [active, setActive] = useState([
     false,
     false,
@@ -32,6 +32,7 @@ export default function NavBar() {
 
   const handleNavItemClick = () => {
     setSidebarOpen(false);
+    setPage(1);
   };
 
   const handleSearch = (event) => {
@@ -56,10 +57,10 @@ export default function NavBar() {
     const handleScroll = () => {
       if (window.pageYOffset > 0) {
         setNavHeight(`h-[60px]`);
-        setColor("bg-black/60");
+        setColor("bg-black/50");
       } else {
         setNavHeight(`h-[80px]`);
-        setColor("bg-black/30");
+        setColor("bg-black/20");
       }
     };
     window.addEventListener("scroll", handleScroll);
@@ -101,7 +102,7 @@ export default function NavBar() {
             <div className="px-2 mx-2">
               <Link to="/">
                 <img
-                  src="/images/logo-white.png"
+                  src="/images/logo/anivacC.png"
                   alt="CÔNG TY CỔ PHẦN SẢN XUẤT VÀ THƯƠNG MẠI THUỐC THÚ Y CNC"
                   className={`transition-all duration-[0.4s] ${navHeight} `}
                 />
@@ -165,6 +166,7 @@ export default function NavBar() {
                                 to={`/products/category/${t(
                                   `${category["link"]}`
                                 )}`}
+                                onClick={() => setPage(1)}
                               >
                                 {t(`${category["nav-category"]}`)}
                               </Link>
@@ -190,7 +192,7 @@ export default function NavBar() {
                       {t("nav-solutions-arr", { returnObjects: true }).map(
                         (type, index) => (
                           <li key={index}>
-                            <Link to={`/solutions`}>
+                            <Link to={`/solutions/${t(type["link"])}`}>
                               {t(`${type["nav-solution"]}`)}
                             </Link>
                           </li>
@@ -287,25 +289,25 @@ export default function NavBar() {
               </div>
 
               {/* language */}
-              <div className="relative xl:w-[150px] w-[120px]">
+              <div className="relative xl:w-[150px] w-[82px] md:w-[110px]">
                 <button
                   onClick={() => setIsOpen((prev) => !prev)}
                   value={value}
-                  className="w-full hover:rounded-t-[6px] hover:border tracking-wider hover:border-white transition-all duration-300 text-base text-white cursor-pointer h-[32px] flex items-center justify-center gap-2"
+                  className="w-full hover:rounded-t-[6px] hover:border text-sm tracking-wider hover:border-white transition-all duration-300 md:text-base text-white cursor-pointer h-[32px] flex items-center justify-center gap-2"
                 >
                   <span className="pl-2 hidden xl:block">
                     <AiOutlineGlobal className="w-[21px] h-[21px]" />
                   </span>
                   {LANGUAGES.find((item) => item.code == value).label}
                   {!isOpen ? (
-                    <FiChevronDown className="h-8" />
+                    <FiChevronDown className="h-8 hidden md:block" />
                   ) : (
-                    <FiChevronUp className="h-8" />
+                    <FiChevronUp className="h-8 hidden md:block" />
                   )}
                 </button>
 
                 {isOpen && (
-                  <div className="bg-white text-black/60 absolute top-[45px] flex flex-col rounded-b-lg p-2 w-full">
+                  <div className="bg-white text-black/60 absolute top-[45px] flex flex-col rounded-b-lg lg:p-2 w-full">
                     {LANGUAGES.filter((item) => item.code != value).map(
                       (item, index) => (
                         <div key={index} className="w-full cursor-pointer">

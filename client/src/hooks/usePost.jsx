@@ -1,16 +1,16 @@
-import { useQueries, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../config/supabase";
 import pagination from "../utils/pagination";
 
-export const useGetPosts = (page, limit = 4) => {
+export const useGetPosts = (page, lang_code, limit = 4) => {
   const { FROM, LIMIT } = pagination(page, limit);
-
   return useQuery(
-    ["posts", { page, limit }],
+    ["posts", { page, limit, lang_code }],
     async () => {
       const { data, error } = await supabase
         .from("posts")
         .select()
+        .eq("lang_code", lang_code) // Thêm điều kiện lang_code
         .order("created_at", { ascending: false })
         .range(FROM, LIMIT);
 
@@ -25,13 +25,14 @@ export const useGetPosts = (page, limit = 4) => {
   );
 };
 
-export const useCountPosts = () => {
+export const useCountPosts = (lang_code) => {
   return useQuery(
-    ["posts_count"],
+    ["posts_count", { lang_code }],
     async () => {
       const { count, error } = await supabase
         .from("posts")
-        .select("id", { count: "exact" });
+        .select("id", { count: "exact" })
+        .eq("lang_code", lang_code); // Thêm điều kiện lang_code;
 
       if (error) throw error;
 
@@ -44,16 +45,21 @@ export const useCountPosts = () => {
   );
 };
 
-export const useGetPostsByCategory = (categoryType, page = 1, limit = 5) => {
+export const useGetPostsByCategory = (
+  categoryType,
+  lang_code,
+  page = 1,
+  limit = 5
+) => {
   const { FROM, LIMIT } = pagination(page, limit);
-
   return useQuery(
-    ["posts", { categoryType, page, limit }],
+    ["posts", { categoryType, page, lang_code, limit }],
     async () => {
       const { data, error } = await supabase
         .from("posts")
         .select("*")
         .eq("category", categoryType)
+        .eq("lang_code", lang_code)
         .order("created_at", { ascending: false })
         .range(FROM, LIMIT);
 
@@ -68,14 +74,15 @@ export const useGetPostsByCategory = (categoryType, page = 1, limit = 5) => {
   );
 };
 
-export const useCountPostsByCategory = (categoryType) => {
+export const useCountPostsByCategory = (categoryType, lang_code) => {
   return useQuery(
-    ["posts_count", { categoryType }],
+    ["posts_count", { categoryType, lang_code }],
     async () => {
       const { count, error } = await supabase
         .from("posts")
         .select("id", { count: "exact" })
-        .eq("category", categoryType);
+        .eq("category", categoryType)
+        .eq("lang_code", lang_code);
 
       if (error) throw error;
 
@@ -110,7 +117,7 @@ export const useGetPostById = (id) => {
   );
 };
 
-export const useGetNextPost = (id) => {
+export const useGetNextPost = (id, lang_code) => {
   return useQuery(
     ["nextPost", { id }],
     async () => {
@@ -118,6 +125,7 @@ export const useGetNextPost = (id) => {
         .from("posts")
         .select("*")
         .gt("id", id)
+        .eq("lang_code", lang_code) // Thêm điều kiện lang_code
         .order("id", { ascending: true })
         .limit(1);
 
@@ -132,7 +140,7 @@ export const useGetNextPost = (id) => {
   );
 };
 
-export const useGetPrevPost = (id) => {
+export const useGetPrevPost = (id, lang_code) => {
   return useQuery(
     ["prevPost", { id }],
     async () => {
@@ -140,6 +148,7 @@ export const useGetPrevPost = (id) => {
         .from("posts")
         .select("*")
         .lt("id", id)
+        .eq("lang_code", lang_code) // Thêm điều kiện lang_code
         .order("id", { ascending: false })
         .limit(1);
 

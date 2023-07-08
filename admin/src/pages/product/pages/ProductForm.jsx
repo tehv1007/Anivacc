@@ -4,10 +4,9 @@ import { Controller } from "react-hook-form";
 import FormRow from "../../../components/common/form/FormRow";
 import FormRowError from "../../../components/common/form/FormRowError";
 import Select from "react-select";
-import UploadIcon from "../../../components/common/form/icons/UploadIcon";
 import Field from "../../../components/common/form/Field";
-import { formats, modules } from "../helpers/quill";
 import Loader from "../../../components/common/loading/Loader";
+import { formats, modules } from "../../../helpers/quill";
 
 const ProductForm = (props) => {
   const {
@@ -47,11 +46,6 @@ const ProductForm = (props) => {
     return [];
   };
 
-  // const categories = categoryQuery.data.map(({ id, name }) => ({
-  //   value: id,
-  //   label: name,
-  // }));
-  // console.log(categories);
   const brands = brandQuery.data.map(({ id, name }) => ({
     value: id,
     label: name,

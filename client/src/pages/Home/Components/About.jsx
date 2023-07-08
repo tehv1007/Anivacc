@@ -43,10 +43,10 @@ const About = () => {
     <section className="max-w-[1440px] mx-auto px-[10px] md:px-5 xl:px-10 mt-10 mb-10">
       {/* video */}
       <div className="max-w-[1360px] mb-10 md:mb-0">
-        <div className="row flex">
+        <div className="row">
           <div className="videoBox" id="video_box">
             <video
-              className=" w-full h-full"
+              className="w-full h-full"
               x-webkit-airplay="allow"
               x5-video-player-type="h5-page"
               t7-video-player-type="inline"

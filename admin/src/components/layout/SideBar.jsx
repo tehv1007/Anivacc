@@ -5,8 +5,9 @@ import {
   AiOutlineFileAdd,
   AiOutlineUsergroupAdd,
   AiOutlineSetting,
+  AiOutlineFolderAdd,
 } from "react-icons/ai";
-import { HiOutlineNewspaper } from "react-icons/hi";
+import { HiOutlineNewspaper, HiOutlineClipboardList } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 const SidebarItem = ({ navLink, children, title }) => {
@@ -40,19 +41,25 @@ const SideBar = () => {
             <SidebarItem title="Dashboard" navLink="/">
               <AiOutlineHome className="w-5 h-5" />
             </SidebarItem>
-            <SidebarItem title="Add Product" navLink="/products/new">
+            <SidebarItem title="Thêm sản phẩm" navLink="/products/new">
               <AiOutlineAppstoreAdd className="w-5 h-5" />
             </SidebarItem>
-            <SidebarItem title="Product List" navLink="/products/list">
+            <SidebarItem title="Danh sách sản phẩm" navLink="/products/list">
               <AiOutlineUnorderedList className="w-5 h-5" />
             </SidebarItem>
-            <SidebarItem title="Add News" navLink="/posts/add-news">
+            <SidebarItem title="Thêm tin tức" navLink="/posts/add-news">
               <AiOutlineFileAdd className="w-5 h-5" />
             </SidebarItem>
-            <SidebarItem title="News List" navLink="/posts">
+            <SidebarItem title="Danh sách tin tức" navLink="/posts">
               <HiOutlineNewspaper className="w-5 h-5" />
             </SidebarItem>
-            <SidebarItem title="User Require" navLink="/inquiry">
+            <SidebarItem title="Thêm giải pháp" navLink="/solutions/new">
+              <AiOutlineFolderAdd className="w-5 h-5" />
+            </SidebarItem>
+            <SidebarItem title="Danh sách giải pháp" navLink="/solutions">
+              <HiOutlineClipboardList className="w-5 h-5" />
+            </SidebarItem>
+            <SidebarItem title="Yêu cầu của khách hàng" navLink="/inquiry">
               <AiOutlineUsergroupAdd className="w-5 h-5" />
             </SidebarItem>
 

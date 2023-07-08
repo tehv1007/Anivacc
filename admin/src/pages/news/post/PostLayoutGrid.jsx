@@ -6,7 +6,7 @@ const PostLayoutGrid = ({ postList, isLoading }) => {
   return (
     <div className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-x-5 lg:grid-cols-4 lg:gap-10">
       {isLoading
-        ? new Array(4)
+        ? new Array(8)
             .fill(0)
             .map((_, index) => <PostItemSkeleton key={index} />)
         : null}

@@ -1,6 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { formatDate } from "../../../utils/formatDate";
+import parser from "html-react-parser";
 
 const NewsItem = ({ post }) => {
   const date = formatDate(post.created_at);
@@ -39,7 +39,7 @@ const NewsItem = ({ post }) => {
           </div>
 
           <div className="line-clamp-3 mb-[25px] text-gray-500 text-sm leading-6 group-hover:text-white">
-            {post.description}
+            {parser(post.description)}
           </div>
           <div className="text-center">
             <Link

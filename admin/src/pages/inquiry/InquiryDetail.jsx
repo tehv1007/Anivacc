@@ -50,12 +50,12 @@ const InquiryDetail = () => {
       <div className="bg-white mb-4 p-6 lg:p-8 rounded-xl shadow-sm overflow-hidden">
         <div className>
           <div className="flex lg:flex-row md:flex-row flex-col lg:items-center justify-between pb-4 border-b border-gray-50">
-            <h1 className="font-bold font-serif text-xl uppercase">
+            <h1 className="font-bold mb-2 text-xl uppercase">
               Inquiry
               <p className="text-xs mt-1 text-gray-500">
                 Status:
                 <span className="pl-2 font-medium text-xs capitalize">
-                  {/* <span className="font-serif">
+                  {/* <span className= mb-2">
                     <span
                       className={`inline-flex px-2 text-xs font-medium leading-5 rounded-full ${inquiry.status.toLowerCase()}`}
                     >
@@ -66,7 +66,7 @@ const InquiryDetail = () => {
               </p>
             </h1>
             <div className="lg:text-right text-left">
-              <h2 className="lg:flex lg:justify-end text-lg font-serif font-semibold mt-4 lg:mt-0 lg:ml-0 md:mt-0">
+              <h2 className="lg:flex lg:justify-end text-lg mb-2 font-semibold mt-4 lg:mt-0 lg:ml-0 md:mt-0">
                 <img
                   src={"/images/logo-white.png"}
                   alt="AnivacC logo"
@@ -80,7 +80,7 @@ const InquiryDetail = () => {
           </div>
           <div className="flex lg:flex-row md:flex-row flex-col justify-between pt-4">
             <div className="mb-3 md:mb-0 lg:mb-0 flex flex-col">
-              <span className="font-bold font-serif text-sm uppercase text-gray-600 block">
+              <span className="font-bold mb-2 text-sm uppercase text-gray-600 block">
                 Inquiry Date
               </span>
               <span className="text-sm text-gray-500 block">
@@ -88,7 +88,7 @@ const InquiryDetail = () => {
               </span>
             </div>
             <div className="mb-3 md:mb-0 lg:mb-0 flex flex-col">
-              <span className="font-bold font-serif text-sm uppercase text-gray-600 block">
+              <span className="font-bold mb-2 text-sm uppercase text-gray-600 block">
                 Customer Name
               </span>
               <span className="text-sm text-gray-500 block">
@@ -96,7 +96,7 @@ const InquiryDetail = () => {
               </span>
             </div>
             <div className="flex flex-col lg:text-right text-left">
-              <span className="font-bold font-serif text-sm uppercase text-gray-600 block">
+              <span className="font-bold mb-2 text-sm uppercase text-gray-600 block">
                 Phone Number
               </span>
               <span className="text-sm text-gray-500">{inquiry.tel}</span>
@@ -164,6 +164,9 @@ const InquiryDetail = () => {
         </div>
 
         {/* Summary */}
+        <h2 className="font-bold mb-2 text-sm uppercase text-gray-600 block">
+          Nội dung yêu cầu của khách hàng
+        </h2>
         <div className="border rounded-xl border-gray-100 p-8 py-6 bg-gray-50">
           {inquiry.message}
         </div>

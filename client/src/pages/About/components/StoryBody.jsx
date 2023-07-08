@@ -44,7 +44,7 @@ export default function StoryBody() {
         </div>
         <img
           className="p-[10px]"
-          src="/images/congty_cnc_anivacc.jpg"
+          src="/images/others/congty_cnc_anivacc.jpg"
           alt="Image"
         />
       </div>

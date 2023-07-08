@@ -9,8 +9,8 @@ import { AuthContext } from "../auth/Auth";
 import FormRow from "../../components/common/form/FormRow";
 import FormRowError from "../../components/common/form/FormRowError";
 import Select from "react-select";
-import { formats, modules } from "../product/helpers/quill";
 import ReactQuill from "react-quill";
+import { formats, modules } from "../../helpers/quill";
 
 const categories = [
   {
@@ -22,33 +22,42 @@ const categories = [
     value: "industry",
   },
 ];
+
+const langArr = [
+  { value: "vi", label: "Tiếng Việt" },
+  { value: "en", label: "English" },
+];
+
 const AddNews = () => {
   const { isLoggedIn: session } = useContext(AuthContext);
-  // const editorRef = useRef(null);
-  const postMutation = useCreatePost();
-
   const {
     register,
     control,
+    reset,
     formState: { errors },
     handleSubmit,
     setValue,
   } = useForm({
     mode: "onSubmit",
     resolver: yupResolver(schemaCreatePost),
+    defaultValues: {
+      title: "",
+      description: "",
+      thumbnail: "",
+      category: "",
+      content: "",
+      lang_code: "",
+    },
   });
 
+  const postMutation = useCreatePost(reset);
+
   const handleCreatePost = (values) => {
+    // console.log(values);
     const { category, ...post } = values;
-    console.log({
-      ...values,
-      category: category.value,
-      author_id: session?.user?.id,
-    });
     postMutation.mutate({
-      ...values,
+      ...post,
       category: category.value,
-      // content: editorRef.current.getContent(),
       author_id: session?.user?.id,
     });
   };
@@ -56,7 +65,7 @@ const AddNews = () => {
   return (
     <div className="container flex flex-col gap-y-5">
       <h2 className="text-xl font-semibold text-center md:text-left">
-        Tạo bài viết mới
+        Tạo bài tin tức mới
       </h2>
 
       <form
@@ -109,26 +118,61 @@ const AddNews = () => {
             </div>
           </FormRow>
 
-          <Field
-            register={register}
-            error={errors?.description?.message}
-            labelText="Mô tả"
-            name="description"
-            placeholder="Nhập mô tả"
-            type="text"
-          />
+          {/* Language */}
+          <FormRow label="Language">
+            <div className="col-span-8 sm:col-span-4 text-gray-900">
+              <Controller
+                control={control}
+                name="lang_code"
+                register={register}
+                setValue={setValue}
+                defaultValues={null}
+                render={({ field: { onChange, onBlur, value, name, ref } }) => (
+                  <Select
+                    options={langArr}
+                    onChange={onChange}
+                    isMulti={false}
+                    onBlur={onBlur}
+                    value={value}
+                    name={name}
+                    ref={ref}
+                  />
+                )}
+              />
+              <FormRowError error={errors.lang_code} />
+            </div>
+          </FormRow>
         </div>
 
-        {/* <div className="flex flex-col gap-y-2 mt-10">
-          <Label text={"Nội dung"} htmlFor={"content"} />
-          <PostEditor
-            editorRef={editorRef}
-            initialValue={"<h1>Hello world</h1>"}
-            height={500}
-            menubar={true}
+        {/* Description */}
+        <FormRow label="Mô tả ngắn về bài viết" className="col-span-full">
+          <Controller
+            control={control}
+            name="description"
+            render={({ field }) => (
+              <ReactQuill
+                value={field.value}
+                onChange={field.onChange}
+                theme="snow"
+                placeholder="Nhập mô tả ngắn..."
+                modules={modules}
+                formats={formats}
+              />
+            )}
           />
-        </div> */}
-        {/* Long Description */}
+          <FormRowError error={errors.description} />
+        </FormRow>
+
+        {/* <Field
+          register={register}
+          error={errors?.description?.message}
+          labelText="Mô tả"
+          name="description"
+          placeholder="Nhập mô tả"
+          type="text"
+        /> */}
+
+        {/* Content */}
         <FormRow label="Nội dung" className="col-span-full">
           <Controller
             control={control}

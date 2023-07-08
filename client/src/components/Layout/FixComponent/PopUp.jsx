@@ -84,7 +84,7 @@ const PopUp = ({ setShowPopup, showPopup }) => {
               <div className="flex">
                 <div className="hidden md:block basis-[45%]">
                   <img
-                    src="/images/contact.webp"
+                    src="/images/others/contact.webp"
                     alt="Contact"
                     className="block h-full w-full object-cover"
                   />

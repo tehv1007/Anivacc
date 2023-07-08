@@ -12,6 +12,9 @@ import AuthLayout from "../components/layout/AuthLayout";
 import Dashboard from "../pages/dashboard/Dashboard";
 import InquiryList from "../pages/inquiry/InquiryList";
 import InquiryDetail from "../pages/inquiry/InquiryDetail";
+import Solutions from "../pages/solutions/Solutions";
+import AddSolution from "../pages/solutions/AddSolution";
+import SolutionDetail from "../pages/solutions/SolutionDetail";
 
 export const router = createBrowserRouter([
   {
@@ -26,7 +29,7 @@ export const router = createBrowserRouter([
           {
             path: "/",
             // element: <Dashboard />,
-            element: <AddProduct />,
+            element: <AddSolution />,
           },
           {
             path: "/products/list",
@@ -51,6 +54,18 @@ export const router = createBrowserRouter([
           {
             path: "/posts/:postID",
             element: <NewsDetail />,
+          },
+          {
+            path: "/solutions",
+            element: <Solutions />,
+          },
+          {
+            path: "/solutions/new",
+            element: <AddSolution />,
+          },
+          {
+            path: "/solutions/:solutionID",
+            element: <SolutionDetail />,
           },
           {
             path: "/inquiry",

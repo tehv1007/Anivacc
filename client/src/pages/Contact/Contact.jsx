@@ -42,7 +42,7 @@ export default function Contact() {
 
   return (
     <>
-      <Header imgUrl={"/images/vet-puppy.jpeg"} />
+      <Header imgUrl={"/images/background/vet-puppy.jpeg"} />
       <div className="max-w-[1200px] mx-auto">
         <div className="flex-col mx-auto px-[20px] lg:px-10">
           {/* <div className=" pb-16 pt-24 lg:mb-0 md:basis-2/3 lg:basis-1/3"> */}

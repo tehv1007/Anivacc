@@ -2,11 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
   font-family: "FuturaLTMedium";
   src: local("FuturaLTMedium"),
-    url(/fonts/Futura_LT_Medium.ttf) format("truetype");
+    url(/fonts/Futura_LT_Medium.ttf) format("OpenType ");
 }
 @font-face {
   font-family: "GardeGothic";
@@ -284,3 +283,93 @@ li:focus {
   height: 300px;
 }
 
+/* Post layout */
+.content-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-box h1 {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.content-box h2 {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.content-box h3 {
+  font-weight: 500;
+  font-size: 22px;
+}
+
+.content-box h4 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.content-box p {
+  font-weight: 400;
+  font-size: 16px;
+  color: #a2a2a8;
+  line-height: 24px;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+.content-box img {
+  max-width: 100%;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+
+.content-box .highlight {
+  background-color: #08090a;
+  color: #f8f8f2;
+  padding: 8px;
+  overflow-x: auto;
+}
+
+.content-box .highlight__panel {
+  display: none;
+}
+
+.content-box th {
+  text-align: left;
+}
+
+.content-box td,
+th {
+  padding: 8px;
+}
+
+.content-box img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.skeleton {
+  background-color: #eee;
+  background-image: linear-gradient(
+    110deg,
+    #ececec 8%,
+    #f5f5f5 18%,
+    #ececec 33%
+  );
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+.ql-align-right {
+  text-align: right;
+}
+
+.ql-align-center {
+  text-align: center;
+}

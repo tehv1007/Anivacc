@@ -7,7 +7,7 @@ export default function Partner() {
   const { t } = useTranslation();
 
   const partnerImagesUrl = [
-    { url: "/images/anivacc-logo.png", href: "https://anivacc.com/" },
+    { url: "/images/partners/anivacc-logo.png", href: "https://anivacc.com/" },
     {
       url: "/images/partners/bewital-agri.png",
       href: "https://bewital-agri.de/en/",

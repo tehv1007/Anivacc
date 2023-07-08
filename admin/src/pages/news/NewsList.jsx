@@ -1,7 +1,7 @@
 import useChangePage from "../../hooks/useChangePage";
 import { useCountPosts, useGetPosts } from "../../hooks/usePost";
-import PostLayoutGrid from "./post/PostLayoutGrid";
 import PostPagination from "./post/PostPagination";
+import PostTable from "./post/PostTable";
 
 const NewsList = () => {
   const { page, changePage } = useChangePage("/posts");
@@ -21,7 +21,7 @@ const NewsList = () => {
           </h4>
         ) : null}
 
-        <PostLayoutGrid postList={postList} isLoading={isLoading} />
+        <PostTable posts={postList} isLoading={isLoading} />
 
         {countPost ? (
           <PostPagination changePage={changePage} count={countPost} />

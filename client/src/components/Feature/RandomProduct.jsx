@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
@@ -48,12 +48,16 @@ export default function RandomProduct() {
               widthScreen >= 600 ? (widthScreen >= 1000 ? 5 : 3) : 2
             }
             spaceBetween={25}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
             navigation={{
               nextEl: ".image-swiper-button-next",
               prevEl: ".image-swiper-button-prev",
               disabledClass: "swiper-button-disabled",
             }}
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             className="mySwiper w-full swiper-container"
           >
             {products.map((product) => (

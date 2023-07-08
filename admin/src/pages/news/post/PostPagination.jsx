@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 import { withErrorBoundary } from "react-error-boundary";
 import ErrorComponent from "../components/ErrorComponent";
 
-const PostPagination = ({ perPage = 4, changePage, count }) => {
+const PostPagination = ({ perPage = 8, changePage, count }) => {
   return (
     <ReactPaginate
       className="flex items-center justify-center gap-x-2 lg:gap-x-5"

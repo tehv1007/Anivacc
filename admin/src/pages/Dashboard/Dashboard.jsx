@@ -1,7 +1,10 @@
-import React from "react";
-
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return (
+    <div>
+      Chào mừng bạn đến với trang quản trị của web của Công ty cổ phần và sản
+      xuất thương mại thuốc thú y CNC
+    </div>
+  );
 };
 
 export default Dashboard;

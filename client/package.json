@@ -18,10 +18,13 @@
     "@hookform/resolvers": "^3.1.1",
     "@supabase/supabase-js": "^2.24.0",
     "@tanstack/react-query": "^4.29.12",
+    "axios": "^1.4.0",
+    "classnames": "^2.3.2",
     "daisyui": "^3.1.0",
     "html-react-parser": "^4.0.0",
     "i18next": "^22.5.1",
     "i18next-http-backend": "^2.2.1",
+    "quill-image-resize-module-react": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.10",
@@ -38,6 +41,7 @@
     "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.7.12",
     "swiper": "^9.3.2",
+    "unidecode": "^0.1.8",
     "yup": "^1.2.0"
   },
   "devDependencies": {

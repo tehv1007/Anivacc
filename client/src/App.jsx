@@ -18,9 +18,11 @@ import Inquiry from "./pages/Inquiry/Inquiry";
 import ProductLayout from "./components/Layout/ProductLayout";
 import ScrollToTop from "./components/Layout/ScrollToTop";
 import SearchResult from "./pages/Products/SearchResult";
+import SolutionPost from "./pages/Solutions/SolutionPost";
 
 const App = () => {
   const [lang_code, setLangCode] = useState("vi");
+  const [page, setPage] = useState(1);
 
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
@@ -36,18 +38,27 @@ const App = () => {
               cart={cart}
               setCart={setCart}
               setLangCode={setLangCode}
+              setPage={setPage}
             />
           }
         >
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home lang_code={lang_code} />} />
           <Route element={<ProductLayout />}>
             <Route
               path="/search"
-              element={<SearchResult lang_code={lang_code} />}
+              element={
+                <SearchResult
+                  lang_code={lang_code}
+                  page={page}
+                  setPage={setPage}
+                />
+              }
             />
             <Route
               path="/products/category/:categoryId"
-              element={<Products lang_code={lang_code} />}
+              element={
+                <Products lang_code={lang_code} page={page} setPage={setPage} />
+              }
             />
             <Route
               path="/products/:id"
@@ -58,18 +69,27 @@ const App = () => {
             path="/inquiry"
             element={<Inquiry cart={cart} setCart={setCart} />}
           />
-          <Route path="/:categoryId" element={<Home lang_code={lang_code} />} />
-          <Route path="/solutions" element={<Solutions />} />
-          <Route path="/solutions/:solutionId" element={<Home />} />
+          <Route
+            path="/solutions"
+            element={<Solutions lang_code={lang_code} />}
+          />
+          <Route
+            path="/solutions/:solutionId"
+            element={<Solutions lang_code={lang_code} />}
+          />
+          <Route path="/solution/:postId" element={<SolutionPost />} />
           <Route path="/about" element={<OurStory />} />
           <Route path="/advantage" element={<OurAdvantage />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/guide" element={<Guide />} />
           <Route path="/posts" element={<News lang_code={lang_code} />} />
-          <Route path="/posts/:postId" element={<NewsArticle />} />
+          <Route
+            path="/posts/:postId"
+            element={<NewsArticle lang_code={lang_code} />}
+          />
           <Route
             path="/posts/category/:categoryType"
-            element={<NewsByType />}
+            element={<NewsByType lang_code={lang_code} />}
           />
           <Route path="/contact" element={<Contact />} />
           <Route path="/test" element={<Contact />} />

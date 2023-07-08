@@ -4,6 +4,7 @@ import GlobalSpinner from "../../../components/Common/loading/GlobalSpinner";
 import { supabase } from "../../../config/supabase";
 import { useQuery } from "@tanstack/react-query";
 import { formatDate } from "../../../utils/formatDate";
+import { useTranslation } from "react-i18next";
 
 const NewsItem = ({ post }) => {
   return (
@@ -47,6 +48,8 @@ const NewsItem = ({ post }) => {
 };
 
 const InformationCenter = () => {
+  const { t } = useTranslation();
+
   const {
     isLoading,
     data: posts,
@@ -70,18 +73,18 @@ const InformationCenter = () => {
         <div className="py-5 px-[15px]">
           {/* Heading */}
           <div className="flex justify-between items-center">
-            <Heading title="Tin tức" />
+            <Heading title={t("home_news")} />
             {/* Categories */}
             <div className="px-[5px] hidden md:block">
               <ul className="flex gap-[10px]">
                 <li className="bg-blue-900 border text-white text-xs leading-7 text-left px-[22px] rounded-[30px] capitalize">
                   <Link to="/posts/category/company" title="Company News">
-                    Tin tức công ty
+                    {t("home_news_cate1")}
                   </Link>
                 </li>
                 <li className="border-gray-500 border text-gray-600 hover:bg-blue-900 hover:text-white transition-all duration-360 ease-linear text-xs leading-7 text-left px-[22px] rounded-[30px] capitalize">
                   <Link to="/posts/category/industry" title="Industry News">
-                    Tin trong ngành
+                    {t("home_news_cate2")}
                   </Link>
                 </li>
               </ul>

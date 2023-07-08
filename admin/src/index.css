@@ -163,7 +163,40 @@
   background-color: #e0e0e0; /* Màu nền khi hover trên các mục trong dropdown background */
 }
 
-
 button[disabled] {
   background-color: gray;
+}
+
+/* Inquiry status */
+span.pending {
+  background-color: #f2dede;
+  color: #a94442;
+}
+
+span.processing {
+  background-color: #fdf6b2;
+  color: #c27803;
+}
+
+span.processed {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+/* span.delivered {
+  background-color: #d9edf7;
+  color: #31708f;
+}
+
+span.cancelled {
+  background-color: #f5f5f5;
+  color: #333;
+} */
+
+.ql-align-right {
+  text-align: right;
+}
+
+.ql-align-center {
+  text-align: center;
 }

@@ -9,6 +9,7 @@ import { storage } from "../../../config/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
+import removeAccents from "../../../utils/deunicode";
 
 const productSchema = yup
   .object({
@@ -160,6 +161,7 @@ export default function AddProduct() {
 
   const onSubmit = (data) => {
     const {
+      title,
       brand_id,
       parentCategory,
       childCategory,
@@ -168,9 +170,11 @@ export default function AddProduct() {
       ...product
     } = data;
 
-    console.log(urls);
+    // console.log(urls);
     addProductMutation.mutate({
       ...product,
+      title: title,
+      title_deunicode: removeAccents(title),
       thumbnail: urls,
       brand_id: brand_id.value,
       categories: [parentCategory.label, childCategory.label],

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { supabase } from "../../../config/supabase";
 import Pagination from "../components/Pagination";
 import ProductTable from "../components/ProductTable";
+import GlobalSpinner from "../../../components/common/loading/GlobalSpinner";
 
 const paginate = (array, page_size, page_number) => {
   return array.slice((page_number - 1) * page_size, page_number * page_size);
@@ -29,7 +30,7 @@ const ProductListing = () => {
     },
   });
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <GlobalSpinner />;
 
   let totalItems = products.length;
   const paginationParams = {

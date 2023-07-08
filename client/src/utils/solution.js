@@ -1,28 +1,10 @@
 export const solutionCategory = [
-  {
-    id: 1,
-    title: "Chẩn đoán xét nghiệm bệnh động vật",
-  },
-  {
-    id: 2,
-    title: "Kháng sinh đồ",
-  },
-  {
-    id: 3,
-    title: "Các phép thử PCR",
-  },
-  {
-    id: 4,
-    title: "Các phép thử ELISA",
-  },
-  {
-    id: 5,
-    title: "Các phép thử huyết thanh học khác",
-  },
-  {
-    id: 6,
-    title: "Phân lập vi sinh vật",
-  },
+  { id: 1, link: "Chẩn đoán xét nghiệm bệnh động vật" },
+  { id: 2, link: "Kháng sinh đồ" },
+  { id: 3, link: "Các phép thử PCR" },
+  { id: 4, link: "Các phép thử ELISA" },
+  { id: 5, link: "Các phép thử huyết thanh học khác" },
+  { id: 6, link: "Phân lập vi sinh vật" },
 ];
 
 export const solutionPost = [
@@ -59,8 +41,7 @@ export const solutionPost = [
     title: "Application of PRRS Vaccine",
     description:
       "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. ",
-    imgUrl:
-      "https://res.edu.vn/wp-content/uploads/2021/12/unit-51-animal.jpg",
+    imgUrl: "https://res.edu.vn/wp-content/uploads/2021/12/unit-51-animal.jpg",
   },
   {
     id: 5,
@@ -68,7 +49,8 @@ export const solutionPost = [
     title: "Clinical Application of Yolk Antibody",
     description:
       "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. ",
-    imgUrl: "https://hips.hearstapps.com/hmg-prod/images/cute-baby-animals-1558535060.jpg?crop=1.00xw:0.669xh;0,0.158xh&resize=1200:*",
+    imgUrl:
+      "https://hips.hearstapps.com/hmg-prod/images/cute-baby-animals-1558535060.jpg?crop=1.00xw:0.669xh;0,0.158xh&resize=1200:*",
   },
   {
     id: 6,
@@ -169,7 +151,8 @@ export const solutionPost = [
     title: "Application of PRRS Vaccine",
     description:
       "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. ",
-    imgUrl: "https://www.mwiah.com/-/media/assets/mwianimalhealth/images/01-home-page-new-images/ca_spring23_cover.jpg?h=600&iar=0&w=950&hash=080FF411EA538C0A857D4C643FB245E7",
+    imgUrl:
+      "https://www.mwiah.com/-/media/assets/mwianimalhealth/images/01-home-page-new-images/ca_spring23_cover.jpg?h=600&iar=0&w=950&hash=080FF411EA538C0A857D4C643FB245E7",
   },
   {
     id: 17,

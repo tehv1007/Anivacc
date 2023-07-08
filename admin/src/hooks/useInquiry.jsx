@@ -1,5 +1,4 @@
 import { supabase } from "../config/supabase";
-import useQuery from "./useQuery";
 import { useEffect, useState } from "react";
 
 // export const useGetInquiryById = (id) => {

@@ -7,11 +7,11 @@ import Solution from "./Components/Solution";
 import Hero from "./Components/Hero";
 import Partner from "./Components/Partner/Partner";
 
-const Home = () => {
+const Home = ({ lang_code }) => {
   return (
     <div className="bg-gray-100">
-      <Hero />
-      <ProductOffer />
+      <Hero lang_code={lang_code} />
+      <ProductOffer lang_code={lang_code} />
       <Solution />
       <About />
       <Services />

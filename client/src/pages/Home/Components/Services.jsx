@@ -1,5 +1,6 @@
 import Heading from "../../../components/Common/Heading";
 import LearnMore from "./LearnMore";
+import { useTranslation } from "react-i18next";
 
 const ServiceItem = ({ title, icon }) => {
   return (
@@ -22,33 +23,34 @@ const ServiceItem = ({ title, icon }) => {
 };
 
 const Services = () => {
+  const { t } = useTranslation();
   return (
-    <section className="bg-blue-900 bg-cover bg-[url('/images/service-bg.webp')] bg-[50% 50%]">
+    <section className="bg-blue-900 bg-cover bg-[url('/images/background/service-bg.webp')] bg-[50% 50%]">
       <div className="max-w-[1700px] mx-auto px-[10px] md:px-5 xl:px-10">
         <div className="py-[62px]">
           <div className="pb-5">
-            <Heading
-              title="Chúng tôi cung cấp cho bạn đầy đủ các dịch vụ"
-              text="text-white"
-            />
+            <Heading title={t("home_service_heading")} text="text-white" />
           </div>
           <div className="flex flex-col lg:flex-row mt-[30px]">
             <div className="lg:w-1/12" />
-            <ServiceItem title="Tùy chỉnh bao bì" icon="font-icon fa fa-cube" />
             <ServiceItem
-              title="Dịch vụ kỹ thuật sau bán hàng"
+              title={t("home_service_cate1")}
+              icon="font-icon fa fa-cube"
+            />
+            <ServiceItem
+              title={t("home_service_cate2")}
               icon="fa-regular fa-handshake"
             />
             <ServiceItem
-              title="One-To-One Service"
+              title={t("home_service_cate3")}
               icon="fa-solid fa-headset"
             />
             <ServiceItem
-              title="Tùy biến chủng virus"
+              title={t("home_service_cate4")}
               icon="fa-solid fa-vial-virus"
             />
             <ServiceItem
-              title="Marketing Support"
+              title={t("home_service_cate5")}
               icon="font-icon fa fa-tags"
             />
             <div className="lg:w-1/12" />

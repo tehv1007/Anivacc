@@ -1,27 +1,32 @@
-import { useState } from "react";
 import Card from "./components/Card";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import SideBar from "./components/SideBar";
 import Pagination from "../../components/Common/Pagination";
 import GlobalSpinner from "../../components/Common/loading/GlobalSpinner";
 import { useSearchPosts } from "../../hooks/useProduct";
+import { useEffect, useState } from "react";
 
 const paginate = (array, page_size, page_number) => {
   return array.slice((page_number - 1) * page_size, page_number * page_size);
 };
 
-const SearchResult = () => {
+const SearchResult = ({ page, setPage }) => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const searchTerm = searchParams.get("query");
+  const ITEMS_PER_PAGE = 12;
+  // const [page, setPage] = useState(1);
 
-  const [page, setPage] = useState(1);
-  const ITEMS_PER_PAGE = 9;
+  // Thực hiện search khi searchTerm thay đổi
+  const { data: products, isLoading, refetch } = useSearchPosts(searchTerm);
 
-  const { data: products, isLoading } = useSearchPosts(searchTerm);
+  useEffect(() => {
+    setPage(1); // Đặt lại trang hiện tại về 1 khi searchTerm thay đổi
+    refetch(); // Refetch dữ liệu khi searchTerm thay đổi
+  }, [searchTerm, refetch]);
 
-  if (isLoading) return <></>;
-  console.log(products);
+  if (isLoading) return <GlobalSpinner />;
+  // console.log(products);
 
   let totalItems = products.length;
   const paginationParams = {

@@ -9,16 +9,16 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <div className="w-full bg-[url('/images/footer-bg.webp')]">
+    <div className="w-full bg-[url('/images/background/footer-bg.webp')]">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-4 py-10 gap-[10px]">
           {/* Company */}
           <div>
             <Link to="/">
               <img
-                src="/images/logo-white.png"
+                src="/images/logo/anivacC.png"
                 alt="AniVacC Logo"
-                className="w-[160px]"
+                className="max-w-[250px]"
               />
             </Link>
             <p className="mt-5 text-[#b5ccec]">

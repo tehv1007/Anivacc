@@ -29,15 +29,14 @@ const ProductDetail = () => {
   });
 
   if (isLoading) return <Loading />;
-  console.log(product);
+  // console.log(product);
 
   return (
     <>
-      <h2 className="mb-[10px] font-medium sm:text-lg md:text-xl lg:text-2xl">
-        ProductDetail
-      </h2>
-
       <section className="max-w-screen-lg mx-auto px-5 py-4">
+        <h2 className="mb-[10px] font-medium sm:text-lg md:text-xl lg:text-2xl">
+          Product Detail
+        </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div className="w-full">
             <div>
@@ -53,17 +52,17 @@ const ProductDetail = () => {
                 <h2 className="mb-[10px] font-medium sm:text-lg md:text-xl lg:text-2xl">
                   {product.title}
                 </h2>
-                <div className="flex gap-1.5">
+                {/* <div className="flex gap-1.5">
                   <div className="mb-[10px] font-bold sm:text-xl lg:text-3xl">
                     {product.brand}
                   </div>
-                </div>
+                </div> */}
               </span>
 
               <div>
-                <p className="mb-[10px] font-[2px] text-gray-500">
+                <div className="mb-[10px] font-[2px] text-gray-500">
                   {parser(`${product.short_desc}`)}
-                </p>
+                </div>
               </div>
 
               {/* <Link to={"edit"}>
@@ -74,6 +73,11 @@ const ProductDetail = () => {
                 </button>
               </Link> */}
             </div>
+          </div>
+        </div>
+        <div>
+          <div className="mb-[10px] font-[2px] text-gray-500">
+            {parser(`${product.long_desc}`)}
           </div>
         </div>
       </section>

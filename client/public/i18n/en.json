@@ -17,12 +17,24 @@
   ],
   "nav-solutions": "CNC Solutions",
   "nav-solutions-arr": [
-    { "nav-solution": "Veterinary Diagnostic Testing" },
-    { "nav-solution": "Antibiotic Susceptibility Testing" },
-    { "nav-solution": "PCR Tests" },
-    { "nav-solution": "ELISA Tests" },
-    { "nav-solution": "Other Serological Tests" },
-    { "nav-solution": "Microorganism Isolation" }
+    {
+      "nav-solution": "Veterinary Diagnostic Testing",
+      "link": "Chẩn đoán xét nghiệm bệnh động vật"
+    },
+    {
+      "nav-solution": "Antibiotic Susceptibility Testing",
+      "link": "Kháng sinh đồ"
+    },
+    { "nav-solution": "PCR Tests", "link": "Các phép thử PCR" },
+    { "nav-solution": "ELISA Tests", "link": "Các phép thử ELISA" },
+    {
+      "nav-solution": "Other Serological Tests",
+      "link": "Các phép thử huyết thanh học khác"
+    },
+    {
+      "nav-solution": "Microorganism Isolation",
+      "link": "Phân lập vi sinh vật"
+    }
   ],
   "nav-news": "News",
   "nav-news-1": "Company News",
@@ -115,5 +127,125 @@
   "home_count_b2": "Veterinary medicine products",
   "home_count_b3": "Products manufactured by AnivacC",
   "home_count_b4": "Customer satisfaction",
-  "home_partner": "Our partners"
+  "home_partner": "Our partners",
+  "home_certificate": "Certificate",
+  "home_news": "Information Center",
+  "home_news_cate1": "Company News",
+  "home_news_cate2": "Industry News",
+  "home_news_info": "There are no posts in this category yet",
+  "home_product_heading": "See What Products We Offer",
+  "home_product_cate1": "Poultry Vaccine",
+  "home_product_cate2": "Antibodies",
+  "home_product_cate3": "Vaccine diluents",
+  "home_product_cate4": "Nutritional supplements",
+  "home_product_cate5": "Disinfectants",
+  "home_product_p1": "Focus on",
+  "home_product_p2": "Biological products, Disinfectants, Nutritional supplements,...",
+  "home_service_heading": "We Provide You With A Full Range Of Services",
+  "home_service_cate1": "Packaging Customization",
+  "home_service_cate2": "After-Sale Technical Service",
+  "home_service_cate3": "One-To-One Service",
+  "home_service_cate4": "Virus Strain Customization",
+  "home_service_cate5": "Marketing Support",
+  "home_solution_heading": "Area In Which Our Products Are Applied",
+  "home_solution_cate1": "Cattle Breeding",
+  "home_solution_cate2": "Poultry Breeding",
+  "home_solution_cate3": "Pig Breeding",
+  "home_solution_cate4": "Aquatic Breeding",
+  "home_solution_cate5": "Disinfectant",
+  "product_detail": "Product Description",
+  "product-category-parent": [
+    {
+      "parent-category": "Biological Products, Disinfectants, Nutritional Supplements",
+      "link": "Chế phẩm sinh học, thuốc sát trùng và TABS",
+      "child-categories": [
+        {
+          "child-category": "Antibodies",
+          "link": "Kháng thể"
+        },
+        {
+          "child-category": "Vaccine diluents",
+          "link": "Dung môi pha vaccine"
+        },
+        {
+          "child-category": "Biological products",
+          "link": "Chế phẩm sinh học"
+        },
+        {
+          "child-category": "Disinfectants",
+          "link": "Thuốc sát trùng"
+        },
+        {
+          "child-category": "Nutritional supplements",
+          "link": "Thức ăn bổ sung"
+        }
+      ]
+    },
+    {
+      "parent-category": "Vaccine Manufactured At CNC",
+      "link": "Vaccine sản xuất tại CNC",
+      "child-categories": [
+        {
+          "child-category": "Poultry vaccine",
+          "link": "Vaccine phòng bệnh cho gia cầm"
+        },
+        {
+          "child-category": "Swine vaccine",
+          "link": "Vaccine phòng bệnh cho lợn"
+        },
+        {
+          "child-category": "Cattle vaccine",
+          "link": "Vaccine phòng bệnh cho đại gia súc"
+        },
+        {
+          "child-category": "Pet vaccine",
+          "link": "Vaccine phòng bệnh cho thú cảnh"
+        }
+      ]
+    },
+    {
+      "parent-category": "Imported Vaccine",
+      "link": "Vaccine nhập khẩu",
+      "child-categories": []
+    }
+  ],
+  "cart_info": "The product is already in the inquiry basket",
+  "cart_action": "Add to Basket",
+  "cart_inquire": "Inquire",
+  "products_404": "Sorry, there are no products in this category yet",
+  "products_all": "All Products",
+  "products_cate1": "Biological Products, Disinfectants, Nutritional Supplements",
+  "products_cate2": "Vaccine Manufactured At CNC",
+  "products_cate3": "Imported Vaccine",
+  "products_cate4": "Antibodies",
+  "products_cate5": "Biological products",
+  "products_cate6": "Vaccine diluents",
+  "products_cate7": "Disinfectants",
+  "products_cate8": "Nutritional Supplements",
+  "products_cate9": "Poultry vaccine",
+  "products_cate10": "Swine vaccine",
+  "products_cate11": "Cattle vaccine",
+  "products_cate12": "Pet vaccine",
+  "solutions_heading": "CNC Lab",
+  "solutions_intro": "For more information about veterinary diagnostic testing, antibiotic susceptibility testing, PCR testing, ELISA testing, microbial isolation, and other serological tests, welcome to our website!",
+  "solutions-arr": [
+    {
+      "solution": "Veterinary Diagnostic Testing",
+      "link": "Chẩn đoán xét nghiệm bệnh động vật"
+    },
+    {
+      "solution": "Antibiotic Susceptibility Testing",
+      "link": "Kháng sinh đồ"
+    },
+    { "solution": "PCR Tests", "link": "Các phép thử PCR" },
+    { "solution": "ELISA Tests", "link": "Các phép thử ELISA" },
+    {
+      "solution": "Other Serological Tests",
+      "link": "Các phép thử huyết thanh học khác"
+    },
+    {
+      "solution": "Microorganism Isolation",
+      "link": "Phân lập vi sinh vật"
+    }
+  ]
 }

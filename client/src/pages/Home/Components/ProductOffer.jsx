@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import SwiperCore, { Navigation, Pagination } from "swiper";
+import { useState } from "react";
+import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Poultry from "/images/productTypes/Poultry-480-480.webp";
 import Swine from "/images/productTypes/Swine-480-480.webp";
@@ -13,41 +13,9 @@ import ArrowRight from "./arrows/ArrowRight";
 import ArrowLeft from "./arrows/ArrowLeft";
 import { Link } from "react-router-dom";
 import GlobalSpinner from "../../../components/Common/loading/GlobalSpinner";
+import { useTranslation } from "react-i18next";
 
 SwiperCore.use([Navigation, Pagination]);
-
-const categories = [
-  {
-    id: 1,
-    name: "Vaccine cho gia cầm",
-    label: "Vaccine phòng bệnh cho gia cầm",
-    image: Poultry,
-  },
-  {
-    id: 2,
-    name: "Kháng thể",
-    label: "Kháng thể",
-    image: Swine,
-  },
-  {
-    id: 3,
-    name: "Dung môi pha vaccine",
-    label: "Dung môi pha vaccine",
-    image: Bovine,
-  },
-  {
-    id: 4,
-    name: "Thức ăn bổ sung",
-    label: "Thức ăn bổ sung",
-    image: Pet,
-  },
-  {
-    id: 5,
-    name: "Thuốc sát trùng",
-    label: "Thuốc sát trùng",
-    image: Disinfectant,
-  },
-];
 
 const CategoryItem = ({
   handleCategoryClick,
@@ -101,14 +69,47 @@ const CategoryItem = ({
   );
 };
 
-const ProductOffer = () => {
-  const [selectedCategory, setSelectedCategory] = useState(
-    "Vaccine phòng bệnh cho gia cầm"
-  );
+const ProductOffer = ({ lang_code }) => {
+  const { t, i18n } = useTranslation();
 
-  const { data, isLoading, isError, error } = useProductsByCategory([
-    selectedCategory,
-  ]);
+  const categories = [
+    {
+      id: 1,
+      name: i18n.t("home_product_cate1"),
+      label: "Vaccine phòng bệnh cho gia cầm",
+      image: Poultry,
+    },
+    {
+      id: 2,
+      name: i18n.t("home_product_cate2"),
+      label: "Kháng thể",
+      image: Swine,
+    },
+    {
+      id: 3,
+      name: i18n.t("home_product_cate3"),
+      label: "Dung môi pha vaccine",
+      image: Bovine,
+    },
+    {
+      id: 4,
+      name: i18n.t("home_product_cate4"),
+      label: "Thức ăn bổ sung",
+      image: Pet,
+    },
+    {
+      id: 5,
+      name: i18n.t("home_product_cate5"),
+      label: "Thuốc sát trùng",
+      image: Disinfectant,
+    },
+  ];
+
+  const [selectedCategory, setSelectedCategory] = useState(categories[0].label);
+  const { data, isLoading } = useProductsByCategory(
+    [selectedCategory],
+    lang_code
+  );
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -118,16 +119,17 @@ const ProductOffer = () => {
     <section className="max-w-[1440px] mx-auto px-[10px] md:px-5 xl:px-10">
       {/* Heading */}
       <div className="">
-        <Heading title="Những sản phẩm chúng tôi cung cấp" />
+        <Heading title={t("home_product_heading")} />
         <div className="text-gray-800 text-4xl leading-[51px] pb-5 font-[Montserrat] font-bold text-center">
           <span className="text-gray-800 inline font-bold leading-5 text-center text-sm">
-            Tập trung vào{"  "}
-            <a href="https://www.sinderanimalhealth.com/Feed-Additives-pl3477388.html">
+            {t("home_product_p1")}
+            {"  "}
+            <a href="https://cnc-animalhealth.com/products/category/Vaccine%20ph%C3%B2ng%20b%E1%BB%87nh%20cho%20gia%20c%E1%BA%A7m">
               <span className="text-blue-900">
-                <strong>Vaccine phòng bệnh gia cầm</strong>
+                <strong>{t("home_product_cate1")}</strong>
               </span>
             </a>
-            , Chế phẩm sinh học, Thuốc sát trùng, Thức ăn bổ sung
+            , {t("home_product_p2")}
           </span>
         </div>
       </div>
@@ -205,9 +207,14 @@ const ProductOffer = () => {
           {/* 768px */}
           <div className="product-slider smallScreen mt-10 mb-[62px]">
             <Swiper
-              modules={[Pagination]}
+              modules={[Pagination, Autoplay]}
               className="swiper-container !overflow-hidden"
               spaceBetween={20}
+              speed={1000}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
               pagination={{
                 el: ".swiper-pagination",
                 clickable: true,

@@ -17,12 +17,30 @@
   ],
   "nav-solutions": "Phòng thí nghiệm CNC",
   "nav-solutions-arr": [
-    { "nav-solution": "Chẩn Đoán Xét Nghiệm Bệnh Động Vật" },
-    { "nav-solution": "Kháng Sinh Đồ" },
-    { "nav-solution": "Các Phép Thử PCR" },
-    { "nav-solution": "Các Phép Thử ELISA" },
-    { "nav-solution": "Các Phép Thử Huyết Thanh Học Khác" },
-    { "nav-solution": "Phân Lập Vi Sinh Vật" }
+    {
+      "nav-solution": "Chẩn Đoán Xét Nghiệm Bệnh Động Vật",
+      "link": "Chẩn đoán xét nghiệm bệnh động vật"
+    },
+    {
+      "nav-solution": "Kháng Sinh Đồ",
+      "link": "Kháng sinh đồ"
+    },
+    {
+      "nav-solution": "Các Phép Thử PCR",
+      "link": "Các phép thử PCR"
+    },
+    {
+      "nav-solution": "Các Phép Thử ELISA",
+      "link": "Các phép thử ELISA"
+    },
+    {
+      "nav-solution": "Các Phép Thử Huyết Thanh Học Khác",
+      "link": "Các phép thử huyết thanh học khác"
+    },
+    {
+      "nav-solution": "Phân Lập Vi Sinh Vật",
+      "link": "Phân lập vi sinh vật"
+    }
   ],
   "nav-news": "Tin tức",
   "nav-news-1": "Tin tức công ty",
@@ -113,5 +131,131 @@
   "home_count_b2": "Sản phẩm thuốc thú y",
   "home_count_b3": "Sản phẩm từ AnivacC",
   "home_count_b4": "Khách hàng hài lòng",
-  "home_partner": "Đối tác của chúng tôi"
+  "home_partner": "Đối tác của chúng tôi",
+  "home_certificate": "Chứng Nhận",
+  "home_news": "Tin tức",
+  "home_news_cate1": "Tin tức công ty",
+  "home_news_cate2": "Tin trong ngành",
+  "home_news_info": "Chưa có bài viết nào trong danh mục này",
+  "home_product_heading": "Những Sản Phẩm Chúng Tôi Cung Cấp",
+  "home_product_cate1": "Vaccine cho gia cầm",
+  "home_product_cate2": "Kháng thể",
+  "home_product_cate3": "Dung môi pha vaccine",
+  "home_product_cate4": "Thức ăn bổ sung",
+  "home_product_cate5": "Thuốc sát trùng",
+  "home_product_p1": "Tập trung vào",
+  "home_product_p2": "Chế phẩm sinh học, Thuốc sát trùng, Thức ăn bổ sung,...",
+  "home_service_heading": "Chúng tôi cung cấp cho bạn đầy đủ các dịch vụ",
+  "home_service_cate1": "Tùy chỉnh bao bì",
+  "home_service_cate2": "Dịch vụ kỹ thuật sau bán hàng",
+  "home_service_cate3": "Dịch vụ hỗ trợ một - một",
+  "home_service_cate4": "Tùy biến chủng virus",
+  "home_service_cate5": "Hỗ trợ marketing",
+  "home_solution_heading": "Khu vực áp dụng sản phẩm của chúng tôi",
+  "home_solution_cate1": "Chăn nuôi đại gia súc",
+  "home_solution_cate2": "Chăn nuôi gia cầm",
+  "home_solution_cate3": "Chăn nuôi lợn",
+  "home_solution_cate4": "Nuôi trồng thủy sản",
+  "home_solution_cate5": "Khử trùng chuồng trại",
+  "product_detail": "Thông tin sản phẩm",
+  "product-category-parent": [
+    {
+      "parent-category": "Chế Phẩm Sinh Học, Thuốc Sát Trùng Và TABS",
+      "link": "Chế phẩm sinh học, thuốc sát trùng và TABS",
+      "child-categories": [
+        {
+          "child-category": "Kháng thể",
+          "link": "Kháng thể"
+        },
+        {
+          "child-category": "Dung môi pha vaccine",
+          "link": "Dung môi pha vaccine"
+        },
+        {
+          "child-category": "Chế Phẩm Sinh Học",
+          "link": "Chế phẩm sinh học"
+        },
+        {
+          "child-category": "Thuốc Sát Trùng",
+          "link": "Thuốc sát trùng"
+        },
+        {
+          "child-category": "Thức ăn bổ sung",
+          "link": "Thức ăn bổ sung"
+        }
+      ]
+    },
+    {
+      "parent-category": "Vaccine Sản Xuất Tại CNC",
+      "link": "Vaccine sản xuất tại CNC",
+      "child-categories": [
+        {
+          "child-category": "Vaccine phòng bệnh cho gia cầm",
+          "link": "Vaccine phòng bệnh cho gia cầm"
+        },
+        {
+          "child-category": "Vaccine phòng bệnh cho lợn",
+          "link": "Vaccine phòng bệnh cho lợn"
+        },
+        {
+          "child-category": "Vaccine phòng bệnh cho đại gia súc",
+          "link": "Vaccine phòng bệnh cho đại gia súc"
+        },
+        {
+          "child-category": "Vaccine phòng bệnh cho thú cảnh",
+          "link": "Vaccine phòng bệnh cho thú cảnh"
+        }
+      ]
+    },
+    {
+      "parent-category": "Vaccine Nhập Khẩu",
+      "link": "Vaccine nhập khẩu",
+      "child-categories": []
+    }
+  ],
+  "cart_info": "Sản phẩm đã có trong giỏ hàng",
+  "cart_action": "Thêm vào giỏ hàng",
+  "cart_inquire": "Yêu cầu sản phẩm",
+  "products_404": "Xin lỗi bạn, Chưa có sản phẩm nào trong danh mục này",
+  "products_all": "Tất cả sản phẩm",
+  "products_cate1": "Chế phẩm sinh học, thuốc sát trùng và TABS",
+  "products_cate2": "Vaccine sản xuất tại CNC",
+  "products_cate3": "Vaccine nhập khẩu",
+  "products_cate4": "Kháng thể",
+  "products_cate5": "Chế phẩm sinh học",
+  "products_cate6": "Dung môi pha vaccine",
+  "products_cate7": "Thuốc sát trùng",
+  "products_cate8": "Thức ăn bổ sung",
+  "products_cate9": "Vaccine phòng bệnh cho gia cầm",
+  "products_cate10": "Vaccine phòng bệnh cho lợn",
+  "products_cate11": "Vaccine phòng bệnh cho đại gia súc",
+  "products_cate12": "Vaccine phòng bệnh cho thú cảnh",
+  "solutions_heading": "Phòng thí nghiệm CNC",
+  "solutions_intro": "Để biết thêm thông tin về chẩn đoán xét nghiệm bệnh động vật, kháng sinh đồ, các phép thử PCR, các phép thử ELISA, phân lập vi sinh vật, các phép thử huyết thanh học khác, chào mừng bạn đến với trang web của chúng tôi!",
+  "solutions-arr": [
+    {
+      "solution": "Chẩn Đoán Xét Nghiệm Bệnh Động Vật",
+      "link": "Chẩn đoán xét nghiệm bệnh động vật"
+    },
+    {
+      "solution": "Kháng Sinh Đồ",
+      "link": "Kháng sinh đồ"
+    },
+    {
+      "solution": "Các Phép Thử PCR",
+      "link": "Các phép thử PCR"
+    },
+    {
+      "solution": "Các Phép Thử ELISA",
+      "link": "Các phép thử ELISA"
+    },
+    {
+      "solution": "Các Phép Thử Huyết Thanh Học Khác",
+      "link": "Các phép thử huyết thanh học khác"
+    },
+    {
+      "solution": "Phân Lập Vi Sinh Vật",
+      "link": "Phân lập vi sinh vật"
+    }
+  ]
 }

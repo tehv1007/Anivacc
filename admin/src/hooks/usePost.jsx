@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "../config/supabase";
 import pagination from "../utils/pagination";
 
-export const useGetPosts = (page, limit = 3) => {
+export const useGetPosts = (page, limit = 7) => {
   const { FROM, LIMIT } = pagination(page, limit);
 
   return useQuery(
@@ -12,7 +12,7 @@ export const useGetPosts = (page, limit = 3) => {
     async () => {
       const { data, error } = await supabase
         .from("posts")
-        .select(`title, description, id, thumbnail, category`)
+        .select()
         .order("created_at", { ascending: false })
         .range(FROM, LIMIT);
 
@@ -130,19 +130,28 @@ export const useSearchPosts = (keyword) => {
   );
 };
 
-export const useCreatePost = () => {
+export const useCreatePost = (reset) => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   return useMutation(
-    async ({ author_id, content, description, thumbnail, title, category }) => {
+    async ({
+      lang_code,
+      author_id,
+      content,
+      description,
+      thumbnail,
+      title,
+      category,
+    }) => {
       await supabase.from("posts").insert({
         title,
         thumbnail,
         description,
         content,
         author_id,
-        category: category.label == "Tin tức công ty" ? "company" : "industry",
+        category,
+        lang_code,
       });
     },
     {
@@ -152,6 +161,7 @@ export const useCreatePost = () => {
       },
       onSuccess: () => {
         toast.success("Tạo bài viết thành công!");
+        reset();
         queryClient.invalidateQueries(["posts", "posts_count"]);
         return navigate("/");
       },

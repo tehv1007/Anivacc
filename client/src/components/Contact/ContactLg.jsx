@@ -21,7 +21,7 @@ export default function ContactLg({
   };
 
   const inquirySchema = buildInquirySchema(translations);
-  console.log(products);
+  // console.log(products);
 
   const {
     register,

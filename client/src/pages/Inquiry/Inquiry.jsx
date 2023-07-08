@@ -16,7 +16,7 @@ export default function Inquiry({ cart, setCart }) {
 
   return (
     <>
-      <Header imgUrl={"/images/products-bg.webp"} />
+      <Header imgUrl={"/images/background/products-bg.webp"} />
       <Container>
         <div className="text-center mt-8">
           <h1 className="text-3xl font-bold text-[#003d79]">Product Inquiry</h1>

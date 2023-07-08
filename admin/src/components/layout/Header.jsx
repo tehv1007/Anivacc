@@ -11,8 +11,8 @@ const Header = ({ isDark, toggleTheme }) => {
       <div className="fixed w-full flex items-center justify-between h-14 text-white z-10">
         <div className="flex items-center justify-start md:justify-center pl-3 w-14 md:w-64 h-14 bg-blue-800 dark:bg-gray-800 border-none">
           <img
-            className="w-7 h-7 md:w-10 md:h-10 mr-2 rounded-md overflow-hidden"
-            src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg"
+            className="w-auto h-7 md:w-auto md:h-10 mr-2 rounded-md overflow-hidden"
+            src="/images/z4487164248109_6f5f5fad9c2229a5afff400b7196ba78.jpg"
           />
           <span className="hidden md:block">ADMIN</span>
         </div>

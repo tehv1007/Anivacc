@@ -8,7 +8,7 @@ export default function Guide() {
   const { t } = useTranslation();
   return (
     <div>
-      <Header imgUrl={"/images/banner2.jpg"} />
+      <Header imgUrl={"/images/background/stock_08.jpg"} />
       <Container bgColor={"[#fff]"}>
         <Title text={t("guide")} />
         <GuideBody />

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Heading from "../../../components/Common/Heading";
+import { useTranslation } from "react-i18next";
 
 const Title = ({ title }) => {
   return (
@@ -17,10 +18,12 @@ const Title = ({ title }) => {
 };
 
 const Solution = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="mb-20">
       <div className="max-w-[1200px] mx-auto pb-5">
-        <Heading title="Khu vực áp dụng sản phẩm của chúng tôi" />
+        <Heading title={t("home_solution_heading")} />
       </div>
       <div className="box flex flex-row sm:flex-nowrap flex-wrap gap-[10px] sm:flex-row max-w-[1756px] mx-auto px-[10px]">
         {/* Box 1 */}
@@ -31,13 +34,13 @@ const Solution = () => {
                 {/* <source media="(max-width:768px)" /> */}
                 <img
                   src="/images/solution/Cattle-Breeding.webp"
-                  alt="Bệnh trên đại gia súc"
+                  alt={t("home_solution_cate1")}
                   className="w-full h-full object-cover block"
                 />
               </picture>
             </Link>
           </div>
-          <Title title="Bệnh trên đại gia súc" />
+          <Title title={t("home_solution_cate1")} />
         </div>
 
         {/* Box 2 */}
@@ -49,13 +52,13 @@ const Solution = () => {
                   {/* <source media="(max-width:768px)" /> */}
                   <img
                     src="/images/solution/Duck-Goose-Breeding.webp"
-                    alt="Bệnh gia cầm"
+                    alt={t("home_solution_cate2")}
                     className="w-full h-full object-cover block"
                   />
                 </picture>
               </Link>
             </div>
-            <Title title="Bệnh gia cầm" />
+            <Title title={t("home_solution_cate2")} />
           </div>
 
           {/* sub box 2b */}
@@ -67,13 +70,13 @@ const Solution = () => {
                     {/* <source media="(max-width:768px)" /> */}
                     <img
                       src="/images/solution/Pig-Breeding.webp"
-                      alt="Bệnh trên lợn"
+                      alt={t("home_solution_cate3")}
                       className="w-full h-full object-cover block"
                     />
                   </picture>
                 </Link>
               </div>
-              <Title title="Bệnh trên lợn" />
+              <Title title={t("home_solution_cate3")} />
             </div>
             <div className="box_b w-1/2 relative">
               <div className="box_img img_4">
@@ -82,13 +85,13 @@ const Solution = () => {
                     {/* <source media="(max-width:768px)" /> */}
                     <img
                       src="/images/solution/Shrimp-Breeding.webp"
-                      alt="Bệnh trên thủy sản"
+                      alt={t("home_solution_cate4")}
                       className="w-full h-full object-cover block"
                     />
                   </picture>
                 </Link>
               </div>
-              <Title title="Bệnh thủy sản" />
+              <Title title={t("home_solution_cate4")} />
             </div>
           </div>
         </div>
@@ -101,13 +104,13 @@ const Solution = () => {
                 {/* <source media="(max-width:768px)" /> */}
                 <img
                   src="/images/solution/Chicken-Breeding.webp"
-                  alt="Giải pháp khử trùng"
+                  alt={t("home_solution_cate5")}
                   className="w-full h-full object-cover block"
                 />
               </picture>
             </Link>
           </div>
-          <Title title="Giải pháp khử trùng" />
+          <Title title={t("home_solution_cate5")} />
         </div>
       </div>
     </section>

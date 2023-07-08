@@ -34,6 +34,11 @@ export default function AdvantageBody() {
           </ul>
         </div>
       </Container>
+      <img
+        className="min-[1200px]:w-[60%] w-[80%] mx-auto object-cover"
+        src="/images/others/chung-nhan-iso-scaled.jpg"
+        alt="Image"
+      />
     </div>
   );
 }

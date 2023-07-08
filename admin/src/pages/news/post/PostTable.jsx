@@ -1,8 +1,9 @@
 import { memo } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../Button";
-import { useDeletePost } from "../../hooks/usePost";
-import LoadingSkeleton from "../loading/LoadingSkeleton";
+import Button from "../components/Button";
+import { useDeletePost } from "../../../hooks/usePost";
+import LoadingSkeleton from "../../../components/common/loading/LoadingSkeleton";
+import parser from "html-react-parser";
 
 const PostTable = ({ posts, isLoading }) => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const PostTable = ({ posts, isLoading }) => {
             <th className="text-xs lg:text-base">Title</th>
             <th className="text-xs lg:text-base">Description</th>
             <th className="text-xs lg:text-base">Time</th>
-            <th className="text-xs lg:text-base">Modify</th>
+            <th className="text-xs lg:text-base">Action</th>
           </tr>
 
           {!isLoading ? (
@@ -27,7 +28,7 @@ const PostTable = ({ posts, isLoading }) => {
                   <td className="hidden lg:block">
                     <img
                       src={post.thumbnail}
-                      className="object-cover w-20 h-20 rounded-lg"
+                      className="object-cover w-40 h-20 rounded-lg"
                       alt=""
                       loading="lazy"
                     />
@@ -35,15 +36,15 @@ const PostTable = ({ posts, isLoading }) => {
                   <td>
                     <h4
                       onClick={() => navigate(`/posts/${post.id}`)}
-                      className="text-sm font-semibold text-green-300 cursor-pointer lg:text-base hover:underline"
+                      className="text-sm font-semibold text-green-500 cursor-pointer lg:text-base hover:underline line-clamp-3"
                     >
                       {post.title}
                     </h4>
                   </td>
                   <td>
-                    <p className="text-xs lg:text-base line-clamp-2">
-                      {post.description}
-                    </p>
+                    <div className="text-xs lg:text-base line-clamp-2">
+                      {parser(post.description)}
+                    </div>
                   </td>
                   <td>
                     <p className="text-xs lg:text-base">

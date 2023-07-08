@@ -10,7 +10,6 @@ import "swiper/css/navigation";
 import ProductDesc from "./components/ProductDesc";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
-import { ClipLoader } from "react-spinners";
 import { supabase } from "../../config/supabase";
 import Button from "../../components/Feature/Button";
 import RelatedArticles from "../../components/Feature/RelatedArticles";
@@ -18,8 +17,10 @@ import ContactLg from "../../components/Contact/ContactLg";
 import parse from "html-react-parser";
 import SideBar from "./components/SideBar";
 import GlobalSpinner from "../../components/Common/loading/GlobalSpinner";
+import { useTranslation } from "react-i18next";
 
 export default function ProductDetail({ cart, setCart }) {
+  const { t } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -53,7 +54,7 @@ export default function ProductDetail({ cart, setCart }) {
     } else {
       Toast.fire({
         icon: "error",
-        title: "Sản phẩm đã có trong giỏ hàng",
+        title: t("cart_info"),
       });
     }
   };
@@ -77,8 +78,8 @@ export default function ProductDetail({ cart, setCart }) {
           <div className=" grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="w-full [&_img]:w-full [&>figure>div>img]:w-full [&>figure>div>img]:h-[400px] [&_img]:object-cover">
               <InnerImageZoom
-                // src={product.thumbnail_list[pos]}
-                src={product.thumbnail}
+                src={product.thumbnail[pos]}
+                // src={product.thumbnail}
                 className="border-2 p-1 w-full"
               />
               <div className=" mt-4 w-full">
@@ -92,19 +93,19 @@ export default function ProductDetail({ cart, setCart }) {
                   modules={[Navigation]}
                   className="mySwiper"
                 >
-                  {/* {product.thumbnail_list.map((imgUrl, index) => ( */}
-                  <SwiperSlide key={product.thumbnail}>
-                    <div
-                      className="cursor-pointer border-2"
-                      // onClick={() => handleImg(index)}
-                      // className={` cursor-pointer border-2  ${
-                      //   index === pos ? `border-blue-600` : `border-slate-200`
-                      // } `}
-                    >
-                      <img className="w-full" src={product.thumbnail} alt="" />
-                    </div>
-                  </SwiperSlide>
-                  {/* ))} */}
+                  {product.thumbnail.map((imgUrl, index) => (
+                    <SwiperSlide key={index}>
+                      <div
+                        // className="cursor-pointer border-2"
+                        onClick={() => handleImg(index)}
+                        className={` cursor-pointer border-2  ${
+                          index === pos ? `border-blue-600` : `border-slate-200`
+                        } `}
+                      >
+                        <img className="w-full" src={imgUrl} alt="" />
+                      </div>
+                    </SwiperSlide>
+                  ))}
                 </Swiper>
               </div>
             </div>
@@ -116,13 +117,13 @@ export default function ProductDetail({ cart, setCart }) {
                 {parse(product.short_desc)}
               </div>
               <div className=" flex gap-5">
-                <Button onClick={navigateCart}>Inquire</Button>
+                <Button onClick={navigateCart}>{t("cart_inquire")}</Button>
                 <button
                   type="submit"
                   className="text-white bg-[#003d79] w-fit px-5 py-3 rounded-xl grow-0 transition hover:scale-110 hover:shadow-slate-400 hover:shadow-md active:scale-100"
                   onClick={handleCart}
                 >
-                  Add to Basket
+                  {t("cart_action")}
                 </button>
               </div>
             </div>

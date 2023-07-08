@@ -3,74 +3,59 @@ import { supabase } from "../../../config/supabase";
 import { useQueries } from "@tanstack/react-query";
 import ContactSm from "../../../components/Contact/ContactSm";
 import RelatedProducts from "../../../components/Feature/RelatedProducts";
+import { useTranslation } from "react-i18next";
 
 export default function SideBar({ setPage }) {
+  const { t } = useTranslation();
   const { pathname } = useLocation();
-
-  const [categoryTypeQuery, categoryQuery] = useQueries({
-    queries: [
-      {
-        queryKey: ["category_type"],
-        queryFn: () => supabase.from("category_type").select(),
-        select: (res) => res.data,
-      },
-      {
-        queryKey: ["categories"],
-        queryFn: () => supabase.from("category").select(),
-        select: (res) => res.data,
-      },
-    ],
-  });
-
   const words = pathname.split("/");
-
-  if (categoryTypeQuery.isLoading || categoryQuery.isLoading) {
-    return <div></div>;
-  }
 
   return (
     <div className="lg:block h-fit border border-base-300 ">
-      {categoryTypeQuery.data.map((type) => {
-        return (
-          <div
-            key={type.id}
-            className="collapse rounded-[0] collapse-plus border-b-2 border-black/30 relative"
-          >
-            <input
-              type="checkbox"
-              defaultChecked
-              className="absolute right-0 w-10 h-5"
-            />
-            <Link
-              to={`/products/category/${type.category_type}`}
-              onClick={() => {
-                setPage(1);
-              }}
-              className="block collapse-title text-base font-medium text-[white] bg-[#003d79]"
+      {t("product-category-parent", { returnObjects: true }).map(
+        (category, index) => {
+          return (
+            <div
+              key={index}
+              className="collapse rounded-[0] collapse-plus border-b-2 border-black/30 relative"
             >
-              {type.category_type}
-            </Link>
+              <input
+                type="checkbox"
+                defaultChecked
+                className="absolute right-0 w-10 h-5"
+              />
+              <Link
+                to={`/products/category/${t(category["link"])}`}
+                onClick={() => {
+                  setPage(1);
+                }}
+                className="block collapse-title text-base font-medium text-[white] bg-[#003d79]"
+              >
+                {t(`${category["parent-category"]}`)}
+              </Link>
 
-            <ul className="collapse-content p-0 [&>a]:block [&>a]:border-b-2 [&>a]:rounded-[0] [&>a]:py-3 [&>a]:pl-9 list-disc hover:[&>a]:bg-slate-400/10 [&>a]:transition [&>a]:w-full">
-              {categoryQuery.data.map((category) => {
-                if (category.category_type === type.id) {
-                  return (
-                    <Link
-                      to={`/products/category/${category.name}`}
-                      key={Math.random()}
-                      onClick={() => {
-                        setPage(1);
-                      }}
-                    >
-                      <li className="text-sm">{category.name}</li>
-                    </Link>
-                  );
-                }
-              })}
-            </ul>
-          </div>
-        );
-      })}
+              <ul className="collapse-content p-0 [&>a]:block [&>a]:border-b-2 [&>a]:rounded-[0] [&>a]:py-3 [&>a]:pl-9 list-disc hover:[&>a]:bg-slate-400/10 [&>a]:transition [&>a]:w-full">
+                {category["child-categories"].length > 0 &&
+                  category["child-categories"].map((category, index) => {
+                    return (
+                      <Link
+                        to={`/products/category/${t(category["link"])}`}
+                        key={index}
+                        onClick={() => {
+                          setPage(1);
+                        }}
+                      >
+                        <li className="text-sm">
+                          {t(`${category["child-category"]}`)}
+                        </li>
+                      </Link>
+                    );
+                  })}
+              </ul>
+            </div>
+          );
+        }
+      )}
 
       {words[3] ? <ContactSm /> : <RelatedProducts />}
     </div>

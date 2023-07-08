@@ -9,7 +9,7 @@ export default function FAQ() {
 
   return (
     <div>
-      <Header imgUrl={"/images/faq.webp"} />
+      <Header imgUrl={"/images/background/faq.webp"} />
       <Container bgColor={"[#fff]"}>
         <Title text={"FAQ"} />
         <div className="mb-[88px] mt-4">

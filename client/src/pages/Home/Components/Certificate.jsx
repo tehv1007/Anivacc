@@ -4,10 +4,13 @@ import Modal from "react-modal";
 import { useState } from "react";
 import LearnMore from "./LearnMore";
 import Heading from "../../../components/Common/Heading";
+import { useTranslation } from "react-i18next";
 
 SwiperCore.use([Navigation, EffectFade]);
 
 const Certificate = () => {
+  const { t } = useTranslation();
+
   const [isModalOpen, setModalOpen] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(1);
 
@@ -55,7 +58,7 @@ const Certificate = () => {
         <div className="py-5 px-[15px]">
           {/* Heading */}
           <div className="">
-            <Heading title="Chứng nhận" />
+            <Heading title={t("home_certificate")} />
           </div>
           {/* News list */}
           <div className="Article_Container">
@@ -66,7 +69,7 @@ const Certificate = () => {
             >
               <div>
                 <img
-                  src="/images/chung-nhan-iso-scaled.jpg"
+                  src="/images/others/chung-nhan-iso-scaled.jpg"
                   alt="certificate"
                   className="w-full object-cover block max-w-[540px] mx-auto"
                 />
