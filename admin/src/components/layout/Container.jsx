@@ -1,4 +1,4 @@
-import { memo, ReactNode } from "react";
+import { memo } from "react";
 import classNames from "classnames";
 
 const Container = ({ children, className }) => {

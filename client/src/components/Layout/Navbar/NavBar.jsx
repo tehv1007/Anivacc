@@ -307,7 +307,7 @@ export default function NavBar({ setLangCode, setPage }) {
                 </button>
 
                 {isOpen && (
-                  <div className="bg-white text-black/60 absolute top-[45px] flex flex-col rounded-b-lg lg:p-2 w-full">
+                  <div className="bg-white text-black/60 absolute top-[32px] flex flex-col rounded-b-lg lg:p-2 w-full">
                     {LANGUAGES.filter((item) => item.code != value).map(
                       (item, index) => (
                         <div key={index} className="w-full cursor-pointer">

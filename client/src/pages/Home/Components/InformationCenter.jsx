@@ -5,6 +5,7 @@ import { supabase } from "../../../config/supabase";
 import { useQuery } from "@tanstack/react-query";
 import { formatDate } from "../../../utils/formatDate";
 import { useTranslation } from "react-i18next";
+import parser from "html-react-parser";
 
 const NewsItem = ({ post }) => {
   return (
@@ -29,8 +30,8 @@ const NewsItem = ({ post }) => {
           <Link to={`/posts/${post.id}`}>{post.title}</Link>
         </h5>
         <div className="timeTwo md:hidden">{formatDate(post.created_at)}</div>
-        <p className="line-clamp-2 text-gray-500 text-xs leading-6 mb-[30px]">
-          {post.description}
+        <p className="line-clamp-2 text-gray-500 text-[13px] leading-6 mb-[30px]">
+          {parser(post.description)}
         </p>
         <div className="hidden md:block w-full h-[1.2px] bg-transparent transition-all duration-360 ease-in group-hover:bg-blue-900" />
         <div className="hidden md:flex border-gray-200 text-gray-600 text-xl leading-[70px] justify-between items-center group-hover:text-blue-900 border-t">
@@ -47,19 +48,16 @@ const NewsItem = ({ post }) => {
   );
 };
 
-const InformationCenter = () => {
+const InformationCenter = ({ lang_code }) => {
   const { t } = useTranslation();
 
-  const {
-    isLoading,
-    data: posts,
-    error,
-  } = useQuery({
-    queryKey: ["posts"],
+  const { isLoading, data: posts } = useQuery({
+    queryKey: ["posts", { lang_code }],
     queryFn: () =>
       supabase
         .from("posts")
         .select("*")
+        .eq("lang_code", lang_code)
         .order("created_at", { ascending: false })
         .limit(3),
     select: (res) => {
@@ -77,12 +75,12 @@ const InformationCenter = () => {
             {/* Categories */}
             <div className="px-[5px] hidden md:block">
               <ul className="flex gap-[10px]">
-                <li className="bg-blue-900 border text-white text-xs leading-7 text-left px-[22px] rounded-[30px] capitalize">
+                <li className="bg-blue-900 border text-white text-[13px] leading-7 text-left px-[22px] rounded-[30px] capitalize">
                   <Link to="/posts/category/company" title="Company News">
                     {t("home_news_cate1")}
                   </Link>
                 </li>
-                <li className="border-gray-500 border text-gray-600 hover:bg-blue-900 hover:text-white transition-all duration-360 ease-linear text-xs leading-7 text-left px-[22px] rounded-[30px] capitalize">
+                <li className="border-gray-500 border text-gray-600 hover:bg-blue-900 hover:text-white transition-all duration-360 ease-linear text-[13px] leading-7 text-left px-[22px] rounded-[30px] capitalize">
                   <Link to="/posts/category/industry" title="Industry News">
                     {t("home_news_cate2")}
                   </Link>
