@@ -3,11 +3,11 @@ import parser from "html-react-parser";
 import { useParams } from "react-router-dom";
 import Container from "../../components/layout/Container";
 import LoadingPostDetailSkeleton from "../../components/common/loading/LoadingPostDetailSkeleton";
-import { useGetSolutionById } from "../../hooks/useSolution";
+import { useGetPostById } from "../../hooks/usePost";
 
 const NewsDetail = () => {
   const { postID } = useParams();
-  const { data: postInfo, isLoading } = useGetSolutionById(postID);
+  const { data: postInfo, isLoading } =  useGetPostById(postID);
 
   return (
     <Container className="flex flex-col gap-y-5">

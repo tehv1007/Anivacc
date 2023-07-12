@@ -29,7 +29,6 @@ export const router = createBrowserRouter([
           {
             path: "/",
             element: <Dashboard />,
-            // element: <AddSolution />,
           },
           {
             path: "/products/list",
@@ -82,10 +81,6 @@ export const router = createBrowserRouter([
         element: <AuthLayout />,
         children: [{ path: "/login", element: <Login /> }],
       },
-      // {
-      //   path: "/signup",
-      //   element: <SignUpPage />,
-      // },
     ],
   },
 ]);

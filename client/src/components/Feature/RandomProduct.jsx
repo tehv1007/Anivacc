@@ -12,7 +12,7 @@ import ArrowLeft from "../../pages/Home/Components/arrows/ArrowLeft";
 import GlobalSpinner from "../Common/loading/GlobalSpinner";
 import { useTranslation } from "react-i18next";
 
-export default function RandomProduct() {
+export default function RandomProduct({ lang_code }) {
   const [widthScreen, setWidthScreen] = useState(window.innerWidth);
   const handleResize = () => setWidthScreen(window.innerWidth);
   const { t } = useTranslation();
@@ -22,8 +22,8 @@ export default function RandomProduct() {
   }, [widthScreen]);
 
   const { isLoading, data: products } = useQuery({
-    queryKey: ["products"],
-    queryFn: () => supabase.from("product").select(),
+    queryKey: ["products", { lang_code }],
+    queryFn: () => supabase.from("product").select().eq("lang_code", lang_code),
 
     select: (res) => res.data,
   });

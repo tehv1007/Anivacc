@@ -9,12 +9,12 @@ import { supabase } from "../../config/supabase";
 import GlobalSpinner from "../Common/loading/GlobalSpinner";
 import { useTranslation } from "react-i18next";
 
-export default function RelatedArticles() {
+export default function RelatedArticles({ lang_code }) {
   const { t } = useTranslation();
 
   const { isLoading, data: posts } = useQuery({
-    queryKey: ["posts"],
-    queryFn: () => supabase.from("posts").select(),
+    queryKey: ["posts", { lang_code }],
+    queryFn: () => supabase.from("posts").select().eq("lang_code", lang_code),
 
     select: (res) => res.data,
   });

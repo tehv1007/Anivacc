@@ -94,9 +94,9 @@ export default function Solutions({ lang_code }) {
               widthScreen >= 600 ? (widthScreen >= 1000 ? 3 : 2) : 1
             }
             spaceBetween={0}
-            pagination={{
-              type: "fraction",
-            }}
+            // pagination={{
+            //   type: "fraction",
+            // }}
             navigation={true}
             modules={[Navigation]}
             className="mySwiper w-full"
@@ -149,7 +149,7 @@ export default function Solutions({ lang_code }) {
             )}
           </Swiper>
         </div>
-        <RandomProduct />
+        <RandomProduct lang_code={lang_code} />
       </Container>
     </>
   );

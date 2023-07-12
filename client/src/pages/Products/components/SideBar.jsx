@@ -5,7 +5,7 @@ import ContactSm from "../../../components/Contact/ContactSm";
 import RelatedProducts from "../../../components/Feature/RelatedProducts";
 import { useTranslation } from "react-i18next";
 
-export default function SideBar({ setPage }) {
+export default function SideBar({ setPage, lang_code }) {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const words = pathname.split("/");
@@ -57,7 +57,7 @@ export default function SideBar({ setPage }) {
         }
       )}
 
-      {words[3] ? <ContactSm /> : <RelatedProducts />}
+      {words[3] ? <ContactSm /> : <RelatedProducts lang_code={lang_code} />}
     </div>
   );
 }

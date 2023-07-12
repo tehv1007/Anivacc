@@ -9,7 +9,8 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <div className="w-full bg-[url('/images/background/footer-bg.webp')]">
+    // <div className="w-full bg-[url('/images/background/footer-bg.webp')]">
+      <div className="w-full bg-blue-900">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-4 py-10 gap-[10px]">
           {/* Company */}

@@ -9,12 +9,12 @@ import { supabase } from "../../config/supabase";
 import GlobalSpinner from "../Common/loading/GlobalSpinner";
 import { useTranslation } from "react-i18next";
 
-export default function RelatedProducts() {
+export default function RelatedProducts({ lang_code }) {
   const { t } = useTranslation();
 
   const { isLoading, data: products } = useQuery({
-    queryKey: ["products"],
-    queryFn: () => supabase.from("product").select(),
+    queryKey: ["products", { lang_code }],
+    queryFn: () => supabase.from("product").select().eq("lang_code", lang_code),
 
     select: (res) => res.data,
   });

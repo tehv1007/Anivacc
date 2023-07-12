@@ -1,6 +1,9 @@
 import { Quill } from "react-quill";
-import BlotFormatter from "quill-blot-formatter";
-Quill.register("modules/blotFormatter", BlotFormatter);
+// import BlotFormatter from "quill-blot-formatter";
+// Quill.register("modules/blotFormatter", BlotFormatter);
+import ImageResize from "quill-image-resize-module-react";
+
+Quill.register("modules/imageResize", ImageResize);
 
 const toolbarOptions = [
   ["bold", "italic", "underline", "strike"], // toggled buttons
@@ -25,7 +28,11 @@ const toolbarOptions = [
 ];
 
 export const modules = {
-  blotFormatter: {},
+  imageResize: {
+    parchment: Quill.import("parchment"),
+    modules: ["Resize", "DisplaySize", "Toolbar"],
+  },
+  // blotFormatter: {},
   toolbar: toolbarOptions,
 };
 

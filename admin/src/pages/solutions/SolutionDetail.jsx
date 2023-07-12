@@ -4,11 +4,13 @@ import { useParams } from "react-router-dom";
 import { useGetPostById } from "../../hooks/usePost";
 import Container from "../../components/layout/Container";
 import LoadingPostDetailSkeleton from "../../components/common/loading/LoadingPostDetailSkeleton";
+import { useGetSolutionById } from "../../hooks/useSolution";
 
 const SolutionDetail = () => {
   const { solutionID } = useParams();
-  const { data: postInfo, isLoading } = useGetPostById(solutionID);
-
+  const { data: postInfo, isLoading } = useGetSolutionById(solutionID);
+  if (isLoading) return <div></div>;
+  console.log(postInfo);
   return (
     <Container className="flex flex-col gap-y-5">
       {!isLoading ? (

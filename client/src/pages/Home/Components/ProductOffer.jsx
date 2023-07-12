@@ -27,7 +27,7 @@ const CategoryItem = ({
     <>
       <li
         key={category.id}
-        className={`sm:max-w-[268px] px-[10px] pb-5 text-center relative ${
+        className={`sm:max-w-[272px] px-[10px] pb-5 text-center relative ${
           selectedCategory === category.label ? "active" : ""
         }`}
         onClick={() => handleCategoryClick(category.label)}
@@ -36,7 +36,7 @@ const CategoryItem = ({
           <img className="" src={category.image} alt={category.name} />
         </div>
         <Link
-          to={`/${category.label}`}
+          to={`/products/category/${category.label}`}
           className="text-gray-800 text-[16px] h-auto md:h-[48px] inline-block"
         >
           {category.name}

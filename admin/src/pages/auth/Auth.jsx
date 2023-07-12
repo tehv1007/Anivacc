@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { supabase } from "../../config/supabase";
 
@@ -7,6 +7,7 @@ export const AuthContext = createContext(null);
 
 const Auth = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleGGLogin = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
@@ -19,6 +20,8 @@ const Auth = () => {
   };
 
   const [session, setSession] = useState(null);
+  const [currentLocation, setCurrentLocation] = useState("dashboard");
+
   const addUserMutation = useMutation({
     mutationFn: (newUser) => supabase.from("user").insert(newUser),
   });
@@ -45,7 +48,9 @@ const Auth = () => {
               );
             } else {
               if (res.data.roleId === 2) {
-                navigate("/");
+                const restoredLocation =
+                  localStorage.getItem("currentLocation");
+                navigate(`${restoredLocation}`);
               } else {
                 navigate("/login");
               }
@@ -58,6 +63,21 @@ const Auth = () => {
 
     return () => subscription.unsubscribe();
   }, []);
+
+  useEffect(() => {
+    setCurrentLocation(location.pathname);
+    localStorage.setItem("currentLocation", location.pathname);
+  }, [location]);
+
+  useEffect(() => {
+    const restoredLocation = localStorage.getItem("currentLocation");
+
+    if (restoredLocation && restoredLocation !== "/login") {
+      navigate(restoredLocation);
+    }
+  }, [navigate]);
+
+  // console.log(currentLocation);
 
   return (
     <AuthContext.Provider

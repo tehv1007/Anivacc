@@ -1,10 +1,10 @@
 import useChangePage from "../../hooks/useChangePage";
 import { useCountSolutions, useGetSolutions } from "../../hooks/useSolution";
 import PostPagination from "../news/post/PostPagination";
-import PostTable from "../news/post/PostTable";
+import PostTable from "./components/PostTable";
 
 const Solutions = () => {
-  const { page, changePage } = useChangePage("/posts");
+  const { page, changePage } = useChangePage("/solutions");
   const { data: postList, isLoading } = useGetSolutions(page);
   const { data: countPost } = useCountSolutions();
 
