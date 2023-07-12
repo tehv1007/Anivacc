@@ -53,11 +53,11 @@ const AddNews = () => {
   const postMutation = useCreatePost(reset);
 
   const handleCreatePost = (values) => {
-    // console.log(values);
-    const { category, ...post } = values;
+    const { category, lang_code, ...post } = values;
     postMutation.mutate({
       ...post,
       category: category.value,
+      lang_code: lang_code.value,
       author_id: session?.user?.id,
     });
   };
