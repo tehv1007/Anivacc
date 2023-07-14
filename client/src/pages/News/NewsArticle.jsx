@@ -23,6 +23,7 @@ import parser from "html-react-parser";
 import Header from "../../components/Feature/Header";
 import LoadingPostDetailSkeleton from "../../components/Common/loading/LoadingPostDetailSkeleton";
 import Loading from "../../components/Common/loading/Loading";
+import RelatedArticles from "../../components/Feature/RelatedArticles";
 
 const NewsArticle = ({ title, thumbnail, lang_code }) => {
   const location = useLocation();
@@ -122,7 +123,7 @@ const NewsArticle = ({ title, thumbnail, lang_code }) => {
                 )
               )}
             </ul>
-            {/* Tags */}
+            <RelatedArticles lang_code={lang_code} category={post.category} />
           </div>
         )}
       </div>

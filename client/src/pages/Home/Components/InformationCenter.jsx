@@ -30,9 +30,9 @@ const NewsItem = ({ post }) => {
           <Link to={`/posts/${post.id}`}>{post.title}</Link>
         </h5>
         <div className="timeTwo md:hidden">{formatDate(post.created_at)}</div>
-        <p className="line-clamp-2 text-gray-500 text-[13px] leading-6 mb-[30px]">
+        <div className="line-clamp-2 text-gray-500 text-[13px] leading-6 mb-[30px]">
           {parser(post.description)}
-        </p>
+        </div>
         <div className="hidden md:block w-full h-[1.2px] bg-transparent transition-all duration-360 ease-in group-hover:bg-blue-900" />
         <div className="hidden md:flex border-gray-200 text-gray-600 text-xl leading-[70px] justify-between items-center group-hover:text-blue-900 border-t">
           {formatDate(post.created_at)}

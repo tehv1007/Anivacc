@@ -3,7 +3,7 @@ import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Poultry from "/images/productTypes/Poultry-480-480.webp";
 import Swine from "/images/productTypes/Swine-480-480.webp";
-import Bovine from "/images/productTypes/Bovine-Sheep-480-480.webp";
+import Bovine from "/images/productTypes/duck.jpg";
 import Pet from "/images/productTypes/pet.jpg";
 import Disinfectant from "/images/productTypes/Disinfectant-480-480.webp";
 import Heading from "../../../components/Common/Heading";
@@ -36,7 +36,7 @@ const CategoryItem = ({
           <img className="" src={category.image} alt={category.name} />
         </div>
         <Link
-          to={`/products/category/${category.label}`}
+          to={`/products/${category.label}`}
           className="text-gray-800 text-[16px] h-auto md:h-[48px] inline-block"
         >
           {category.name}
@@ -76,25 +76,25 @@ const ProductOffer = ({ lang_code }) => {
     {
       id: 1,
       name: i18n.t("home_product_cate1"),
-      label: "Vaccine phòng bệnh cho gia cầm",
+      label: "Sản phẩm cho gà",
       image: Poultry,
     },
     {
       id: 2,
       name: i18n.t("home_product_cate2"),
-      label: "Kháng thể",
+      label: "Sản phẩm cho lợn",
       image: Swine,
     },
     {
       id: 3,
       name: i18n.t("home_product_cate3"),
-      label: "Dung môi pha vaccine",
+      label: "Sản phẩm cho vịt",
       image: Bovine,
     },
     {
       id: 4,
       name: i18n.t("home_product_cate4"),
-      label: "Thức ăn bổ sung",
+      label: "Sản phẩm dinh dưỡng",
       image: Pet,
     },
     {
@@ -124,7 +124,7 @@ const ProductOffer = ({ lang_code }) => {
           <span className="text-gray-800 inline font-bold leading-5 text-center text-sm">
             {t("home_product_p1")}
             {"  "}
-            <a href="https://cnc-animalhealth.com/products/category/Vaccine%20ph%C3%B2ng%20b%E1%BB%87nh%20cho%20gia%20c%E1%BA%A7m">
+            <a href="https://cnc-animalhealth.com/products/Sản%20phẩm%20cho%20gà">
               <span className="text-blue-900">
                 <strong>{t("home_product_cate1")}</strong>
               </span>
@@ -181,7 +181,12 @@ const ProductOffer = ({ lang_code }) => {
               <ArrowLeft />
             </div>
             <Swiper
+              modules={[Autoplay, Pagination]}
               className="swiper-container"
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
               spaceBetween={20}
               slidesPerView={3}
               navigation={{

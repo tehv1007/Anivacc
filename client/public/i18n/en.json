@@ -6,14 +6,20 @@
   "nav-products": "Products",
   "nav-category-arr": [
     {
-      "nav-category": "Biological Products, Disinfectants, Nutritional Supplements",
-      "link": "Chế phẩm sinh học, thuốc sát trùng và TABS"
+      "nav-category": "Swine",
+      "link": "Sản phẩm cho lợn"
     },
     {
-      "nav-category": "Vaccine Manufactured at CNC",
-      "link": "Vaccine sản xuất tại CNC"
+      "nav-category": "Chickens",
+      "link": "Sản phẩm cho gà"
     },
-    { "nav-category": "Imported Vaccine", "link": "Vaccine nhập khẩu" }
+    { "nav-category": "Ducks", "link": "Sản phẩm cho vịt" },
+    { "nav-category": "Bovine", "link": "Sản phẩm cho bò" },
+    {
+      "nav-category": "Aquatic",
+      "link": "Sản phẩm cho thủy sản"
+    },
+    { "nav-category": "Disinfectants", "link": "Thuốc sát trùng" }
   ],
   "nav-solutions": "CNC Solutions",
   "nav-solutions-arr": [
@@ -134,13 +140,13 @@
   "home_news_cate2": "Industry News",
   "home_news_info": "There are no posts in this category yet",
   "home_product_heading": "See What Products We Offer",
-  "home_product_cate1": "Poultry Vaccine",
-  "home_product_cate2": "Antibodies",
-  "home_product_cate3": "Vaccine diluents",
+  "home_product_cate1": "Chickens",
+  "home_product_cate2": "Swine",
+  "home_product_cate3": "Ducks",
   "home_product_cate4": "Nutritional supplements",
   "home_product_cate5": "Disinfectants",
   "home_product_p1": "Focus on",
-  "home_product_p2": "Biological products, Disinfectants, Nutritional supplements,...",
+  "home_product_p2": "Poultry Antibodies, Poultry Vaccine, Pig Antibodies, Disinfectants, Nutritional supplements,...",
   "home_service_heading": "We Provide You With A Full Range Of Services",
   "home_service_cate1": "Packaging Customization",
   "home_service_cate2": "After-Sale Technical Service",
@@ -209,23 +215,140 @@
       "child-categories": []
     }
   ],
+  "product-categories": [
+    {
+      "parent-category": "Swine",
+      "link": "Sản phẩm cho lợn",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Antibodies",
+          "link": "Kháng thể"
+        },
+        {
+          "child-category": "Feed Additives",
+          "link": "Thức ăn bổ sung"
+        }
+      ]
+    },
+    {
+      "parent-category": "Chickens",
+      "link": "Sản phẩm cho gà",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Antibodies",
+          "link": "Kháng thể"
+        }
+      ]
+    },
+    {
+      "parent-category": "Ducks",
+      "link": "Sản phẩm cho vịt",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Antibodies",
+          "link": "Kháng thể"
+        }
+      ]
+    },
+    {
+      "parent-category": "Bovine",
+      "link": "Sản phẩm cho bò",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Antibodies",
+          "link": "Kháng thể"
+        }
+      ]
+    },
+    {
+      "parent-category": "Aquatic",
+      "link": "Sản phẩm cho thủy sản",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Antibodies",
+          "link": "Kháng thể"
+        }
+      ]
+    },
+    {
+      "parent-category": "Pet",
+      "link": "Sản phẩm cho thú cưng",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Feed Additives",
+          "link": "Thức ăn bổ sung"
+        }
+      ]
+    },
+    {
+      "parent-category": "Disinfectant",
+      "link": "Thuốc sát trùng",
+      "child-categories": []
+    },
+    {
+      "parent-category": "Vaccine diluent",
+      "link": "Dung môi pha vaccine",
+      "child-categories": []
+    },
+    {
+      "parent-category": "Biological products",
+      "link": "Chế phẩm sinh học",
+      "child-categories": []
+    },
+    {
+      "parent-category": "Nutritional products",
+      "link": "Sản phẩm dinh dưỡng",
+      "child-categories": []
+    },
+    {
+      "parent-category": "Imported Vaccine",
+      "link": "Vaccine nhập khẩu",
+      "child-categories": []
+    }
+  ],
   "cart_info": "The product is already in the inquiry basket",
   "cart_action": "Add to Basket",
   "cart_inquire": "Inquire",
   "products_404": "Sorry, there are no products in this category yet",
   "products_all": "All Products",
-  "products_cate1": "Biological Products, Disinfectants, Nutritional Supplements",
-  "products_cate2": "Vaccine Manufactured At CNC",
-  "products_cate3": "Imported Vaccine",
-  "products_cate4": "Antibodies",
-  "products_cate5": "Biological products",
-  "products_cate6": "Vaccine diluents",
-  "products_cate7": "Disinfectants",
-  "products_cate8": "Nutritional Supplements",
-  "products_cate9": "Poultry vaccine",
-  "products_cate10": "Swine vaccine",
-  "products_cate11": "Cattle vaccine",
-  "products_cate12": "Pet vaccine",
+  "products_cate1": "Swine",
+  "products_cate2": "Chickens",
+  "products_cate3": "Ducks",
+  "products_cate4": "Bovine",
+  "products_cate5": "Aquatic",
+  "products_cate6": "Disinfectant",
+  "products_cate7": "Pet",
+  "products_cate8": "Vaccine diluent",
+  "products_cate9": "Biological products",
+  "products_cate10": "Nutritional products",
+  "products_cate11": "Imported Vaccine",
+  "products_cate12": "Vaccine",
+  "products_cate13": "Antibodies",
+  "products_cate14": "Feed Additives",
   "solutions_heading": "CNC Lab",
   "solutions_intro": "For more information about veterinary diagnostic testing, antibiotic susceptibility testing, PCR testing, ELISA testing, microbial isolation, and other serological tests, welcome to our website!",
   "solutions-arr": [

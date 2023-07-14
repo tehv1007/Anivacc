@@ -20,7 +20,6 @@ import GlobalSpinner from "../../components/Common/loading/GlobalSpinner";
 import { useTranslation } from "react-i18next";
 
 export default function ProductDetail({ cart, setCart, lang_code }) {
-  console.log(lang_code);
   const { t } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -138,7 +137,7 @@ export default function ProductDetail({ cart, setCart, lang_code }) {
               bgColor="bg-gray-200"
               setCart={setCart}
             />
-            <RelatedArticles lang_code={lang_code} />
+            <RelatedArticles lang_code={lang_code} category="industry" />
           </div>
 
           {/* Sidebar */}

@@ -7,7 +7,7 @@ export default function Card({ product }) {
   const like = status.indexOf("like");
   return (
     <Link
-      to={`/products/${id}`}
+      to={`/product/${id}`}
       className=" text-center text-2xl hover:[&_img]:scale-110 [&_*]:transition relative block w-full col-span-1"
     >
       {/* PRESALE */}

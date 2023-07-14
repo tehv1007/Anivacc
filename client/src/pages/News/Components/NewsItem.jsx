@@ -38,7 +38,7 @@ const NewsItem = ({ post }) => {
             <Link to={`/posts/${post.id}`}>{post.title}</Link>
           </div>
 
-          <div className="line-clamp-3 mb-[25px] text-gray-500 text-sm leading-6 group-hover:text-white">
+          <div className="line-clamp-3 mb-[25px] text-gray-500 text-sm leading-6 group-hover:text-white hover:text-white">
             {parser(post.description)}
           </div>
           <div className="text-center">

@@ -59,7 +59,10 @@ const About = () => {
               data-loaded="true"
               autoPlay={true}
             >
-              <source src="/images/video/sinder.mp4" type="video/mp4" />
+              <source
+                src="https://blog.cnc-animalhealth.com/wp-content/uploads/2023/07/AnivacC.mp4"
+                type="video/mp4"
+              />
             </video>
           </div>
         </div>

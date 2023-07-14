@@ -55,13 +55,19 @@ const App = () => {
               }
             />
             <Route
-              path="/products/category/:categoryId"
+              path="/products/:category/:categoryId"
               element={
                 <Products lang_code={lang_code} page={page} setPage={setPage} />
               }
             />
             <Route
-              path="/products/:id"
+              path="/products/:category"
+              element={
+                <Products lang_code={lang_code} page={page} setPage={setPage} />
+              }
+            />
+            <Route
+              path="/product/:id"
               element={
                 <ProductDetail
                   cart={cart}

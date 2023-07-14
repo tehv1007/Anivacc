@@ -6,14 +6,20 @@
   "nav-products": "Sản phẩm",
   "nav-category-arr": [
     {
-      "nav-category": "Chế Phẩm Sinh Học, Thuốc Sát Trùng Và TABS",
-      "link": "Chế phẩm sinh học, thuốc sát trùng và TABS"
+      "nav-category": "Sản phẩm cho lợn",
+      "link": "Sản phẩm cho lợn"
     },
     {
-      "nav-category": "Vaccine Sản Xuất Tại CNC",
-      "link": "Vaccine sản xuất tại CNC"
+      "nav-category": "Sản phẩm cho gà",
+      "link": "Sản phẩm cho gà"
     },
-    { "nav-category": "Vaccine Nhập Khẩu", "link": "Vaccine nhập khẩu" }
+    { "nav-category": "Sản phẩm cho vịt", "link": "Sản phẩm cho vịt" },
+    { "nav-category": "Sản phẩm cho bò", "link": "Sản phẩm cho bò" },
+    {
+      "nav-category": "Sản phẩm cho thủy sản",
+      "link": "Sản phẩm cho thủy sản"
+    },
+    { "nav-category": "Thuốc sát trùng", "link": "Thuốc sát trùng" }
   ],
   "nav-solutions": "Phòng thí nghiệm CNC",
   "nav-solutions-arr": [
@@ -138,13 +144,13 @@
   "home_news_cate2": "Tin trong ngành",
   "home_news_info": "Chưa có bài viết nào trong danh mục này",
   "home_product_heading": "Những Sản Phẩm Chúng Tôi Cung Cấp",
-  "home_product_cate1": "Vaccine cho gia cầm",
-  "home_product_cate2": "Kháng thể",
-  "home_product_cate3": "Dung môi pha vaccine",
-  "home_product_cate4": "Thức ăn bổ sung",
+  "home_product_cate1": "Sản phẩm cho gia cầm",
+  "home_product_cate2": "Sản phẩm cho lợn",
+  "home_product_cate3": "Sản phẩm cho vịt",
+  "home_product_cate4": "Sản phẩm dinh dưỡng",
   "home_product_cate5": "Thuốc sát trùng",
   "home_product_p1": "Tập trung vào",
-  "home_product_p2": "Chế phẩm sinh học, Thuốc sát trùng, Thức ăn bổ sung,...",
+  "home_product_p2": "Sản phẩm cho lợn, Sản phẩm dinh dưỡng, Thuốc sát trùng,...",
   "home_service_heading": "Chúng tôi cung cấp cho bạn đầy đủ các dịch vụ",
   "home_service_cate1": "Tùy chỉnh bao bì",
   "home_service_cate2": "Dịch vụ kỹ thuật sau bán hàng",
@@ -213,23 +219,140 @@
       "child-categories": []
     }
   ],
+  "product-categories": [
+    {
+      "parent-category": "Sản phẩm cho lợn",
+      "link": "Sản phẩm cho lợn",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Kháng thể",
+          "link": "Kháng thể"
+        },
+        {
+          "child-category": "Thức ăn bổ sung",
+          "link": "Thức ăn bổ sung"
+        }
+      ]
+    },
+    {
+      "parent-category": "Sản phẩm cho gà",
+      "link": "Sản phẩm cho gà",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Kháng thể",
+          "link": "Kháng thể"
+        }
+      ]
+    },
+    {
+      "parent-category": "Sản phẩm cho vịt",
+      "link": "Sản phẩm cho vịt",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Kháng thể",
+          "link": "Kháng thể"
+        }
+      ]
+    },
+    {
+      "parent-category": "Sản phẩm cho bò",
+      "link": "Sản phẩm cho bò",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Kháng thể",
+          "link": "Kháng thể"
+        }
+      ]
+    },
+    {
+      "parent-category": "Sản phẩm cho thủy sản",
+      "link": "Sản phẩm cho thủy sản",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Kháng thể",
+          "link": "Kháng thể"
+        }
+      ]
+    },
+    {
+      "parent-category": "Sản phẩm cho thú cưng",
+      "link": "Sản phẩm cho thú cưng",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Thức ăn bổ sung",
+          "link": "Thức ăn bổ sung"
+        }
+      ]
+    },
+    {
+      "parent-category": "Thuốc sát trùng",
+      "link": "Thuốc sát trùng",
+      "child-categories": []
+    },
+    {
+      "parent-category": "Dung môi pha vaccine",
+      "link": "Dung môi pha vaccine",
+      "child-categories": []
+    },
+    {
+      "parent-category": "Chế phẩm sinh học",
+      "link": "Chế phẩm sinh học",
+      "child-categories": []
+    },
+    {
+      "parent-category": "Sản phẩm dinh dưỡng",
+      "link": "Sản phẩm dinh dưỡng",
+      "child-categories": []
+    },
+    {
+      "parent-category": "Vaccine Nhập Khẩu",
+      "link": "Vaccine nhập khẩu",
+      "child-categories": []
+    }
+  ],
   "cart_info": "Sản phẩm đã có trong giỏ hàng",
   "cart_action": "Thêm vào giỏ hàng",
   "cart_inquire": "Yêu cầu sản phẩm",
   "products_404": "Xin lỗi bạn, Chưa có sản phẩm nào trong danh mục này",
   "products_all": "Tất cả sản phẩm",
-  "products_cate1": "Chế phẩm sinh học, thuốc sát trùng và TABS",
-  "products_cate2": "Vaccine sản xuất tại CNC",
-  "products_cate3": "Vaccine nhập khẩu",
-  "products_cate4": "Kháng thể",
-  "products_cate5": "Chế phẩm sinh học",
-  "products_cate6": "Dung môi pha vaccine",
-  "products_cate7": "Thuốc sát trùng",
-  "products_cate8": "Thức ăn bổ sung",
-  "products_cate9": "Vaccine phòng bệnh cho gia cầm",
-  "products_cate10": "Vaccine phòng bệnh cho lợn",
-  "products_cate11": "Vaccine phòng bệnh cho đại gia súc",
-  "products_cate12": "Vaccine phòng bệnh cho thú cảnh",
+  "products_cate1": "Sản phẩm cho lợn",
+  "products_cate2": "Sản phẩm cho gà",
+  "products_cate3": "Sản phẩm cho vịt",
+  "products_cate4": "Sản phẩm cho bò",
+  "products_cate5": "Sản phẩm cho thủy sản",
+  "products_cate6": "Thuốc sát trùng",
+  "products_cate7": "Sản phẩm cho thú cưng",
+  "products_cate8": "Dung môi pha vaccine",
+  "products_cate9": "Chế phẩm sinh học",
+  "products_cate10": "Sản phẩm dinh dưỡng",
+  "products_cate11": "Vaccine nhập khẩu",
+  "products_cate12": "Vaccine",
+  "products_cate13": "Kháng thể",
+  "products_cate14": "Thức ăn bổ sung",
   "solutions_heading": "Phòng thí nghiệm CNC",
   "solutions_intro": "Để biết thêm thông tin về chẩn đoán xét nghiệm bệnh động vật, kháng sinh đồ, các phép thử PCR, các phép thử ELISA, phân lập vi sinh vật, các phép thử huyết thanh học khác, chào mừng bạn đến với trang web của chúng tôi!",
   "solutions-arr": [

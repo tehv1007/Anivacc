@@ -152,7 +152,7 @@ export default function NavBar({ setLangCode, setPage }) {
                       active[2] ? `after:animate-still` : ``
                     } group [&>ul]:hidden before:content-[''] before:w-full before:h-full before:bg-transparent before:block before:absolute relative before:top-[100%]`}
                   >
-                    <Link to="/products/category/all">
+                    <Link to="/products/all">
                       <span className="hover:text-white text-white">
                         {t("nav-products")}
                       </span>
@@ -163,9 +163,7 @@ export default function NavBar({ setLangCode, setPage }) {
                           return (
                             <li key={index}>
                               <Link
-                                to={`/products/category/${t(
-                                  `${category["link"]}`
-                                )}`}
+                                to={`/products/${t(`${category["link"]}`)}`}
                                 onClick={() => setPage(1)}
                               >
                                 {t(`${category["nav-category"]}`)}
@@ -392,7 +390,7 @@ export default function NavBar({ setLangCode, setPage }) {
                   name="my-accordion-2"
                 />
                 <Link
-                  to="/products/category/all"
+                  to="/products/all"
                   onClick={handleNavItemClick}
                   className="collapse-title after:p-2"
                 >
@@ -403,7 +401,7 @@ export default function NavBar({ setLangCode, setPage }) {
                     (category, index) => (
                       <li key={index}>
                         <Link
-                          to={`/products/category/${t(`${category["link"]}`)}`}
+                          to={`/products/${t(`${category["link"]}`)}`}
                           onClick={handleNavItemClick}
                         >
                           <span className="hover:text-white text-white">

@@ -13,27 +13,33 @@ const paginate = (array, page_size, page_number) => {
 };
 
 const Products = ({ page, setPage, lang_code }) => {
-  const { t } = useTranslation();
-  const { categoryId: type } = useParams();
-  // const [page, setPage] = useState(1);
   const ITEMS_PER_PAGE = 12;
-  console.log(lang_code);
+  // const [page, setPage] = useState(1);
+  const { t } = useTranslation();
+  const { category: parentCategory, categoryId: childCategory } = useParams();
 
   const {
     isLoading,
     data: products,
     refetch,
   } = useQuery({
-    queryKey: ["products", { type: type }],
+    queryKey: ["products", { parentCategory, childCategory }],
     queryFn: () => {
       return supabase.from("product").select().eq("lang_code", lang_code);
     },
-
     select: (res) => {
-      if (type == "all") {
+      if (parentCategory === "all") {
         return res.data;
+      } else if (childCategory) {
+        return res.data.filter(
+          (product) =>
+            product.categories.includes(parentCategory) &&
+            product.categories.includes(childCategory)
+        );
       } else {
-        return res.data.filter((product) => product.categories.includes(type));
+        return res.data.filter((product) =>
+          product.categories.includes(parentCategory)
+        );
       }
     },
   });
@@ -56,44 +62,42 @@ const Products = ({ page, setPage, lang_code }) => {
   const paginatedArr = paginate(products, ITEMS_PER_PAGE, page);
 
   const categories = [
-    {
-      id: 1,
-      name: "Chế phẩm sinh học, thuốc sát trùng và TABS",
-      label: t("products_cate1"),
-    },
-    { id: 2, name: "Vaccine sản xuất tại CNC", label: t("products_cate2") },
-    { id: 3, name: "Vaccine nhập khẩu", label: t("products_cate3") },
-    { id: 4, name: "Kháng thể", label: t("products_cate4") },
-    { id: 5, name: "Chế phẩm sinh học", label: t("products_cate5") },
-    { id: 6, name: "Dung môi pha vaccine", label: t("products_cate6") },
-    { id: 7, name: "Thuốc sát trùng", label: t("products_cate7") },
-    { id: 8, name: "Thức ăn bổ sung", label: t("products_cate8") },
-    {
-      id: 9,
-      name: "Vaccine phòng bệnh cho gia cầm",
-      label: t("products_cate9"),
-    },
-    { id: 10, name: "Vaccine phòng bệnh cho lợn", label: t("products_cate10") },
-    {
-      id: 11,
-      name: "Vaccine phòng bệnh cho đại gia súc",
-      label: t("products_cate11"),
-    },
-    {
-      id: 12,
-      name: "Vaccine phòng bệnh cho thú cảnh",
-      label: t("products_cate12"),
-    },
+    { id: 1, name: "Sản phẩm cho lợn", label: t("products_cate1") },
+    { id: 2, name: "Sản phẩm cho gà", label: t("products_cate2") },
+    { id: 3, name: "Sản phẩm cho vịt", label: t("products_cate3") },
+    { id: 4, name: "Sản phẩm cho bò", label: t("products_cate4") },
+    { id: 5, name: "Sản phẩm cho thủy sản", label: t("products_cate5") },
+    { id: 6, name: "Thuốc sát trùng", label: t("products_cate6") },
+    { id: 7, name: "Sản phẩm cho thú cưng", label: t("products_cate7") },
+    { id: 8, name: "Dung môi pha vaccine", label: t("products_cate8") },
+    { id: 9, name: "Chế phẩm sinh học", label: t("products_cate9") },
+    { id: 10, name: "Sản phẩm dinh dưỡng", label: t("products_cate10") },
+    { id: 11, name: "Vaccine nhập khẩu", label: t("products_cate11") },
   ];
 
-  const category = categories.find((category) => category.name === type);
-  const label = category ? category.label : "all";
+  const children = [
+    { id: 1, name: "Vaccine", label: t("products_cate12") },
+    { id: 2, name: "Kháng thể", label: t("products_cate13") },
+    { id: 3, name: "Thức ăn bổ sung", label: t("products_cate14") },
+  ];
+
+  const parentCategoryLabel = categories.find(
+    (category) => category.name === parentCategory
+  )?.label;
+
+  const childCategoryLabel = children.find(
+    (category) => category.name === childCategory
+  )?.label;
+
+  const label = childCategory
+    ? `${parentCategoryLabel}: ${childCategoryLabel}`
+    : parentCategoryLabel;
 
   return (
     <>
       <h1 className="text-gray-700 text-left pb-[15px]">
         <span className="text-[26px] font-medium text-left capitalize">
-          {label != "all" ? label : t("products_all")}
+          {label || t("products_all")}
         </span>
       </h1>
 

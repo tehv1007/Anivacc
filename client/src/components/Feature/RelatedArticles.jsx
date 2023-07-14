@@ -9,12 +9,17 @@ import { supabase } from "../../config/supabase";
 import GlobalSpinner from "../Common/loading/GlobalSpinner";
 import { useTranslation } from "react-i18next";
 
-export default function RelatedArticles({ lang_code }) {
+export default function RelatedArticles({ lang_code, category }) {
   const { t } = useTranslation();
 
   const { isLoading, data: posts } = useQuery({
     queryKey: ["posts", { lang_code }],
-    queryFn: () => supabase.from("posts").select().eq("lang_code", lang_code),
+    queryFn: () =>
+      supabase
+        .from("posts")
+        .select()
+        .eq("lang_code", lang_code)
+        .eq("category", category),
 
     select: (res) => res.data,
   });
@@ -56,7 +61,7 @@ export default function RelatedArticles({ lang_code }) {
                   src={post.thumbnail}
                   alt=""
                 />
-                <p className=" line-clamp-2 m-3 ">
+                <p className=" line-clamp-2 m-3 h-[48px]">
                   {post.title}
                   <br />
                 </p>
