@@ -16,7 +16,7 @@ const QuickLink = () => {
             </Link>
           </li>
           <li>
-            <Link className="hover:text-white leading-7" to="/products">
+            <Link className="hover:text-white leading-7" to="/products/all">
               {t("nav-products")}
             </Link>
           </li>
@@ -31,12 +31,12 @@ const QuickLink = () => {
             </Link>
           </li>
           <li>
-            <Link className="hover:text-white leading-7" to="/resource">
+            <Link className="hover:text-white leading-7" to="/guide">
               {t("nav-resources")}
             </Link>
           </li>
           <li>
-            <Link className="hover:text-white leading-7" to="/news">
+            <Link className="hover:text-white leading-7" to="/posts">
               {t("nav-news")}
             </Link>
           </li>

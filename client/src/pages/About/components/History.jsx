@@ -29,18 +29,47 @@ export default function History() {
     setNav2(slider2Ref.current);
   }, []);
 
+  const settings = {
+    asNavFor: nav1,
+    ref: slider2Ref,
+    infinite: false,
+    autoplay: true,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    // initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          // initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div>
       <h1 className="text-[34px] font-montserrat text-[#333333] font-bold text-center mb-11 capitalize">
         {t("company_history")}
       </h1>
-      <Slider
-        asNavFor={nav1}
-        ref={slider2Ref}
-        slidesToShow={6}
-        swipeToSlide={true}
-        focusOnSelect={true}
-      >
+      <Slider {...settings}>
         <Time time="05.2014" />
         <Time time="05.2015" />
         <Time time="05.2016" />
@@ -51,6 +80,8 @@ export default function History() {
         <Time time="05.2021" />
         <Time time="05.2022" />
         <Time time="05.2023" />
+        <Time time="06.2023" />
+        <Time time="07.2023" />
       </Slider>
       <Slider asNavFor={nav2} ref={slider1Ref}>
         <div>

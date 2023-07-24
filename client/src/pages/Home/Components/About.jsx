@@ -60,7 +60,7 @@ const About = () => {
               autoPlay={true}
             >
               <source
-                src="https://blog.cnc-animalhealth.com/wp-content/uploads/2023/07/AnivacC.mp4"
+                src="https://laptrinhlythu.com/wp-content/uploads/2023/07/AnivacC.mp4"
                 type="video/mp4"
               />
             </video>

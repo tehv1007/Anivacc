@@ -20,7 +20,7 @@ const Auth = () => {
   };
 
   const [session, setSession] = useState(null);
-  const [currentLocation, setCurrentLocation] = useState("dashboard");
+  // const [currentLocation, setCurrentLocation] = useState("dashboard");
 
   const addUserMutation = useMutation({
     mutationFn: (newUser) => supabase.from("user").insert(newUser),
@@ -47,7 +47,7 @@ const Auth = () => {
                 { onSuccess: () => navigate("/login") }
               );
             } else {
-              if (res.data.roleId === 2) {
+              if (res.data.roleId === 2 || res.data.roleId === 1) {
                 const restoredLocation =
                   localStorage.getItem("currentLocation");
                 navigate(`${restoredLocation}`);
@@ -65,7 +65,6 @@ const Auth = () => {
   }, []);
 
   useEffect(() => {
-    setCurrentLocation(location.pathname);
     localStorage.setItem("currentLocation", location.pathname);
   }, [location]);
 

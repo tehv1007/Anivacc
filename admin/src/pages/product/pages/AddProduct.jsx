@@ -177,7 +177,9 @@ export default function AddProduct() {
       title_deunicode: removeAccents(title),
       thumbnail: urls,
       brand_id: brand_id.value,
-      categories: [parentCategory.label, childCategory.label],
+      categories: childCategory.label
+        ? [parentCategory.label, childCategory.label]
+        : [parentCategory.label],
       status:
         status?.length > 1 ? status?.map((s) => s.value) : [status[0].value],
       lang_code: lang_code.value,

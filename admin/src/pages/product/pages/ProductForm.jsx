@@ -65,27 +65,75 @@ const ProductForm = (props) => {
   const categoryArr = [
     {
       value: "1",
-      label: "Vaccine sản xuất tại CNC",
+      label: "Sản phẩm cho lợn",
       children: [
-        { value: "11", label: "Vaccine phòng bệnh cho gia cầm" },
-        { value: "12", label: "Vaccine phòng bệnh cho lợn" },
-        { value: "13", label: "Vaccine phòng bệnh cho đại gia súc" },
-        { value: "14", label: "Vaccine phòng bệnh cho thú cảnh" },
+        { value: "11", label: "Vaccine" },
+        { value: "12", label: "Kháng thể" },
+        { value: "13", label: "Thức ăn bổ sung" },
       ],
     },
     {
       value: "2",
-      label: "Chế phẩm sinh học, thuốc sát trùng và TABS",
+      label: "Sản phẩm cho gà",
       children: [
-        { value: "21", label: "Kháng thể" },
-        { value: "22", label: "Chế phẩm sinh học" },
-        { value: "23", label: "Dung môi pha vaccine" },
-        { value: "24", label: "Thuốc sát trùng" },
-        { value: "24", label: "Thức ăn bổ sung" },
+        { value: "21", label: "Vaccine" },
+        { value: "22", label: "Kháng thể" },
       ],
     },
     {
       value: "3",
+      label: "Sản phẩm cho vịt",
+      children: [
+        { value: "31", label: "Vaccine" },
+        { value: "32", label: "Kháng thể" },
+      ],
+    },
+    {
+      value: "4",
+      label: "Sản phẩm cho bò",
+      children: [
+        { value: "41", label: "Vaccine" },
+        { value: "42", label: "Kháng thể" },
+      ],
+    },
+    {
+      value: "5",
+      label: "Sản phẩm cho thủy sản",
+      children: [
+        { value: "51", label: "Vaccine" },
+        { value: "52", label: "Kháng thể" },
+      ],
+    },
+    {
+      value: "6",
+      label: "Sản phẩm cho thú cưng",
+      children: [
+        { value: "61", label: "Vaccine" },
+        { value: "62", label: "Thức ăn bổ sung" },
+      ],
+    },
+    {
+      value: "7",
+      label: "Thuốc sát trùng",
+      children: [],
+    },
+    {
+      value: "8",
+      label: "Dung môi pha vaccine",
+      children: [],
+    },
+    {
+      value: "9",
+      label: "Chế phẩm sinh học",
+      children: [],
+    },
+    {
+      value: "10",
+      label: "Sản phẩm dinh dưỡng",
+      children: [],
+    },
+    {
+      value: "11",
       label: "Vaccine nhập khẩu",
       children: [],
     },
