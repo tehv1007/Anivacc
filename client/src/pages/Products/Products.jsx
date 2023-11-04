@@ -7,6 +7,7 @@ import Pagination from "../../components/Common/Pagination";
 import GlobalSpinner from "../../components/Common/loading/GlobalSpinner";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
+import { deslugify } from "../../utils/deslugify";
 
 const paginate = (array, page_size, page_number) => {
   return array.slice((page_number - 1) * page_size, page_number * page_size);
@@ -14,9 +15,10 @@ const paginate = (array, page_size, page_number) => {
 
 const Products = ({ page, setPage, lang_code }) => {
   const ITEMS_PER_PAGE = 12;
-  // const [page, setPage] = useState(1);
   const { t } = useTranslation();
-  const { category: parentCategory, categoryId: childCategory } = useParams();
+  const { category, categoryId } = useParams();
+  const parentCategory = category ? deslugify(category) : "";
+  const childCategory = categoryId ? deslugify(categoryId) : "";
 
   const {
     isLoading,
@@ -25,12 +27,14 @@ const Products = ({ page, setPage, lang_code }) => {
   } = useQuery({
     queryKey: ["products", { parentCategory, childCategory }],
     queryFn: () => {
-      return supabase.from("product").select().eq("lang_code", lang_code);
+      return supabase
+        .from("product")
+        .select()
+        .eq("lang_code", lang_code)
+        .order("created_at", { ascending: false });
     },
     select: (res) => {
-      if (parentCategory === "all") {
-        return res.data;
-      } else if (childCategory) {
+      if (childCategory) {
         return res.data.filter(
           (product) =>
             product.categories.includes(parentCategory) &&
@@ -62,23 +66,20 @@ const Products = ({ page, setPage, lang_code }) => {
   const paginatedArr = paginate(products, ITEMS_PER_PAGE, page);
 
   const categories = [
-    { id: 1, name: "Sản phẩm cho lợn", label: t("products_cate1") },
-    { id: 2, name: "Sản phẩm cho gà", label: t("products_cate2") },
-    { id: 3, name: "Sản phẩm cho vịt", label: t("products_cate3") },
-    { id: 4, name: "Sản phẩm cho bò", label: t("products_cate4") },
-    { id: 5, name: "Sản phẩm cho thủy sản", label: t("products_cate5") },
-    { id: 6, name: "Thuốc sát trùng", label: t("products_cate6") },
-    { id: 7, name: "Sản phẩm cho thú cưng", label: t("products_cate7") },
-    { id: 8, name: "Dung môi pha vaccine", label: t("products_cate8") },
-    { id: 9, name: "Chế phẩm sinh học", label: t("products_cate9") },
-    { id: 10, name: "Sản phẩm dinh dưỡng", label: t("products_cate10") },
-    { id: 11, name: "Vaccine nhập khẩu", label: t("products_cate11") },
+    { id: 1, name: "Sản phẩm cho vịt ngan", label: t("products_cate1") },
+    { id: 2, name: "Sản phẩm cho gia cầm", label: t("products_cate2") },
+    { id: 3, name: "Sản phẩm cho lợn", label: t("products_cate3") },
+    { id: 4, name: "Sản phẩm cho thú nhỏ", label: t("products_cate4") },
+    { id: 5, name: "Sản phẩm cho đại gia súc", label: t("products_cate5") },
+    { id: 6, name: "Sản phẩm cho thủy sản", label: t("products_cate6") },
+    { id: 7, name: "Sản phẩm nhập khẩu", label: t("products_cate7") },
+    { id: 8, name: "Sản phẩm sát trùng", label: t("products_cate8") },
   ];
 
   const children = [
     { id: 1, name: "Vaccine", label: t("products_cate12") },
     { id: 2, name: "Kháng thể", label: t("products_cate13") },
-    { id: 3, name: "Thức ăn bổ sung", label: t("products_cate14") },
+    { id: 3, name: "Thuốc và thức ăn bổ sung", label: t("products_cate14") },
   ];
 
   const parentCategoryLabel = categories.find(
@@ -89,15 +90,20 @@ const Products = ({ page, setPage, lang_code }) => {
     (category) => category.name === childCategory
   )?.label;
 
-  const label = childCategory
-    ? `${parentCategoryLabel}: ${childCategoryLabel}`
-    : parentCategoryLabel;
+  const label = childCategory ? (
+    <span>
+      {parentCategoryLabel}:{" "}
+      <span className="text-blue-500">{childCategoryLabel}</span>
+    </span>
+  ) : (
+    parentCategoryLabel
+  );
 
   return (
     <>
       <h1 className="text-gray-700 text-left pb-[15px]">
-        <span className="text-[26px] font-medium text-left capitalize">
-          {label || t("products_all")}
+        <span className="text-[26px] font-medium text-left uppercase">
+          {label}
         </span>
       </h1>
 

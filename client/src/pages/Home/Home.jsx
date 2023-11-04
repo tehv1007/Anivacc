@@ -15,7 +15,7 @@ const Home = ({ lang_code }) => {
       <Solution />
       <About />
       <Services />
-      <Certificate />
+      {/* <Certificate /> */}
       <InformationCenter lang_code={lang_code} />
       <Partner />
     </div>

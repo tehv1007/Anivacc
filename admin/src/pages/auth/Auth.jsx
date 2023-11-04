@@ -47,7 +47,7 @@ const Auth = () => {
                 { onSuccess: () => navigate("/login") }
               );
             } else {
-              if (res.data.roleId === 2 || res.data.roleId === 1) {
+              if (res.data.roleId === 2) {
                 const restoredLocation =
                   localStorage.getItem("currentLocation");
                 navigate(`${restoredLocation}`);

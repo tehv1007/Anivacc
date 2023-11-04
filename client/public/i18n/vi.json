@@ -6,46 +6,57 @@
   "nav-products": "Sản phẩm",
   "nav-category-arr": [
     {
-      "nav-category": "Sản phẩm cho lợn",
-      "link": "Sản phẩm cho lợn"
+      "nav-category": "Sản phẩm cho vịt, ngan",
+      "link": "Sản-phẩm-cho-vịt-ngan"
     },
     {
-      "nav-category": "Sản phẩm cho gà",
-      "link": "Sản phẩm cho gà"
+      "nav-category": "Sản phẩm cho gia cầm",
+      "link": "Sản-phẩm-cho-gia-cầm"
     },
-    { "nav-category": "Sản phẩm cho vịt", "link": "Sản phẩm cho vịt" },
-    { "nav-category": "Sản phẩm cho bò", "link": "Sản phẩm cho bò" },
+    {
+      "nav-category": "Sản phẩm cho lợn",
+      "link": "Sản-phẩm-cho-lợn"
+    },
+    {
+      "nav-category": "Sản phẩm cho thú nhỏ",
+      "link": "Sản-phẩm-cho-thú-nhỏ"
+    },
+    {
+      "nav-category": "Sản phẩm cho đại gia súc",
+      "link": "Sản-phẩm-cho-đại-gia-súc"
+    },
     {
       "nav-category": "Sản phẩm cho thủy sản",
-      "link": "Sản phẩm cho thủy sản"
+      "link": "Sản-phẩm-cho-thủy-sản"
     },
-    { "nav-category": "Thuốc sát trùng", "link": "Thuốc sát trùng" }
+    { "nav-category": "Sản phẩm nhập khẩu", "link": "Sản-phẩm-nhập-khẩu" },
+    { "nav-category": "Sản phẩm sát trùng", "link": "Sản-phẩm-sát-trùng" }
   ],
   "nav-solutions": "Phòng thí nghiệm CNC",
   "nav-solutions-arr": [
     {
       "nav-solution": "Chẩn Đoán Xét Nghiệm Bệnh Động Vật",
-      "link": "Chẩn đoán xét nghiệm bệnh động vật"
+      "link": "Chẩn-đoán-xét-nghiệm-bệnh-động-vật"
     },
     {
       "nav-solution": "Kháng Sinh Đồ",
-      "link": "Kháng sinh đồ"
+      "link": "Kháng-sinh-đồ"
     },
     {
       "nav-solution": "Các Phép Thử PCR",
-      "link": "Các phép thử PCR"
+      "link": "Các-phép-thử-PCR"
     },
     {
       "nav-solution": "Các Phép Thử ELISA",
-      "link": "Các phép thử ELISA"
+      "link": "Các-phép-thử-ELISA"
     },
     {
       "nav-solution": "Các Phép Thử Huyết Thanh Học Khác",
-      "link": "Các phép thử huyết thanh học khác"
+      "link": "Các-phép-thử-huyết-thanh-học-khác"
     },
     {
       "nav-solution": "Phân Lập Vi Sinh Vật",
-      "link": "Phân lập vi sinh vật"
+      "link": "Phân-lập-vi-sinh-vật"
     }
   ],
   "nav-news": "Tin tức",
@@ -86,28 +97,57 @@
   "advantage_title": "Lợi thế của chúng tôi",
   "company_history": "Lịch sử phát triển của công ty",
   "about_title": "TỔNG QUAN VỀ CÔNG TY",
-  "about_sub1_header": "Tổng quan",
-  "about_sub1_content1": "là thương hiệu chuyên về Nghiên cứu, sản xuất và kinh doanh các sản phẩm vắc xin và chế phẩm sinh học công nghệ cao dành cho động vật.",
-  "about_sub1_content2": "Sản xuất vắc xin và chế phẩm sinh học dùng cho thú y.",
-  "about_sub1_content3": "Sản xuất thuốc thú y, thủy sản, chế phẩm sinh học dùng trong thú y và thủy sản",
-  "about_sub1_content4": "Xuất nhập khẩu các mặt hàng công ty kinh doanh.",
-  "about_sub1_content5": "Tư vấn chuyển giao công nghệ trong lĩnh vực vắc xin và chế phẩm sinh học dùng cho thú y và thủy sản.",
-  "about_sub2_header": "Giải pháp thương hiệu",
-  "about_sub2_content1": "Phù hợp với lĩnh vực hoạt động,",
-  "about_sub2_content2": "logo lấy ý tưởng chủ đạo là:",
-  "about_sub2_content3": "“Ani = Animal” – Động vật, “Vac = Vaccine” – Vắc xin, “C = Company” – Công ty và GMP-WHO là tiêu chuẩn cho các công ty sản xuất vắc xin thú y.",
-  "about_sub3_header": "Thông điệp truyền tải",
-  "about_sub3_content": "Ý tưởng chữ AniVacC nằm trên quả địa cầu có ý nghĩa khẳng định chất lượng sản phẩm của công ty đáp ứng tiêu chuẩn chất lượng trong nước và trên thế giới. Sản phẩm của công ty không chỉ cung ứng phục vụ trong nước mà còn xuất khẩu nhiều nơi trên thế giới.",
-  "about_sub4_header": "Màu sắc của Logo",
-  "about_sub4_content": "Kết hợp giữa hai màu xanh là màu xanh dương đậm và màu xanh dương nhạt tạo cảm giác an toàn và tin tưởng và làm màu chủ đạo cho công ty.",
+  "about_sub1_content1": "Công ty cổ phần sản xuất và thương mại thuốc thú y CNC thành lập từ năm 2013, trụ sở tại lô 28, KCN Quang Minh, Mê Linh, Hà Nội. Là doanh nghiệp công nghệ sinh học kỹ thuật cao chuyên nghiên cứu, sản xuất, nhập khẩu và thương mại các sản phẩm vắc xin, kháng thể, dược phẩm và chế phẩm sinh học dành cho thú y và thú y thuỷ sản.",
+  "about_sub1_content2": "Hiện nay Công ty chúng tôi đang hoạt động với 05 dây chuyền sản xuất bao gồm 02 dây chuyền sản xuất đạt chuẩn GMP-WHO cho sản phẩm vắc xin - kháng thể thú y, thuốc sát trùng và 03 dây chuyền sản xuất các sản phẩm dinh dưỡng, thức ăn bổ sung.",
+  "about_sub1_content3": "Chúng tôi đã sản xuất hơn ",
+  "about_sub1_bold1": "40 sản phẩm ",
+  "about_sub1_content4": "vắc xin, kháng thể, thuốc thú y và thức ăn bổ sung đã được cấp phép lưu hành tại Việt Nam, được kiểm soát chất lượng nghiêm ngặt theo tiêu chuẩn GMP, GLP, GSP trước khi đưa tới tay người chăn nuôi trong cả nước. Ngoài ra, chúng tôi đã có ",
+  "about_sub1_bold2": "hơn 20 sản phẩm nhập khẩu ",
+  "about_sub1_content5": "từ Châu Á, Châu Âu và Châu Mỹ.",
+  "about_sub2_bold1": "Sức mạnh của Chúng tôi là có ",
+  "about_sub2_content1": "đội ngũ nhận sự là các chuyên gia hàng đầu trong lĩnh vực sản xuất vắc xin và các chế phẩm sinh học, luôn không ngừng nghiên cứu, cải tiến kỹ thuật, đưa ra những sản phẩm mới, những giải pháp mới kịp thời phòng và điều trị đáp ứng hiệu quả với những biến đổi phức tạp liên tục các dịch bệnh mới cho vật nuôi.",
+  "about_sub2_bold2": "Mục tiêu xuyên suốt tạo nên nền tảng kỹ thuật cốt lõi của CNC ",
+  "about_sub2_content2": "là luôn nghiên cứu và cập nhật công nghệ sản xuất tiên tiến của thế giới, tạo ra các sản phẩm chất lượng tốt, thân thiện an toàn cho vật nuôi, giảm thiểu và không phải sử dụng kháng sinh, hóa chất độc hại để phòng và trị bệnh cho vật nuôi như các vắc xin thế hệ mới (vắc xin tái tổ hợp, vắc xin subunit), kháng thể (Kháng thể đa dòng, kháng thể đặc hiệu), các chất kích thích miễn dịch không đặc hiệu (Interferron, Transfer Factor) hay các sản phẩm công nghệ sinh học như Bactiophage,... được sử dụng cho vật nuôi trên cạn và dưới nước, đã và đang được người chăn nuôi tin dùng và lựa chọn trong nhiều năm qua.",
+  "about_sub3_bold": "Và khát khao cháy bỏng ",
+  "about_sub3_content": "là người tiên phong, luôn đồng hành cùng người chăn nuôi phát triển kinh tế bền vững, ổn định, Chúng tôi cam kết đem đến những sản phẩm chất lượng theo tiêu chuẩn quốc tế, không chỉ đáp ứng nhu cầu trong nước mà còn hướng tới xuất khẩu ra thị trường thế giới.",
+  "about_sub4_bold": "Cuối cùng, ",
+  "about_sub4_content1": "Phương châm cho mọi hành động:",
+  "about_sub4_content2": [
+    { "about": "Công nghệ hàng đầu," },
+    { "about": "vì sức khỏe vật nuôi," },
+    { "about": "phát triển cùng nhà nông." }
+  ],
   "advantage_header1": "Đội ngũ lãnh đạo",
   "advantage_header2": "Hệ thống nhà máy sản xuất hiện đại",
   "advantage_header3": "Không ngừng phát triển và nâng cao sản phẩm",
   "advantage_content1": "Công ty cổ phần sản xuất và thương mại thuốc thú y CNC được thành lập từ năm 2014 với 4 thành viên sáng lập là những chuyên gia hàng đầu trong lĩnh vực nghiên cứu và sản xuất vắc xin thú y của Việt Nam. Giai đoạn mới thành lập, công ty tập trung nghiên cứu và sản xuất các chế phẩm sinh học, kháng thể dùng trong thú y như CNC Pig01, CNC Dog01, CNC AntiGUM, CNC AntiDHV, CNC AntiE.coli,…và các sản phẩm dung môi pha vắc xin như CNC Diluent và CNC Diluent Blue. Sau gần 10 năm thành lập, công ty đã xây dựng được thương hiệu và tạo ra nhiều sản phẩm chất lượng và có uy tín được khách hàng tin dùng, đặc biệt là các sản phẩm dung môi pha vắc xin.",
   "advantage_content2": "Tiếp tục nghiên cứu và phát triển các sản phẩm vắc xin thú y, tháng 5/2019 Hội đồng quản trị công ty đã quyết định mở rộng công ty và triển khai xây dựng một nhà máy sản xuất vắc xin thú y đạt tiêu chuẩn GMP-WHO tại lô 28, khu công nghiệp Quang Minh, thị trấn Quang Minh, Mê Linh, Hà Nội. Công ty đã triển khai xây dựng một dây chuyền sản xuất vắc xin virus trên tế bào đạt chuẩn GMP-WHO,, đầu tư các thiết bị tự động với một dây chuyền sản xuất tự động đạt tiêu chuẩn WHO như máy rửa chai tự động, máy chia liều tự động, máy viền nút nhôm tự động, máy dán nhãn, hoàn thiện tự động và máy đông khô vắc xin, đầu tư cho cán bộ kỹ thuật sang Châu âu học tập công nghệ mới. Đối với phòng kiểm tra chất lượng (GLP) được nâng cấp thành phòng thí nghiệm đạt chuẩn ISO 17025 vừa phục vụ đánh giá chất lượng sản phẩm, vừa phục cho công tác nghiên cứu và phát triển sản phẩm (R&D). Hệ thống kho tàng (GSP) được thiết kế liên hoàn từ kho nguyên vật liệu đến kho thành phẩm và kho lạnh và được sắp xếp ngăn nắp, gọn gàng theo tiêu chuẩn GSP.",
   "advantage_content3": "Vơi tiềm năng con người có sẵn của AniVacC, Sau khi hoàn thiện các dây chuyền sản xuất, công ty triển khai sản xuất các sản phẩm vắc xin virus phòng bệnh cho lợn như vắc xin PRRS, CSF, Parvo, Aujeszky,… phòng bệnh cho gà như Gumboro, Newcastle, IB,.. phòng bệnh cho vịt như DHV, DEV, Derzsy,… và các vắc xin phòng bệnh cho các vật nuôi khác như trâu, bò, chó, dê, thỏ,…",
-  "home_about1": "Công ty cổ phần sản xuất và thương mại thuốc thú y CNC được thành lập từ năm 2014 với 4 thành viên sáng lập là những chuyên gia hàng đầu trong lĩnh vực nghiên cứu và sản xuất vắc xin thú y của Việt Nam. Giai đoạn mới thành lập, công ty tập trung nghiên cứu và sản xuất các chế phẩm sinh học, kháng thể dùng trong thú y như CNC Pig01, CNC Dog01, CNC AntiGUM, CNC AntiDHV, CNC AntiE.coli,…và các sản phẩm dung môi pha vắc xin như CNC Diluent và CNC Diluent Blue. Sau gần 10 năm thành lập, công ty đã xây dựng được thương hiệu và tạo ra nhiều sản phẩm chất lượng và có uy tín được khách hàng tin dùng, đặc biệt là các sản phẩm dung môi pha vắc xin.",
-  "home_about2": "Tiếp tục nghiên cứu và phát triển các sản phẩm vắc xin thú y, tháng 5/2019 Hội đồng quản trị công ty đã quyết định mở rộng công ty và triển khai xây dựng một nhà máy sản xuất vắc xin thú y đạt tiêu chuẩn GMP-WHO tại lô 28, khu công nghiệp Quang Minh, thị trấn Quang Minh, Mê Linh, Hà Nội. Công ty đã triển khai xây dựng một dây chuyền sản xuất vắc xin virus trên tế bào đạt chuẩn GMP-WHO,, đầu tư các thiết bị tự động với một dây chuyền sản xuất tự động đạt tiêu chuẩn WHO như máy rửa chai tự động, máy chia liều tự động, máy viền nút nhôm tự động, máy dán nhãn, hoàn thiện tự động và máy đông khô vắc xin, đầu tư cho cán bộ kỹ thuật sang Châu âu học tập công nghệ mới.",
+  "home_about_style1": [
+    {
+      "home_about": "Công ty cổ phần sản xuất và thương mại thuốc thú y CNC thành lập từ năm 2013, trụ sở tại lô 28, KCN Quang Minh, Mê Linh, Hà Nội. Là doanh nghiệp công nghệ sinh học kỹ thuật cao chuyên nghiên cứu, sản xuất, nhập khẩu và thương mại các sản phẩm vắc xin, kháng thể, dược phẩm và chế phẩm sinh học dành cho thú y và thú y thuỷ sản. Hiện nay Công ty chúng tôi đang hoạt động với 05 dây chuyền sản xuất bao gồm 02 dây chuyền sản xuất đạt chuẩn GMP-WHO cho sản phẩm vắc xin - kháng thể thú y, thuốc sát trùng và 03 dây chuyền sản xuất các sản phẩm dinh dưỡng, thức ăn bổ sung."
+    },
+    {
+      "home_about": "Chúng tôi đã sản xuất hơn 40 sản phẩm vắc xin, kháng thể, thuốc thú y và thức ăn bổ sung đã được cấp phép lưu hành tại Việt Nam, được kiểm soát chất lượng nghiêm ngặt theo tiêu chuẩn GMP, GLP, GSP trước khi đưa tới tay người chăn nuôi trong cả nước. Ngoài ra, Chúng tôi đã có hơn 20 sản phẩm nhập khẩu từ Châu Á, Châu Âu và Châu Mỹ."
+    },
+    {
+      "home_about": "Sức mạnh của Chúng tôi là có đội ngũ nhận sự là các chuyên gia hàng đầu trong lĩnh vực sản xuất vắc xin và các chế phẩm sinh học, luôn không ngừng nghiên cứu, cải tiến kỹ thuật, đưa ra những sản phẩm mới, những giải pháp mới kịp thời phòng và điều trị đáp ứng hiệu quả với những biến đổi phức tạp liên tục các dịch bệnh mới cho vật nuôi."
+    },
+    {
+      "home_about": "Mục tiêu xuyên suốt tạo nên nền tảng kỹ thuật cốt lõi của CNC là luôn nghiên cứu và cập nhật công nghệ sản xuất tiên tiến của thế giới, tạo ra các sản phẩm chất lượng tốt, thân thiện an toàn cho vật nuôi, giảm thiểu và không phải sử dụng kháng sinh, hóa chất độc hại để phòng và trị bệnh cho vật nuôi như các vắc xin thế hệ mới (vắc xin tái tổ hợp, vắc xin subunit), kháng thể (Kháng thể đa dòng, kháng thể đặc hiệu), các chất kích thích miễn dịch không đặc hiệu (Interferron, Transfer Factor) hay các sản phẩm công nghệ sinh học như Bactiophage,... được sử dụng cho vật nuôi trên cạn và dưới nước, đã và đang được người chăn nuôi tin dùng và lựa chọn trong nhiều năm qua."
+    },
+    {
+      "home_about": "Và khát khao cháy bỏng là người tiên phong, luôn đồng hành cùng người chăn nuôi phát triển kinh tế bền vững, ổn định, Chúng tôi cam kết đem đến những sản phẩm chất lượng theo tiêu chuẩn quốc tế, không chỉ đáp ứng nhu cầu trong nước mà còn hướng tới xuất khẩu ra thị trường thế giới."
+    },
+    { "home_about": "Cuối cùng, Phương châm cho mọi hành động:" }
+  ],
+  "home_about_style2": [
+    { "home_about": "Công nghệ hàng đầu," },
+    { "home_about": "vì sức khỏe vật nuôi," },
+    { "home_about": "phát triển cùng nhà nông" }
+  ],
+
+  "home_about_heading": "Giới thiệu",
   "contact": "Liên hệ",
   "contact_info": "Chúng tôi luôn sẵn sàng 24/7 qua fax, e-mail hoặc qua điện thoại. Bạn cũng có thể sử dụng biểu mẫu liên hệ nhanh để đặt câu hỏi về các dịch vụ của chúng tôi.",
   "contact_address": "Địa chỉ: Lô số 28 KCN Quang Minh, TT. Quang Minh, H. Mê Linh, TP. Hà Nội",
@@ -143,12 +183,15 @@
   "home_news_cate1": "Tin tức công ty",
   "home_news_cate2": "Tin trong ngành",
   "home_news_info": "Chưa có bài viết nào trong danh mục này",
-  "home_product_heading": "Những Sản Phẩm Chúng Tôi Cung Cấp",
+  "home_product_heading": "Sản Phẩm Chúng Tôi Cung Cấp",
   "home_product_cate1": "Sản phẩm cho gia cầm",
   "home_product_cate2": "Sản phẩm cho lợn",
-  "home_product_cate3": "Sản phẩm cho vịt",
-  "home_product_cate4": "Sản phẩm dinh dưỡng",
-  "home_product_cate5": "Thuốc sát trùng",
+  "home_product_cate3": "Sản phẩm cho vịt ngan",
+  "home_product_cate4": "Sản phẩm cho thú nhỏ",
+  "home_product_cate5": "Sản phẩm cho đại gia súc",
+  "home_product_cate6": "Sản phẩm cho thủy sản",
+  "home_product_cate7": "Sản phẩm nhập khẩu",
+  "home_product_cate8": "Sản phẩm sát trùng",
   "home_product_p1": "Tập trung vào",
   "home_product_p2": "Sản phẩm cho lợn, Sản phẩm dinh dưỡng, Thuốc sát trùng,...",
   "home_service_heading": "Chúng tôi cung cấp cho bạn đầy đủ các dịch vụ",
@@ -164,65 +207,46 @@
   "home_solution_cate4": "Nuôi trồng thủy sản",
   "home_solution_cate5": "Khử trùng chuồng trại",
   "product_detail": "Thông tin sản phẩm",
-  "product-category-parent": [
-    {
-      "parent-category": "Chế Phẩm Sinh Học, Thuốc Sát Trùng Và TABS",
-      "link": "Chế phẩm sinh học, thuốc sát trùng và TABS",
-      "child-categories": [
-        {
-          "child-category": "Kháng thể",
-          "link": "Kháng thể"
-        },
-        {
-          "child-category": "Dung môi pha vaccine",
-          "link": "Dung môi pha vaccine"
-        },
-        {
-          "child-category": "Chế Phẩm Sinh Học",
-          "link": "Chế phẩm sinh học"
-        },
-        {
-          "child-category": "Thuốc Sát Trùng",
-          "link": "Thuốc sát trùng"
-        },
-        {
-          "child-category": "Thức ăn bổ sung",
-          "link": "Thức ăn bổ sung"
-        }
-      ]
-    },
-    {
-      "parent-category": "Vaccine Sản Xuất Tại CNC",
-      "link": "Vaccine sản xuất tại CNC",
-      "child-categories": [
-        {
-          "child-category": "Vaccine phòng bệnh cho gia cầm",
-          "link": "Vaccine phòng bệnh cho gia cầm"
-        },
-        {
-          "child-category": "Vaccine phòng bệnh cho lợn",
-          "link": "Vaccine phòng bệnh cho lợn"
-        },
-        {
-          "child-category": "Vaccine phòng bệnh cho đại gia súc",
-          "link": "Vaccine phòng bệnh cho đại gia súc"
-        },
-        {
-          "child-category": "Vaccine phòng bệnh cho thú cảnh",
-          "link": "Vaccine phòng bệnh cho thú cảnh"
-        }
-      ]
-    },
-    {
-      "parent-category": "Vaccine Nhập Khẩu",
-      "link": "Vaccine nhập khẩu",
-      "child-categories": []
-    }
-  ],
   "product-categories": [
     {
+      "parent-category": "Sản phẩm cho vịt ngan",
+      "link": "Sản-phẩm-cho-vịt-ngan",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Kháng thể",
+          "link": "Kháng-thể"
+        },
+        {
+          "child-category": "Thuốc và thức ăn bổ sung",
+          "link": "Thuốc-và-thức-ăn-bổ-sung"
+        }
+      ]
+    },
+    {
+      "parent-category": "Sản phẩm cho gia cầm",
+      "link": "Sản-phẩm-cho-gia-cầm",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Kháng thể",
+          "link": "Kháng-thể"
+        },
+        {
+          "child-category": "Thuốc và thức ăn bổ sung",
+          "link": "Thuốc-và-thức-ăn-bổ-sung"
+        }
+      ]
+    },
+    {
       "parent-category": "Sản phẩm cho lợn",
-      "link": "Sản phẩm cho lợn",
+      "link": "Sản-phẩm-cho-lợn",
       "child-categories": [
         {
           "child-category": "Vaccine",
@@ -230,17 +254,17 @@
         },
         {
           "child-category": "Kháng thể",
-          "link": "Kháng thể"
+          "link": "Kháng-thể"
         },
         {
-          "child-category": "Thức ăn bổ sung",
-          "link": "Thức ăn bổ sung"
+          "child-category": "Thuốc và thức ăn bổ sung",
+          "link": "Thuốc-và-thức-ăn-bổ-sung"
         }
       ]
     },
     {
-      "parent-category": "Sản phẩm cho gà",
-      "link": "Sản phẩm cho gà",
+      "parent-category": "Sản phẩm cho thú nhỏ",
+      "link": "Sản-phẩm-cho-thú-nhỏ",
       "child-categories": [
         {
           "child-category": "Vaccine",
@@ -248,13 +272,17 @@
         },
         {
           "child-category": "Kháng thể",
-          "link": "Kháng thể"
+          "link": "Kháng-thể"
+        },
+        {
+          "child-category": "Thuốc và thức ăn bổ sung",
+          "link": "Thuốc-và-thức-ăn-bổ-sung"
         }
       ]
     },
     {
-      "parent-category": "Sản phẩm cho vịt",
-      "link": "Sản phẩm cho vịt",
+      "parent-category": "Sản phẩm cho đại gia súc",
+      "link": "Sản-phẩm-cho-đại-gia-súc",
       "child-categories": [
         {
           "child-category": "Vaccine",
@@ -262,27 +290,17 @@
         },
         {
           "child-category": "Kháng thể",
-          "link": "Kháng thể"
-        }
-      ]
-    },
-    {
-      "parent-category": "Sản phẩm cho bò",
-      "link": "Sản phẩm cho bò",
-      "child-categories": [
-        {
-          "child-category": "Vaccine",
-          "link": "Vaccine"
+          "link": "Kháng-thể"
         },
         {
-          "child-category": "Kháng thể",
-          "link": "Kháng thể"
+          "child-category": "Thuốc và thức ăn bổ sung",
+          "link": "Thuốc-và-thức-ăn-bổ-sung"
         }
       ]
     },
     {
       "parent-category": "Sản phẩm cho thủy sản",
-      "link": "Sản phẩm cho thủy sản",
+      "link": "Sản-phẩm-cho-thủy-sản",
       "child-categories": [
         {
           "child-category": "Vaccine",
@@ -290,47 +308,35 @@
         },
         {
           "child-category": "Kháng thể",
-          "link": "Kháng thể"
+          "link": "Kháng-thể"
+        },
+        {
+          "child-category": "Thuốc và thức ăn bổ sung",
+          "link": "Thuốc-và-thức-ăn-bổ-sung"
         }
       ]
     },
     {
-      "parent-category": "Sản phẩm cho thú cưng",
-      "link": "Sản phẩm cho thú cưng",
+      "parent-category": "Sản phẩm nhập khẩu",
+      "link": "Sản-phẩm-nhập-khẩu",
       "child-categories": [
         {
           "child-category": "Vaccine",
           "link": "Vaccine"
         },
         {
-          "child-category": "Thức ăn bổ sung",
-          "link": "Thức ăn bổ sung"
+          "child-category": "Kháng thể",
+          "link": "Kháng-thể"
+        },
+        {
+          "child-category": "Thuốc và thức ăn bổ sung",
+          "link": "Thuốc-và-thức-ăn-bổ-sung"
         }
       ]
     },
     {
-      "parent-category": "Thuốc sát trùng",
-      "link": "Thuốc sát trùng",
-      "child-categories": []
-    },
-    {
-      "parent-category": "Dung môi pha vaccine",
-      "link": "Dung môi pha vaccine",
-      "child-categories": []
-    },
-    {
-      "parent-category": "Chế phẩm sinh học",
-      "link": "Chế phẩm sinh học",
-      "child-categories": []
-    },
-    {
-      "parent-category": "Sản phẩm dinh dưỡng",
-      "link": "Sản phẩm dinh dưỡng",
-      "child-categories": []
-    },
-    {
-      "parent-category": "Vaccine Nhập Khẩu",
-      "link": "Vaccine nhập khẩu",
+      "parent-category": "Sản phẩm sát trùng",
+      "link": "Sản-phẩm-sát-trùng",
       "child-categories": []
     }
   ],
@@ -339,46 +345,43 @@
   "cart_inquire": "Yêu cầu sản phẩm",
   "products_404": "Xin lỗi bạn, Chưa có sản phẩm nào trong danh mục này",
   "products_all": "Tất cả sản phẩm",
-  "products_cate1": "Sản phẩm cho lợn",
-  "products_cate2": "Sản phẩm cho gà",
-  "products_cate3": "Sản phẩm cho vịt",
-  "products_cate4": "Sản phẩm cho bò",
-  "products_cate5": "Sản phẩm cho thủy sản",
-  "products_cate6": "Thuốc sát trùng",
-  "products_cate7": "Sản phẩm cho thú cưng",
-  "products_cate8": "Dung môi pha vaccine",
-  "products_cate9": "Chế phẩm sinh học",
-  "products_cate10": "Sản phẩm dinh dưỡng",
-  "products_cate11": "Vaccine nhập khẩu",
+  "products_cate1": "Sản phẩm cho vịt ngan",
+  "products_cate2": "Sản phẩm cho gia cầm",
+  "products_cate3": "Sản phẩm cho lợn",
+  "products_cate4": "Sản phẩm cho thú nhỏ",
+  "products_cate5": "Sản phẩm cho đại gia súc",
+  "products_cate6": "Sản phẩm cho thủy sản",
+  "products_cate7": "Sản phẩm nhập khẩu",
+  "products_cate8": "Sản phẩm sát trùng",
   "products_cate12": "Vaccine",
   "products_cate13": "Kháng thể",
-  "products_cate14": "Thức ăn bổ sung",
+  "products_cate14": "Thuốc và thức ăn bổ sung",
   "solutions_heading": "Phòng thí nghiệm CNC",
   "solutions_intro": "Để biết thêm thông tin về chẩn đoán xét nghiệm bệnh động vật, kháng sinh đồ, các phép thử PCR, các phép thử ELISA, phân lập vi sinh vật, các phép thử huyết thanh học khác, chào mừng bạn đến với trang web của chúng tôi!",
   "solutions-arr": [
     {
       "solution": "Chẩn Đoán Xét Nghiệm Bệnh Động Vật",
-      "link": "Chẩn đoán xét nghiệm bệnh động vật"
+      "link": "Chẩn-đoán-xét-nghiệm-bệnh-động-vật"
     },
     {
       "solution": "Kháng Sinh Đồ",
-      "link": "Kháng sinh đồ"
+      "link": "Kháng-sinh-đồ"
     },
     {
       "solution": "Các Phép Thử PCR",
-      "link": "Các phép thử PCR"
+      "link": "Các-phép-thử-PCR"
     },
     {
       "solution": "Các Phép Thử ELISA",
-      "link": "Các phép thử ELISA"
+      "link": "Các-phép-thử-ELISA"
     },
     {
       "solution": "Các Phép Thử Huyết Thanh Học Khác",
-      "link": "Các phép thử huyết thanh học khác"
+      "link": "Các-phép-thử-huyết-thanh-học-khác"
     },
     {
       "solution": "Phân Lập Vi Sinh Vật",
-      "link": "Phân lập vi sinh vật"
+      "link": "Phân-lập-vi-sinh-vật"
     }
   ]
 }

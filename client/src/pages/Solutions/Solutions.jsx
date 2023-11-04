@@ -1,16 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 import { useEffect, useState } from "react";
 import Container from "../../components/Layout/Container/Container";
 import RandomProduct from "../../components/Feature/RandomProduct";
 import Header from "../../components/Feature/Header";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import { useQueries } from "@tanstack/react-query";
 import classnames from "classnames";
 import parser from "html-react-parser";
 import GlobalSpinner from "../../components/Common/loading/GlobalSpinner";
@@ -21,9 +16,9 @@ export default function Solutions({ lang_code }) {
   const { solutionId } = useParams();
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [typeId, setTypeId] = useState(1);
+  // const [typeId, setTypeId] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState(
-    "Chẩn đoán xét nghiệm bệnh động vật"
+    "Chẩn-đoán-xét-nghiệm-bệnh-động-vật"
   );
 
   const [widthScreen, setWidthScreen] = useState(window.innerWidth);
@@ -42,14 +37,13 @@ export default function Solutions({ lang_code }) {
   }, [solutionId]);
 
   const { data: solutionPosts, isLoading: solutionPostsLoading } =
-    useGetSolutionsByType(solutionId, lang_code);
+    useGetSolutionsByType(solutionId?.split("-").join(" "), lang_code);
 
   const handleCategoryClick = (link) => {
     setSelectedCategory(link);
-    const category = solutionCategory.find((cat) => cat.link === link);
+    const category = solutionCategory.find((cat) => cat.link == link);
+
     if (category) {
-      const typeId = category.id;
-      setTypeId(typeId);
       navigate(`/solutions/${link}`);
     }
   };
@@ -62,7 +56,7 @@ export default function Solutions({ lang_code }) {
       <Header imgUrl={"/images/background/header2.jpg"} />
       <Container>
         <div className="flex flex-col items-center justify-between gap-8 ">
-          <h1 className="text-3xl font-bold text-[#003d79]">
+          <h1 className="text-3xl font-bold text-[#003d79] uppercase">
             {t("solutions_heading")}
           </h1>
           <p className="text-center">{t("solutions_intro")}</p>

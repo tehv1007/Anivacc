@@ -60,7 +60,7 @@ const About = () => {
               autoPlay={true}
             >
               <source
-                src="https://laptrinhlythu.com/wp-content/uploads/2023/07/AnivacC.mp4"
+                src="https://blog.cnc-animalhealth.com/wp-content/uploads/2023/10/ANIVAC-DEMO.mp4"
                 type="video/mp4"
               />
             </video>
@@ -74,10 +74,11 @@ const About = () => {
           <div>
             {/* Heading */}
             <div className="pl-5 pb-5">
-              <div className="text-gray-800 text-2xl md:text-4xl md:leading-[51px] font-[Montserrat] font-bold text-left">
+              <div className="text-gray-800 text-2xl md:text-4xl md:leading-[51px] font-bold text-left uppercase">
                 <h2>
                   <strong>
-                    About <span className="text-blue-900">AnivacC</span>
+                    {t("home_about_heading")}{" "}
+                    <span className="text-blue-900">CNC</span>
                   </strong>
                 </h2>
               </div>
@@ -86,8 +87,24 @@ const About = () => {
             {/* Content */}
             <div className="px-5">
               <div className="text-gray-700 text-sm font-light leading-6 text-left">
-                <p className="pb-[10px]">{t("home_about1")}</p>
-                <p>{t("home_about2")}</p>
+                <div className="pb-[10px]">
+                  {t("home_about_style1", { returnObjects: true }).map(
+                    (item, index) => (
+                      <div className="pb-[10px]" key={index}>
+                        {t(item["home_about"])}
+                      </div>
+                    )
+                  )}
+                </div>
+                <div className="pb-[10px] text-center font-bold">
+                  {t("home_about_style2", { returnObjects: true }).map(
+                    (item, index) => (
+                      <div className="pb-[10px]" key={index}>
+                        {t(item["home_about"])}
+                      </div>
+                    )
+                  )}
+                </div>
               </div>
             </div>
 

@@ -1,8 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/effect-cube";
-import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper";
-import "swiper/css";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "../../config/supabase";
@@ -21,7 +18,7 @@ export default function RelatedProducts({ lang_code }) {
 
   return (
     <section className="mt-5">
-      <h3 className="text-2xl text-center font-bold text-[#003d79]">
+      <h3 className="text-2xl text-center font-bold text-[#003d79] uppercase">
         {t("related_products")}
       </h3>
       <div className="product-slider border">
@@ -51,11 +48,12 @@ export default function RelatedProducts({ lang_code }) {
             className="swiper-container !overflow-hidden"
           >
             {products.map((product, index) => {
+              const title = product.title.replace(/\s+/g, "_");
               if (index <= 3) {
                 return (
                   <SwiperSlide key={index}>
                     <Link
-                      to={`/products/${product.id}`}
+                      to={`/product/${title}`}
                       // className="absolute z-40 w-7 h-7 top-3 right-2 bg-blue-500 flex justify-center items-center "
                     >
                       <img src={product.thumbnail} alt="" />

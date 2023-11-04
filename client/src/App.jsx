@@ -19,6 +19,7 @@ import ProductLayout from "./components/Layout/ProductLayout";
 import ScrollToTop from "./components/Layout/ScrollToTop";
 import SearchResult from "./pages/Products/SearchResult";
 import SolutionPost from "./pages/Solutions/SolutionPost";
+import ProductList from "./pages/Products/ProductList";
 
 const App = () => {
   const [lang_code, setLangCode] = useState("vi");
@@ -63,11 +64,15 @@ const App = () => {
             <Route
               path="/products/:category"
               element={
-                <Products lang_code={lang_code} page={page} setPage={setPage} />
+                <ProductList
+                  lang_code={lang_code}
+                  page={page}
+                  setPage={setPage}
+                />
               }
             />
             <Route
-              path="/product/:id"
+              path="/product/:slug"
               element={
                 <ProductDetail
                   cart={cart}

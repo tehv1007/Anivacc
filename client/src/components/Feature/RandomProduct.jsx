@@ -30,7 +30,7 @@ export default function RandomProduct({ lang_code }) {
 
   return (
     <div className="mt-5">
-      <h3 className="text-2xl font-bold text-[#003d79]">
+      <h3 className="text-2xl font-bold text-[#003d79] uppercase">
         {t("random_products")}
       </h3>
       {isLoading ? (
@@ -60,14 +60,17 @@ export default function RandomProduct({ lang_code }) {
             modules={[Navigation, Autoplay]}
             className="mySwiper w-full swiper-container"
           >
-            {products.map((product) => (
-              <SwiperSlide key={product.thumbnail}>
-                <Link to={`/products/${product.id}`}>
-                  <img src={product.thumbnail} alt="" />
-                  <p className="line-clamp-2">{product.title}</p>
-                </Link>
-              </SwiperSlide>
-            ))}
+            {products.map((product) => {
+              const title = product.title.replace(/\s+/g, "_");
+              return (
+                <SwiperSlide key={product.thumbnail}>
+                  <Link to={`/product/${title}`}>
+                    <img src={product.thumbnail} alt="" />
+                    <p className="line-clamp-2">{product.title}</p>
+                  </Link>
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </div>
       )}

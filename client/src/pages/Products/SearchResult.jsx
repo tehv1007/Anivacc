@@ -4,7 +4,7 @@ import SideBar from "./components/SideBar";
 import Pagination from "../../components/Common/Pagination";
 import GlobalSpinner from "../../components/Common/loading/GlobalSpinner";
 import { useSearchPosts } from "../../hooks/useProduct";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const paginate = (array, page_size, page_number) => {
   return array.slice((page_number - 1) * page_size, page_number * page_size);
@@ -44,7 +44,8 @@ const SearchResult = ({ page, setPage }) => {
     <>
       <h1 className="text-gray-700 text-left pb-[15px]">
         <span className="text-[26px] font-medium text-left">
-          {totalItems} kết quả tìm thấy cho từ khóa "{searchTerm}"
+          {totalItems} kết quả tìm thấy cho từ khóa{" "}
+          <span className="text-blue-800">"{searchTerm}"</span>
         </span>
       </h1>
 

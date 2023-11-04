@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AiOutlineSearch, AiOutlineLogout } from "react-icons/ai";
 import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 import { AuthContext } from "../../pages/auth/Auth";
+import { Link } from "react-router-dom";
 
 const Header = ({ isDark, toggleTheme }) => {
   const { onLogout } = useContext(AuthContext);
@@ -10,11 +11,13 @@ const Header = ({ isDark, toggleTheme }) => {
     <section>
       <div className="fixed w-full flex items-center justify-between h-14 text-white z-10">
         <div className="flex items-center justify-start md:justify-center pl-3 w-14 md:w-64 h-14 bg-blue-800 dark:bg-gray-800 border-none">
-          <img
-            className="w-auto h-7 md:w-auto md:h-10 mr-2 rounded-md overflow-hidden"
-            src="/images/z4487164248109_6f5f5fad9c2229a5afff400b7196ba78.jpg"
-          />
-          <span className="hidden md:block">ADMIN</span>
+          <Link to="/">
+            <img
+              className="w-auto h-7 md:w-auto md:h-10 mr-2 rounded-md overflow-hidden block"
+              src="/images/z4487164248109_6f5f5fad9c2229a5afff400b7196ba78.jpg"
+            />
+          </Link>
+          <div className="hidden md:block">ADMIN</div>
         </div>
         <div className="flex justify-between items-center h-14 bg-blue-800 dark:bg-gray-800 header-right">
           <div className="bg-white rounded flex items-center w-full max-w-xl mr-4 p-2 shadow-sm border border-gray-200">

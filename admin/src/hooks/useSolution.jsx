@@ -157,13 +157,13 @@ export const useCreateSolution = (reset) => {
     {
       onError: () => {
         toast.error("Đăng bài viết thất bại!");
-        return navigate("/");
+        // return navigate("/");
       },
       onSuccess: () => {
         toast.success("Tạo bài viết thành công!");
         reset();
         queryClient.invalidateQueries(["solutions", "solutions_count"]);
-        return navigate("/");
+        return navigate("/solutions");
       },
     }
   );
@@ -190,6 +190,32 @@ export const useDeleteSolution = () => {
         toast.success("Xoá bài viết thành công!");
         queryClient.invalidateQueries(["solutions"]);
         queryClient.invalidateQueries(["solutions_count"]);
+      },
+    }
+  );
+};
+
+export const useUpdateSolution = (solutionID) => {
+  const queryClient = useQueryClient();
+  return useMutation(
+    async (post) => {
+      const { error, data } = await supabase
+        .from("solutions")
+        .update({ ...post })
+        .eq("id", solutionID)
+        .select();
+
+      if (error) {
+        throw error;
+      }
+
+      return data;
+    },
+    {
+      onError: () => toast.error("Chỉnh sửa bài viết thất bại!"),
+      onSuccess: () => {
+        toast.success("Chỉnh sửa bài viết thành công!");
+        queryClient.invalidateQueries(["solution"]);
       },
     }
   );

@@ -1,7 +1,6 @@
 import { FcSearch } from "react-icons/fc";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
-import axios from "axios";
 import { useState } from "react";
 import { formatDate } from "../../../helpers/formatDate";
 import { Link } from "react-router-dom";
@@ -51,68 +50,66 @@ const InquiryRow = ({ inquiry }) => {
   }
 
   return (
-    <>
-      <tr>
-        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-          {formatDate(inquiry.created_at)}
-        </td>
-        <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-          {inquiry.name}
-        </td>
-        <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-          {inquiry.email}
-        </td>
-        <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-          {inquiry.message}
-        </td>
-        <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-          {inquiry.tel}
-        </td>
-        <td className="whitespace-nowrap px-4 py-2 text-gray-700 grid grid-cols-2 gap-1">
-          {inquiry.products
-            ? inquiry.products?.map((p, index) => {
-                return (
-                  <div key={index} className="w-[80px]">
-                    <img
-                      className="w-full object-contain"
-                      src={JSON.parse(p).thumbnail}
-                      alt={JSON.parse(p).title}
-                    />
-                  </div>
-                );
-              })
-            : null}
-        </td>
-        <td className="text-center text-sm">
-          <span
-            className={`inline-flex px-2 py-0 rounded-full ${status.toLowerCase()}`}
-          >
-            {status}
-          </span>
-        </td>
-        <td>
-          <select
-            className="border rounded py-1 text-sm max-w-xs text-gray-700"
-            value={status}
-            onChange={(event) => handleStatusChange(event, inquiry.id)}
-          >
-            {INQUIRY_STATUS.map((status) => (
-              <option key={status.value} value={status.value}>
-                {status.label}
-              </option>
-            ))}
-          </select>
-        </td>
-        <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-          <Link
-            to={`/inquiry/${inquiry.id}`}
-            className="inline-block rounded bg-green-600 px-2 py-2 text-xs font-medium text-white hover:bg-green-600/60"
-          >
-            <FcSearch />
-          </Link>
-        </td>
-      </tr>
-    </>
+    <tr>
+      <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+        {formatDate(inquiry.created_at)}
+      </td>
+      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+        {inquiry.name}
+      </td>
+      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+        {inquiry.email}
+      </td>
+      <td className="px-4 py-2 text-gray-700 whitespace-normal">
+        <span>{inquiry.message}</span>
+      </td>
+      <td className="whitespace-nowrap px-2 py-2 text-gray-700">
+        {inquiry.tel}
+      </td>
+      <td className="px-4 py-2 text-gray-700 grid grid-cols-2 gap-1 w-[200px]">
+        {inquiry.products
+          ? inquiry.products?.map((p, index) => {
+              return (
+                <div key={index} className="w-[80px]">
+                  <img
+                    className="w-full object-contain block"
+                    src={JSON.parse(p).thumbnail}
+                    alt={JSON.parse(p).title}
+                  />
+                </div>
+              );
+            })
+          : null}
+      </td>
+      <td className="text-center px-4">
+        <span
+          className={`inline-flex px-2 py-0 rounded-full ${status.toLowerCase()}`}
+        >
+          {status}
+        </span>
+      </td>
+      <td>
+        <select
+          className="border rounded py-1 text-xs max-w-xs text-gray-700"
+          value={status}
+          onChange={(event) => handleStatusChange(event, inquiry.id)}
+        >
+          {INQUIRY_STATUS.map((status) => (
+            <option key={status.value} value={status.value}>
+              {status.label}
+            </option>
+          ))}
+        </select>
+      </td>
+      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+        <Link
+          to={`/inquiry/${inquiry.id}`}
+          className="inline-block rounded bg-green-600 px-2 py-2 text-xs font-medium text-white hover:bg-green-600/60"
+        >
+          <FcSearch />
+        </Link>
+      </td>
+    </tr>
   );
 };
 

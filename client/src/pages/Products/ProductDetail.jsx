@@ -4,9 +4,6 @@ import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { InnerImageZoom } from "react-inner-image-zoom";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 import ProductDesc from "./components/ProductDesc";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
@@ -21,14 +18,16 @@ import { useTranslation } from "react-i18next";
 
 export default function ProductDetail({ cart, setCart, lang_code }) {
   const { t } = useTranslation();
-  const { id } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
 
+  const title = slug.split("_").join(" ");
+
   const { isLoading, data: product } = useQuery({
-    queryKey: ["product", id],
+    queryKey: ["product", title],
     queryFn: () => supabase.from("product").select(),
 
-    select: (res) => res.data.find((e) => e.id == id),
+    select: (res) => res.data.find((e) => e.title == title),
   });
 
   const [pos, setPos] = useState(0);
@@ -48,7 +47,7 @@ export default function ProductDetail({ cart, setCart, lang_code }) {
         toast.addEventListener("mouseleave", Swal.resumeTimer);
       },
     });
-    if (!cart.some((product) => product.id == id)) {
+    if (!cart.some((product) => product.title == title)) {
       localStorage.setItem("cart", JSON.stringify([...cart, product]));
       setCart([...cart, product]);
     } else {
@@ -60,7 +59,7 @@ export default function ProductDetail({ cart, setCart, lang_code }) {
   };
 
   const navigateCart = () => {
-    if (!cart.some((product) => product.id == id)) {
+    if (!cart.some((product) => product.title == title)) {
       localStorage.setItem("cart", JSON.stringify([...cart, product]));
       setCart([...cart, product]);
       navigate("/inquiry");

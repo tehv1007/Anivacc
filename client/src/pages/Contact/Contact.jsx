@@ -51,7 +51,7 @@ export default function Contact() {
               {/* Company Info */}
               <div className="lg:basis-5/12 float-left">
                 <h1 className="text-gray-700 text-left">
-                  <span className="text-4xl font-medium text-left capitalize">
+                  <span className="text-4xl font-medium text-left uppercase">
                     {t("contact")}
                   </span>
                 </h1>
@@ -154,9 +154,10 @@ export default function Contact() {
                 style={{ border: 0 }}
                 loading="lazy"
                 allowFullScreen
-                src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJc3T-N8JVNDERwJ1OqbTYoJI&key=${
-                  import.meta.env.VITE_GOOGLE_MAP_API
-                }`}
+                // src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJc3T-N8JVNDERwJ1OqbTYoJI&key=${
+                //   import.meta.env.VITE_GOOGLE_MAP_API
+                // }`}
+                src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJc3T-N8JVNDERwJ1OqbTYoJI&key=AIzaSyA81a5dr84kmpaCJLT3rvQ5hNi25Cy95BM`}
               />
             </a>
           </div>

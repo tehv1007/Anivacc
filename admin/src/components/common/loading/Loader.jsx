@@ -1,7 +1,7 @@
 const Loader = () => {
   return (
     <>
-      <div role="flex items-center justify-center gap-2">
+      <div role="flex items-center justify-center gap-2 text-center">
         <svg
           aria-hidden="true"
           className="w-5 h-5 text-gray-200 animate-spin fill-gray-600 inline-block"
@@ -18,7 +18,7 @@ const Loader = () => {
             fill="currentFill"
           />
         </svg>
-        <span className="">Uploading images...</span>
+        <span className="inline-block">Uploading file...</span>
       </div>
     </>
   );

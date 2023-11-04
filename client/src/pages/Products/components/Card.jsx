@@ -1,21 +1,18 @@
 import { Link } from "react-router-dom";
 
 export default function Card({ product }) {
-  const { id, title, status, thumbnail } = product;
+  const { id, title, status, thumbnail, product_code } = product;
   const hot = status.indexOf("hot");
   const isNew = status.indexOf("new");
   const like = status.indexOf("like");
+
+  const slug = title.replace(/\s+/g, "_");
+
   return (
     <Link
-      to={`/product/${id}`}
+      to={`/product/${slug}`}
       className=" text-center text-2xl hover:[&_img]:scale-110 [&_*]:transition relative block w-full col-span-1"
     >
-      {/* PRESALE */}
-      {/* {preSale && (
-        <div className=" preSale absolute left-0 top-0 z-10 w-12 bg-red-500 pb-4 text-white ">
-          <p className="text-[14px] font-bold leading-[20px]  ">Pre Sale</p>
-        </div>
-      )} */}
       <div className="absolute z-10 right-[-4px] top-0">
         {/* NEW */}
         {isNew !== -1 && (
@@ -47,9 +44,14 @@ export default function Card({ product }) {
       </div>
       {/* NAME */}
       {title && (
-        <h2 className="mx-3 mt-[10px] mb-[5px] text-[16px] leading-5 line-clamp-2 text-[#141414]/80 hover:text-[#003d79] cursor-pointer">
-          {title}
-        </h2>
+        <div>
+          <p className="mx-3 mt-[10px] mb-[5px] text-[16px] leading-5 text-blue-800 uppercase">
+            {product_code}
+          </p>
+          <h2 className="mx-3 mt-[10px] mb-[5px] text-[16px] leading-5 line-clamp-2 text-[#141414]/80 hover:text-[#003d79] cursor-pointer">
+            {title}
+          </h2>
+        </div>
       )}
     </Link>
   );

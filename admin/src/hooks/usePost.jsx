@@ -157,13 +157,13 @@ export const useCreatePost = (reset) => {
     {
       onError: () => {
         toast.error("Đăng bài viết thất bại!");
-        return navigate("/");
+        // return navigate("/");
       },
       onSuccess: () => {
         toast.success("Tạo bài viết thành công!");
         reset();
-        queryClient.invalidateQueries(["posts", "posts_count"]);
-        return navigate("/");
+        // queryClient.invalidateQueries(["posts", "posts_count"]);
+        return navigate("/posts");
       },
     }
   );
@@ -190,6 +190,34 @@ export const useDeletePost = () => {
         toast.success("Xoá bài viết thành công!");
         queryClient.invalidateQueries(["posts"]);
         queryClient.invalidateQueries(["posts_count"]);
+      },
+    }
+  );
+};
+
+export const useUpdatePost = (postID) => {
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  return useMutation(
+    async (post) => {
+      const { error, data } = await supabase
+        .from("posts")
+        .update({ ...post })
+        .eq("id", postID)
+        .select();
+
+      if (error) {
+        throw error;
+      }
+
+      return data;
+    },
+    {
+      onError: () => toast.error("Chỉnh sửa bài viết thất bại!"),
+      onSuccess: () => {
+        toast.success("Chỉnh sửa bài viết thành công!");
+        // queryClient.invalidateQueries(["post"]);
+        navigate("/posts");
       },
     }
   );

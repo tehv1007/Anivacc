@@ -1,16 +1,16 @@
 import { memo } from "react";
 import parser from "html-react-parser";
 import { useParams } from "react-router-dom";
-import { useGetPostById } from "../../hooks/usePost";
 import Container from "../../components/layout/Container";
 import LoadingPostDetailSkeleton from "../../components/common/loading/LoadingPostDetailSkeleton";
 import { useGetSolutionById } from "../../hooks/useSolution";
+import GlobalSpinner from "../../components/common/loading/GlobalSpinner";
 
 const SolutionDetail = () => {
   const { solutionID } = useParams();
   const { data: postInfo, isLoading } = useGetSolutionById(solutionID);
-  if (isLoading) return <div></div>;
-  console.log(postInfo);
+  if (isLoading) return <GlobalSpinner />;
+
   return (
     <Container className="flex flex-col gap-y-5">
       {!isLoading ? (

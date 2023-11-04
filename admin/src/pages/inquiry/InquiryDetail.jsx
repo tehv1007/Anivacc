@@ -1,30 +1,11 @@
 import { useParams } from "react-router-dom";
-import {
-  getBrandById,
-  getInquiryById,
-  useGetInquiryById,
-} from "../../hooks/useInquiry";
-import { supabase } from "../../config/supabase";
-import useQuery from "../../hooks/useQuery";
+import { getBrandById, getInquiryById } from "../../hooks/useInquiry";
 import { formatDate } from "../../helpers/formatDate";
 import { useEffect } from "react";
 import { useState } from "react";
 
 const InquiryDetail = () => {
   const { inquiryId } = useParams();
-  // const { data: inquiry, isLoading } = useGetInquiryById(inquiryId);
-
-  // const {
-  //   isLoading,
-  //   data: inquiries,
-  //   error,
-  // } = useQuery({
-  //   queryKey: ["inquiries"],
-  //   queryFn: () => supabase.from("inquire").select(),
-  //   select: (res) => {
-  //     return res.data;
-  //   },
-  // });
 
   const [inquiry, setInquiry] = useState(inquiryId);
   const [isLoading, setIsLoading] = useState(true);
@@ -51,17 +32,17 @@ const InquiryDetail = () => {
         <div className>
           <div className="flex lg:flex-row md:flex-row flex-col lg:items-center justify-between pb-4 border-b border-gray-50">
             <h1 className="font-bold mb-2 text-xl uppercase">
-              Inquiry
+              Yêu cầu của khách hàng
               <p className="text-xs mt-1 text-gray-500">
-                Status:
+                Trạng thái:
                 <span className="pl-2 font-medium text-xs capitalize">
-                  {/* <span className= mb-2">
+                  <span className="mb-2">
                     <span
-                      className={`inline-flex px-2 text-xs font-medium leading-5 rounded-full ${inquiry.status.toLowerCase()}`}
+                      className={`inline-flex px-2 text-xs font-medium leading-5 rounded-full ${inquiry?.status?.toLowerCase()}`}
                     >
-                      {inquiry.status}
+                      {inquiry?.status}
                     </span>
-                  </span> */}
+                  </span>
                 </span>
               </p>
             </h1>
@@ -81,7 +62,7 @@ const InquiryDetail = () => {
           <div className="flex lg:flex-row md:flex-row flex-col justify-between pt-4">
             <div className="mb-3 md:mb-0 lg:mb-0 flex flex-col">
               <span className="font-bold mb-2 text-sm uppercase text-gray-600 block">
-                Inquiry Date
+                Ngày yêu cầu
               </span>
               <span className="text-sm text-gray-500 block">
                 <span>{formatDate(inquiry.created_at)}</span>
@@ -89,7 +70,7 @@ const InquiryDetail = () => {
             </div>
             <div className="mb-3 md:mb-0 lg:mb-0 flex flex-col">
               <span className="font-bold mb-2 text-sm uppercase text-gray-600 block">
-                Customer Name
+                Tên khách hàng
               </span>
               <span className="text-sm text-gray-500 block">
                 {inquiry.name}
@@ -97,7 +78,7 @@ const InquiryDetail = () => {
             </div>
             <div className="flex flex-col lg:text-right text-left">
               <span className="font-bold mb-2 text-sm uppercase text-gray-600 block">
-                Phone Number
+                Số điện thoại
               </span>
               <span className="text-sm text-gray-500">{inquiry.tel}</span>
             </div>
@@ -124,11 +105,9 @@ const InquiryDetail = () => {
                     const { data: brand, isLoading } = getBrandById(
                       product.brand_id
                     );
-                    console.log(product);
                     if (isLoading) {
                       return <div>Loading...</div>;
                     }
-                    console.log(brand);
 
                     return (
                       <tr className="text-left" key={product._id}>
@@ -147,8 +126,10 @@ const InquiryDetail = () => {
                           {product.product_code}
                         </td>
                         <td className="px-4 py-3 whitespace-nowrap font-bold text-center">
-                          {product.categories.map((c) => (
-                            <div className="border py-1 px-2">{c}</div>
+                          {product.categories.map((c, index) => (
+                            <div key={index} className="border py-1 px-2">
+                              {c}
+                            </div>
                           ))}
                         </td>
                         {/* <td className="px-4 py-3 whitespace-nowrap text-center font-bold">

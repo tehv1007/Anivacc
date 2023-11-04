@@ -1,73 +1,22 @@
 import { useState } from "react";
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
+import { Autoplay, Grid, Mousewheel, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Poultry from "/images/productTypes/Poultry-480-480.webp";
 import Swine from "/images/productTypes/Swine-480-480.webp";
-import Bovine from "/images/productTypes/duck.jpg";
+import Duck from "/images/productTypes/duck.jpg";
+import Bovine from "/images/productTypes/Bovine-Sheep.webp";
 import Pet from "/images/productTypes/pet.jpg";
+import Aquatic from "/images/productTypes/Aquatic.webp";
+import ImportedProducts from "/images/productTypes/imported_products.png";
 import Disinfectant from "/images/productTypes/Disinfectant-480-480.webp";
 import Heading from "../../../components/Common/Heading";
 import { useProductsByCategory } from "../../../hooks/useProduct";
 import ProductItem from "./ProductItem";
 import ArrowRight from "./arrows/ArrowRight";
 import ArrowLeft from "./arrows/ArrowLeft";
-import { Link } from "react-router-dom";
 import GlobalSpinner from "../../../components/Common/loading/GlobalSpinner";
 import { useTranslation } from "react-i18next";
-
-SwiperCore.use([Navigation, Pagination]);
-
-const CategoryItem = ({
-  handleCategoryClick,
-  selectedCategory,
-  category,
-  small,
-}) => {
-  return (
-    <>
-      <li
-        key={category.id}
-        className={`sm:max-w-[272px] px-[10px] pb-5 text-center relative ${
-          selectedCategory === category.label ? "active" : ""
-        }`}
-        onClick={() => handleCategoryClick(category.label)}
-      >
-        <div className="">
-          <img className="" src={category.image} alt={category.name} />
-        </div>
-        <Link
-          to={`/products/${category.label}`}
-          className="text-gray-800 text-[16px] h-auto md:h-[48px] inline-block"
-        >
-          {category.name}
-        </Link>
-
-        <>
-          <div className={`absolute w-full h-1 bg-gray-200 bottom-0 left-0`}>
-            <div
-              className={`home-after ${
-                small
-                  ? "block"
-                  : selectedCategory === category.label
-                  ? "block"
-                  : "hidden"
-              }`}
-            />
-          </div>
-          <div
-            className={`${
-              small
-                ? "bg-blue-900"
-                : selectedCategory === category.label
-                ? "bg-blue-900"
-                : "bg-gray-200"
-            } absolute w-full h-1 bg-blue-900 b-5 bottom-0 left-0 -z-1`}
-          />
-        </>
-      </li>
-    </>
-  );
-};
+import CategoryItem from "../../Products/components/CategoryItem";
 
 const ProductOffer = ({ lang_code }) => {
   const { t, i18n } = useTranslation();
@@ -76,43 +25,63 @@ const ProductOffer = ({ lang_code }) => {
     {
       id: 1,
       name: i18n.t("home_product_cate1"),
-      label: "Sản phẩm cho gà",
+      label: "Sản-phẩm-cho-gia-cầm",
       image: Poultry,
     },
     {
       id: 2,
       name: i18n.t("home_product_cate2"),
-      label: "Sản phẩm cho lợn",
+      label: "Sản-phẩm-cho-lợn",
       image: Swine,
     },
     {
       id: 3,
       name: i18n.t("home_product_cate3"),
-      label: "Sản phẩm cho vịt",
-      image: Bovine,
+      label: "Sản-phẩm-cho-vịt-ngan",
+      image: Duck,
     },
     {
       id: 4,
       name: i18n.t("home_product_cate4"),
-      label: "Sản phẩm dinh dưỡng",
+      label: "Sản-phẩm-cho-thú-nhỏ",
       image: Pet,
     },
     {
       id: 5,
       name: i18n.t("home_product_cate5"),
-      label: "Thuốc sát trùng",
+      label: "Sản-phẩm-cho-đại-gia-súc",
+      image: Bovine,
+    },
+    {
+      id: 6,
+      name: i18n.t("home_product_cate6"),
+      label: "Sản-phẩm-cho-thủy-sản",
+      image: Aquatic,
+    },
+    {
+      id: 7,
+      name: i18n.t("home_product_cate7"),
+      label: "Sản-phẩm-nhập-khẩu",
+      image: ImportedProducts,
+    },
+    {
+      id: 8,
+      name: i18n.t("home_product_cate8"),
+      label: "Sản-phẩm-sát-trùng",
       image: Disinfectant,
     },
   ];
 
-  const [selectedCategory, setSelectedCategory] = useState(categories[0].label);
+  const [selectedCategory, setSelectedCategory] = useState(
+    categories[0].label.split("-").join(" ")
+  );
   const { data, isLoading } = useProductsByCategory(
     [selectedCategory],
     lang_code
   );
 
   const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
+    setSelectedCategory(category.split("-").join(" "));
   };
 
   return (
@@ -124,7 +93,7 @@ const ProductOffer = ({ lang_code }) => {
           <span className="text-gray-800 inline font-bold leading-5 text-center text-sm">
             {t("home_product_p1")}
             {"  "}
-            <a href="https://cnc-animalhealth.com/products/Sản%20phẩm%20cho%20gà">
+            <a href="https://cnc-animalhealth.com/products/Sản-phẩm-cho-gia-cầm">
               <span className="text-blue-900">
                 <strong>{t("home_product_cate1")}</strong>
               </span>
@@ -135,16 +104,33 @@ const ProductOffer = ({ lang_code }) => {
       </div>
 
       {/* Product categories */}
-      <ul className="sm:grid sm:grid-cols-5 pb-[10px] hidden">
-        {categories.map((category) => (
-          <div key={category.id}>
-            <CategoryItem
-              category={category}
-              handleCategoryClick={handleCategoryClick}
-              selectedCategory={selectedCategory}
-            />
-          </div>
-        ))}
+      <ul className="pb-[20px] hidden sm:block">
+        <Swiper
+          modules={[Pagination, Navigation, Autoplay, Mousewheel]}
+          className="swiper-container"
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          // loop={true}
+          mousewheel={true}
+          navigation={true}
+          slidesPerView={5}
+          pagination={{
+            el: ".swiper-pagination",
+            clickable: true,
+          }}
+        >
+          {categories.map((category) => (
+            <SwiperSlide key={category.id}>
+              <CategoryItem
+                category={category}
+                handleCategoryClick={handleCategoryClick}
+                selectedCategory={selectedCategory.replace(/\s+/g, "-")}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </ul>
 
       {/* smallScreen */}
@@ -162,7 +148,7 @@ const ProductOffer = ({ lang_code }) => {
               <CategoryItem
                 category={category}
                 handleCategoryClick={handleCategoryClick}
-                selectedCategory={selectedCategory}
+                selectedCategory={selectedCategory.replace(/\s+/g, "-")}
                 small={true}
               />
             </SwiperSlide>
@@ -181,8 +167,12 @@ const ProductOffer = ({ lang_code }) => {
               <ArrowLeft />
             </div>
             <Swiper
-              modules={[Autoplay, Pagination]}
+              modules={[Grid, Pagination, Autoplay]}
               className="swiper-container"
+              grid={{
+                rows: 2,
+                fill: "row",
+              }}
               autoplay={{
                 delay: 2500,
                 disableOnInteraction: false,

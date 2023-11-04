@@ -40,6 +40,9 @@ const InquiryList = () => {
 
   return (
     <>
+      <h2 className="text-xl font-semibold text-center md:text-left uppercase py-2 pl-2">
+        Danh sách yêu cầu của khách hàng
+      </h2>
       <InquiryTable inquiries={paginatedArr} />
       <Pagination setPage={setPage} paginationParams={paginationParams} />
     </>

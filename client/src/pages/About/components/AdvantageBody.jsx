@@ -33,12 +33,23 @@ export default function AdvantageBody() {
             </li>
           </ul>
         </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pb-5 pr-10">
+          <div className="max-w-full h-auto">
+            <img
+              className="object-cover block"
+              src="/images/others/chung-nhan-iso-scaled.jpg"
+              alt="Chứng nhận ISO công ty CNC"
+            />
+          </div>
+          <div className="max-w-full h-auto">
+            <img
+              className="object-cover block"
+              src="/images/others/WHO-GMP_certificate.png"
+              alt="Chứng nhận WHO-GMP công ty CNC"
+            />
+          </div>
+        </div>
       </Container>
-      <img
-        className="min-[1200px]:w-[60%] w-[80%] mx-auto object-cover"
-        src="/images/others/chung-nhan-iso-scaled.jpg"
-        alt="Image"
-      />
     </div>
   );
 }

@@ -200,3 +200,8 @@ span.cancelled {
 .ql-align-center {
   text-align: center;
 }
+
+.table-container {
+  max-width: 100%;
+  overflow-x: auto;
+}

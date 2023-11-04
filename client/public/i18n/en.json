@@ -5,41 +5,49 @@
   "nav-about-advantage": "Our Advantage",
   "nav-products": "Products",
   "nav-category-arr": [
+    { "nav-category": "Ducks and geese", "link": "Sản-phẩm-cho-vịt-ngan" },
+    {
+      "nav-category": "Poultry",
+      "link": "Sản-phẩm-cho-gia-cầm"
+    },
     {
       "nav-category": "Swine",
-      "link": "Sản phẩm cho lợn"
+      "link": "Sản-phẩm-cho-lợn"
     },
     {
-      "nav-category": "Chickens",
-      "link": "Sản phẩm cho gà"
+      "nav-category": "Pet",
+      "link": "Sản-phẩm-cho-thú-nhỏ"
     },
-    { "nav-category": "Ducks", "link": "Sản phẩm cho vịt" },
-    { "nav-category": "Bovine", "link": "Sản phẩm cho bò" },
+    {
+      "nav-category": "Cattle",
+      "link": "Sản-phẩm-cho-đại-gia-súc"
+    },
     {
       "nav-category": "Aquatic",
-      "link": "Sản phẩm cho thủy sản"
+      "link": "Sản-phẩm-cho-thủy-sản"
     },
-    { "nav-category": "Disinfectants", "link": "Thuốc sát trùng" }
+    { "nav-category": "Imported products", "link": "Sản-phẩm-nhập-khẩu" },
+    { "nav-category": "Disinfectants", "link": "Sản-phẩm-sát-trùng" }
   ],
   "nav-solutions": "CNC Solutions",
   "nav-solutions-arr": [
     {
       "nav-solution": "Veterinary Diagnostic Testing",
-      "link": "Chẩn đoán xét nghiệm bệnh động vật"
+      "link": "Chẩn-đoán-xét-nghiệm-bệnh-động-vật"
     },
     {
       "nav-solution": "Antibiotic Susceptibility Testing",
-      "link": "Kháng sinh đồ"
+      "link": "Kháng-sinh-đồ"
     },
-    { "nav-solution": "PCR Tests", "link": "Các phép thử PCR" },
-    { "nav-solution": "ELISA Tests", "link": "Các phép thử ELISA" },
+    { "nav-solution": "PCR Tests", "link": "Các-phép-thử-PCR" },
+    { "nav-solution": "ELISA Tests", "link": "Các-phép-thử-ELISA" },
     {
       "nav-solution": "Other Serological Tests",
-      "link": "Các phép thử huyết thanh học khác"
+      "link": "Các-phép-thử-huyết-thanh-học-khác"
     },
     {
       "nav-solution": "Microorganism Isolation",
-      "link": "Phân lập vi sinh vật"
+      "link": "Phân-lập-vi-sinh-vật"
     }
   ],
   "nav-news": "News",
@@ -80,20 +88,26 @@
   "advantage_title": "Our Advantage",
   "company_history": "AnivacC Development History",
   "about_title": "Company Overview",
-  "about_sub1_header": "Overview",
-  "about_sub1_content1": "is a brand specializing in the research, production, and business of high-tech vaccines and advanced biotechnological products for animals.",
-  "about_sub1_content2": "We manufacture vaccines and biological products for veterinary use.",
-  "about_sub1_content3": "Our product range includes veterinary medicines, aquaculture medicines, and biological products for veterinary and aquaculture purposes.",
-  "about_sub1_content4": "Additionally, we engage in the import and export of various products.",
-  "about_sub1_content5": "We also provide technology transfer consulting services in the field of vaccines and biotechnological products for veterinary and aquaculture applications.",
-  "about_sub2_header": "Brand Solution",
-  "about_sub2_content1": "The ",
-  "about_sub2_content2": " logo incorporates the core ideas related to our field of operation:",
-  "about_sub2_content3": "'Ani = Animal' - Represents animals 'Vac = Vaccine' - Represents vaccines 'C = Company' - Represents the company, GMP-WHO serves as a standard for veterinary vaccine manufacturing companies.",
-  "about_sub3_header": "Message Conveyed",
-  "about_sub3_content": "The AniVacC name displayed on the globe signifies our commitment to delivering high-quality products that meet both domestic and international standards. Our products not only serve the domestic market but are also exported to various locations worldwide.",
-  "about_sub4_header": "Logo Colors",
-  "about_sub4_content": "The logo primarily utilizes two shades of blue, deep blue and light blue, to evoke a sense of safety and trust. These colors reflect the company's image and values.",
+  "about_sub1_content1": "The CNC Veterinary Medicine Production and Trading Joint Stock Company was established in 2013, headquartered at Lot 28, Quang Minh Industrial Park, Me Linh, Hanoi. As a high-tech biotechnology enterprise, we specialize in researching, producing, importing, and trading vaccines, antibodies, pharmaceuticals, and biologics for veterinary and aquaculture.",
+  "about_sub1_content2": "Currently, our company operates with 05 production lines, including 02 GMP-WHO standard production lines for veterinary vaccines and antibodies, disinfectants, and 03 production lines for nutritional products and supplements.",
+  "about_sub1_content3": "We have produced ",
+  "about_sub1_bold1": "over 40 vaccines, antibodies, veterinary drugs, and supplements ",
+  "about_sub1_content4": "that have been licensed for circulation in Vietnam. These products are strictly controlled for quality according to GMP, GLP, GSP standards before reaching livestock breeders nationwide. Additionally, we have ",
+  "about_sub1_bold2": "more than 20 imported products ",
+  "about_sub1_content5": "from Asia, Europe, and the Americas.",
+  "about_sub2_bold1": "Our strength lies in having ",
+  "about_sub2_content1": "a team of leading experts in vaccine production and biologics, constantly researching, improving techniques, and introducing new products and timely solutions for effective prevention and treatment against the continuous complex evolution of new animal diseases.",
+  "about_sub2_bold2": "The core technical foundation of CNC is ",
+  "about_sub2_content2": "always to research and update the world's advanced manufacturing technology, to produce high-quality products that are safe and friendly to animals, minimizing the use of antibiotics and harmful chemicals for prevention and treatment. These include new generation vaccines (combination vaccines, subunit vaccines), antibodies (polyvalent antibodies, specific antibodies), non-specific immune stimulants (Interferon, Transfer Factor), and biotechnological products such as Bacteriophages, which are used for terrestrial and aquatic animals and have been trusted and chosen by livestock breeders for many years.",
+  "about_sub3_bold": "Our burning desire is ",
+  "about_sub3_content": "to be a pioneer, always accompanying livestock breeders in developing a sustainable and stable economy. We are committed to delivering quality products according to international standards, not only meeting domestic demand but also aiming for export to the world market.",
+  "about_sub4_bold": "Finally, ",
+  "about_sub4_content1": "our motto for all actions:",
+  "about_sub4_content2": [
+    { "about": "Leading technology," },
+    { "about": "for animal health," },
+    { "about": "grow with farmers." }
+  ],
   "advantage_header1": "Leadership Team",
   "advantage_header2": "Modern Manufacturing Plant System",
   "advantage_header3": "Continuous Development and Product Enhancement",
@@ -102,6 +116,30 @@
   "advantage_content3": "With the existing potential of AniVacC's human resources, after completing the production lines, the company has undertaken the production of virus vaccines for the prevention of diseases in various animals. This includes vaccines for pigs such as PRRS, CSF, Parvo, Aujeszky's disease, vaccines for poultry such as Gumboro, Newcastle, IB, vaccines for ducks such as DHV, DEV, Derzsy's disease, and vaccines for other livestock such as buffaloes, cows, dogs, goats, and rabbits.",
   "home_about1": "CNC Veterinary Medicine Production and Trading Joint Stock Company was established in 2014 with four founding members who are leading experts in the research and production of veterinary vaccines in Vietnam. In its early stage, the company focused on researching and producing biological products and antibodies for veterinary use, such as CNC Pig01, CNC Dog01, CNC AntiGUM, CNC AntiDHV, CNC AntiE.coli, as well as vaccine diluents like CNC Diluent and CNC Diluent Blue. After nearly 10 years since its establishment, the company has built a reputable brand and developed many high-quality and trusted products, particularly in the field of vaccine diluents.",
   "home_about2": "Continuing the research and development of veterinary vaccines, in May 2019, the company's Board of Directors decided to expand and construct a veterinary vaccine production plant that meets GMP-WHO standards at Lot 28, Quang Minh Industrial Park, Quang Minh Town, Me Linh, Hanoi. The company has implemented a production line for virus vaccines on cell cultures that meet the GMP-WHO standard. Investments have been made in automatic equipment, including a fully automated production line that meets WHO standards, such as automatic bottle washing machines, automatic dosage dispensers, automatic aluminum cap sealers, labeling machines, automated finishing machines, and vaccine freeze-drying machines. The company has also invested in sending technical personnel to Europe to learn about new technologies.",
+  "home_about_heading": "About",
+  "home_about_style1": [
+    {
+      "home_about": "The CNC Veterinary Medicine Production and Trading Joint Stock Company was established in 2013, headquartered at Lot 28, Quang Minh Industrial Park, Me Linh, Hanoi. As a high-tech biotechnology enterprise, we specialize in researching, producing, importing, and trading vaccines, antibodies, pharmaceuticals, and biologics for veterinary and aquaculture. Currently, our company operates with 05 production lines, including 02 GMP-WHO standard production lines for veterinary vaccines and antibodies, disinfectants, and 03 production lines for nutritional products and supplements."
+    },
+    {
+      "home_about": "We have produced over 40 vaccines, antibodies, veterinary drugs, and supplements that have been licensed for circulation in Vietnam. These products are strictly controlled for quality according to GMP, GLP, GSP standards before reaching livestock breeders nationwide. Additionally, we have more than 20 imported products from Asia, Europe, and the Americas."
+    },
+    {
+      "home_about": "Our strength lies in having a team of leading experts in vaccine production and biologics, constantly researching, improving techniques, and introducing new products and timely solutions for effective prevention and treatment against the continuous complex evolution of new animal diseases."
+    },
+    {
+      "home_about": "The core technical foundation of CNC is always to research and update the world's advanced manufacturing technology, to produce high-quality products that are safe and friendly to animals, minimizing the use of antibiotics and harmful chemicals for prevention and treatment. These include new generation vaccines (combination vaccines, subunit vaccines), antibodies (polyvalent antibodies, specific antibodies), non-specific immune stimulants (Interferon, Transfer Factor), and biotechnological products such as Bacteriophages, which are used for terrestrial and aquatic animals and have been trusted and chosen by livestock breeders for many years."
+    },
+    {
+      "home_about": "Our burning desire is to be a pioneer, always accompanying livestock breeders in developing a sustainable and stable economy. We are committed to delivering quality products according to international standards, not only meeting domestic demand but also aiming for export to the world market."
+    },
+    { "home_about": "Finally, our motto for all actions:" }
+  ],
+  "home_about_style2": [
+    { "home_about": "Leading technology," },
+    { "home_about": "for animal health," },
+    { "home_about": "grow with farmers." }
+  ],
   "contact": "Get In Touch",
   "contact_info": "We are available 24/7 by fax, e-mail or by phone. You can also use our quick contact form to ask a question about our services.",
   "contact_address": "Add: Lot 28, Quang Minh Industrial Park, Quang Minh St., Me Linh Dist. Hanoi, Viet Nam",
@@ -140,11 +178,14 @@
   "home_news_cate2": "Industry News",
   "home_news_info": "There are no posts in this category yet",
   "home_product_heading": "See What Products We Offer",
-  "home_product_cate1": "Chickens",
+  "home_product_cate1": "Poultry",
   "home_product_cate2": "Swine",
-  "home_product_cate3": "Ducks",
-  "home_product_cate4": "Nutritional supplements",
-  "home_product_cate5": "Disinfectants",
+  "home_product_cate3": "Ducks and geese",
+  "home_product_cate4": "Pet",
+  "home_product_cate5": "Cattle",
+  "home_product_cate6": "Aquatic",
+  "home_product_cate7": "Imported products",
+  "home_product_cate8": "Disinfectants",
   "home_product_p1": "Focus on",
   "home_product_p2": "Poultry Antibodies, Poultry Vaccine, Pig Antibodies, Disinfectants, Nutritional supplements,...",
   "home_service_heading": "We Provide You With A Full Range Of Services",
@@ -160,65 +201,46 @@
   "home_solution_cate4": "Aquatic Breeding",
   "home_solution_cate5": "Disinfectant",
   "product_detail": "Product Description",
-  "product-category-parent": [
-    {
-      "parent-category": "Biological Products, Disinfectants, Nutritional Supplements",
-      "link": "Chế phẩm sinh học, thuốc sát trùng và TABS",
-      "child-categories": [
-        {
-          "child-category": "Antibodies",
-          "link": "Kháng thể"
-        },
-        {
-          "child-category": "Vaccine diluents",
-          "link": "Dung môi pha vaccine"
-        },
-        {
-          "child-category": "Biological products",
-          "link": "Chế phẩm sinh học"
-        },
-        {
-          "child-category": "Disinfectants",
-          "link": "Thuốc sát trùng"
-        },
-        {
-          "child-category": "Nutritional supplements",
-          "link": "Thức ăn bổ sung"
-        }
-      ]
-    },
-    {
-      "parent-category": "Vaccine Manufactured At CNC",
-      "link": "Vaccine sản xuất tại CNC",
-      "child-categories": [
-        {
-          "child-category": "Poultry vaccine",
-          "link": "Vaccine phòng bệnh cho gia cầm"
-        },
-        {
-          "child-category": "Swine vaccine",
-          "link": "Vaccine phòng bệnh cho lợn"
-        },
-        {
-          "child-category": "Cattle vaccine",
-          "link": "Vaccine phòng bệnh cho đại gia súc"
-        },
-        {
-          "child-category": "Pet vaccine",
-          "link": "Vaccine phòng bệnh cho thú cảnh"
-        }
-      ]
-    },
-    {
-      "parent-category": "Imported Vaccine",
-      "link": "Vaccine nhập khẩu",
-      "child-categories": []
-    }
-  ],
   "product-categories": [
     {
+      "parent-category": "Ducks and geese",
+      "link": "Sản-phẩm-cho-vịt-ngan",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Antibodies",
+          "link": "Kháng-thể"
+        },
+        {
+          "child-category": "Medicine and dietary supplements",
+          "link": "Thuốc-và-thức-ăn-bổ-sung"
+        }
+      ]
+    },
+    {
+      "parent-category": "Poultry",
+      "link": "Sản-phẩm-cho-gia-cầm",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Antibodies",
+          "link": "Kháng-thể"
+        },
+        {
+          "child-category": "Medicine and dietary supplements",
+          "link": "Thuốc-và-thức-ăn-bổ-sung"
+        }
+      ]
+    },
+    {
       "parent-category": "Swine",
-      "link": "Sản phẩm cho lợn",
+      "link": "Sản-phẩm-cho-lợn",
       "child-categories": [
         {
           "child-category": "Vaccine",
@@ -226,107 +248,89 @@
         },
         {
           "child-category": "Antibodies",
-          "link": "Kháng thể"
+          "link": "Kháng-thể"
         },
         {
-          "child-category": "Feed Additives",
-          "link": "Thức ăn bổ sung"
-        }
-      ]
-    },
-    {
-      "parent-category": "Chickens",
-      "link": "Sản phẩm cho gà",
-      "child-categories": [
-        {
-          "child-category": "Vaccine",
-          "link": "Vaccine"
-        },
-        {
-          "child-category": "Antibodies",
-          "link": "Kháng thể"
-        }
-      ]
-    },
-    {
-      "parent-category": "Ducks",
-      "link": "Sản phẩm cho vịt",
-      "child-categories": [
-        {
-          "child-category": "Vaccine",
-          "link": "Vaccine"
-        },
-        {
-          "child-category": "Antibodies",
-          "link": "Kháng thể"
-        }
-      ]
-    },
-    {
-      "parent-category": "Bovine",
-      "link": "Sản phẩm cho bò",
-      "child-categories": [
-        {
-          "child-category": "Vaccine",
-          "link": "Vaccine"
-        },
-        {
-          "child-category": "Antibodies",
-          "link": "Kháng thể"
-        }
-      ]
-    },
-    {
-      "parent-category": "Aquatic",
-      "link": "Sản phẩm cho thủy sản",
-      "child-categories": [
-        {
-          "child-category": "Vaccine",
-          "link": "Vaccine"
-        },
-        {
-          "child-category": "Antibodies",
-          "link": "Kháng thể"
+          "child-category": "Medicine and dietary supplements",
+          "link": "Thuốc-và-thức-ăn-bổ-sung"
         }
       ]
     },
     {
       "parent-category": "Pet",
-      "link": "Sản phẩm cho thú cưng",
+      "link": "Sản-phẩm-cho-thú-nhỏ",
       "child-categories": [
         {
           "child-category": "Vaccine",
           "link": "Vaccine"
         },
         {
-          "child-category": "Feed Additives",
-          "link": "Thức ăn bổ sung"
+          "child-category": "Antibodies",
+          "link": "Kháng-thể"
+        },
+        {
+          "child-category": "Medicine and dietary supplements",
+          "link": "Thuốc-và-thức-ăn-bổ-sung"
         }
       ]
     },
     {
-      "parent-category": "Disinfectant",
-      "link": "Thuốc sát trùng",
-      "child-categories": []
+      "parent-category": "Cattle",
+      "link": "Sản-phẩm-cho-đại-gia-súc",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Antibodies",
+          "link": "Kháng-thể"
+        },
+        {
+          "child-category": "Medicine and dietary supplements",
+          "link": "Thuốc-và-thức-ăn-bổ-sung"
+        }
+      ]
     },
     {
-      "parent-category": "Vaccine diluent",
-      "link": "Dung môi pha vaccine",
-      "child-categories": []
+      "parent-category": "Aquatic",
+      "link": "Sản-phẩm-cho-thủy-sản",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Antibodies",
+          "link": "Kháng-thể"
+        },
+        {
+          "child-category": "Medicine and dietary supplements",
+          "link": "Thuốc-và-thức-ăn-bổ-sung"
+        }
+      ]
     },
     {
-      "parent-category": "Biological products",
-      "link": "Chế phẩm sinh học",
-      "child-categories": []
+      "parent-category": "Imported products",
+      "link": "Sản-phẩm-nhập-khẩu",
+      "child-categories": [
+        {
+          "child-category": "Vaccine",
+          "link": "Vaccine"
+        },
+        {
+          "child-category": "Antibodies",
+          "link": "Kháng-thể"
+        },
+        {
+          "child-category": "Medicine and dietary supplements",
+          "link": "Thuốc-và-thức-ăn-bổ-sung"
+        }
+      ]
     },
     {
-      "parent-category": "Nutritional products",
-      "link": "Sản phẩm dinh dưỡng",
-      "child-categories": []
-    },
-    {
-      "parent-category": "Imported Vaccine",
-      "link": "Vaccine nhập khẩu",
+      "parent-category": "Disinfectants",
+      "link": "Sản-phẩm-sát-trùng",
       "child-categories": []
     }
   ],
@@ -335,17 +339,14 @@
   "cart_inquire": "Inquire",
   "products_404": "Sorry, there are no products in this category yet",
   "products_all": "All Products",
-  "products_cate1": "Swine",
-  "products_cate2": "Chickens",
-  "products_cate3": "Ducks",
-  "products_cate4": "Bovine",
-  "products_cate5": "Aquatic",
-  "products_cate6": "Disinfectant",
-  "products_cate7": "Pet",
-  "products_cate8": "Vaccine diluent",
-  "products_cate9": "Biological products",
-  "products_cate10": "Nutritional products",
-  "products_cate11": "Imported Vaccine",
+  "products_cate1": "Ducks and geese",
+  "products_cate2": "Poultry",
+  "products_cate3": "Swine",
+  "products_cate4": "Pet",
+  "products_cate5": "Cattle",
+  "products_cate6": "Aquatic",
+  "products_cate7": "Imported products",
+  "products_cate8": "Disinfectants",
   "products_cate12": "Vaccine",
   "products_cate13": "Antibodies",
   "products_cate14": "Feed Additives",
@@ -354,21 +355,21 @@
   "solutions-arr": [
     {
       "solution": "Veterinary Diagnostic Testing",
-      "link": "Chẩn đoán xét nghiệm bệnh động vật"
+      "link": "Chẩn-đoán-xét-nghiệm-bệnh-động-vật"
     },
     {
       "solution": "Antibiotic Susceptibility Testing",
-      "link": "Kháng sinh đồ"
+      "link": "Kháng-sinh-đồ"
     },
-    { "solution": "PCR Tests", "link": "Các phép thử PCR" },
-    { "solution": "ELISA Tests", "link": "Các phép thử ELISA" },
+    { "solution": "PCR Tests", "link": "Các-phép-thử-PCR" },
+    { "solution": "ELISA Tests", "link": "Các-phép-thử-ELISA" },
     {
       "solution": "Other Serological Tests",
-      "link": "Các phép thử huyết thanh học khác"
+      "link": "Các-phép-thử-huyết-thanh-học-khác"
     },
     {
       "solution": "Microorganism Isolation",
-      "link": "Phân lập vi sinh vật"
+      "link": "Phân-lập-vi-sinh-vật"
     }
   ]
 }

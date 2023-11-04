@@ -19,7 +19,7 @@ export default function Inquiry({ cart, setCart }) {
       <Header imgUrl={"/images/background/products-bg.webp"} />
       <Container>
         <div className="text-center mt-8">
-          <h1 className="text-3xl font-bold text-[#003d79]">Product Inquiry</h1>
+          <h1 className="text-3xl font-bold text-[#003d79] uppercase">Product Inquiry</h1>
         </div>
         <table className="w-full mx-auto mt-10 px-4 border-[1px] border-black border-collapse [&_th]:border-[1px]  [&_th]:border-black [&_th]:border-collapse [&_td]:border-[1px]  [&_td]:border-black [&_td]:border-collapse [&_th]:p-3 [&_td]:p-3">
           <thead>

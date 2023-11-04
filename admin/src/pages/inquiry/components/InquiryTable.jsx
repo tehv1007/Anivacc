@@ -3,8 +3,8 @@ import InquiryRow from "./InquiryRow";
 const InquiryTable = ({ inquiries }) => {
   return (
     <>
-      <div className="overflow-x-auto">
-        <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+      <div className="table-container border-2">
+        <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-xs">
           <thead className="text-left">
             <tr>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
@@ -16,7 +16,7 @@ const InquiryTable = ({ inquiries }) => {
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                 Email
               </th>
-              <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              <th className="whitespace-normal px-4 py-2 font-medium text-gray-900">
                 Message
               </th>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">

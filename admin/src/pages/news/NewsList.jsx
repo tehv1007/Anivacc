@@ -9,14 +9,14 @@ const NewsList = () => {
   const { data: countPost } = useCountPosts();
 
   return (
-    <div className="flex flex-col mt-4 gap-y-5 lg:gap-y-10">
-      <section className="flex flex-col gap-y-5">
-        <h2 className="font-semibold text-[16px] lg:text-[24px] flex items-baseline gap-x-3">
+    <div className="flex flex-col mt-4 gap-y-5 lg:gap-y-10 overflow-x-auto">
+      <section className="flex flex-col gap-y-5 min-w-full">
+        <h2 className="font-semibold text-[16px] lg:text-[24px] flex items-baseline gap-x-3 uppercase">
           {`Danh sách bài đăng trang ${page}`}
         </h2>
 
         {postList && postList.length === 0 ? (
-          <h4 className="mt-10 mb-10 text-lg font-semibold text-center">
+          <h4 className="mt-10 mb-10 text-lg font-semibold text-center uppercase">
             Danh sách bài viết trống
           </h4>
         ) : null}

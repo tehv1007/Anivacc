@@ -26,7 +26,7 @@ export default function RelatedArticles({ lang_code, category }) {
 
   return (
     <div className="product-slider">
-      <div className="font-bold text-3xl border-b-2 my-10 pb-4">
+      <div className="font-bold text-3xl border-b-2 my-10 pb-4 uppercase">
         <h3>{t("related_articles")}</h3>
       </div>
       {isLoading ? (

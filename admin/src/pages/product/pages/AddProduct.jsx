@@ -3,22 +3,13 @@ import { supabase } from "../../../config/supabase";
 import { useForm } from "react-hook-form";
 import ProductForm from "./ProductForm";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import Loading from "../../../components/common/loading/Loading";
 import { storage } from "../../../config/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import removeAccents from "../../../utils/deunicode";
-
-const productSchema = yup
-  .object({
-    title: yup.string().max(300).required("Title is required"),
-    product_code: yup.string().max(300).required("Title is required"),
-    short_desc: yup.string().required("Description is a required field"),
-    long_desc: yup.string().required("Description is a required field"),
-  })
-  .required();
+import { productSchema } from "../../../utils/productSchema";
 
 export default function AddProduct() {
   const [isFileUploading, setIsFileUploading] = useState(false);
@@ -191,24 +182,26 @@ export default function AddProduct() {
   if (isLoading) return <Loading />;
 
   return (
-    <ProductForm
-      isLoading={addProductMutation.isLoading}
-      isLoadingImage={isFileUploading}
-      title="Add New Product"
-      type="Add Product"
-      categoryQuery={categoryQuery}
-      brandQuery={brandQuery}
-      control={control}
-      register={register}
-      onSubmit={handleSubmit(onSubmit)}
-      watch={watch}
-      errors={errors}
-      setValue={setValue}
-      handleChange={handleChange}
-      images={images}
-      showPreview={showPreview}
-      handleSubmit={ImagesHandleSubmit}
-      urls={urls}
-    />
+    <div>
+      <ProductForm
+        isLoading={addProductMutation.isLoading}
+        isLoadingImage={isFileUploading}
+        title="Add New Product"
+        type="Add Product"
+        categoryQuery={categoryQuery}
+        brandQuery={brandQuery}
+        control={control}
+        register={register}
+        onSubmit={handleSubmit(onSubmit)}
+        watch={watch}
+        errors={errors}
+        setValue={setValue}
+        handleChange={handleChange}
+        images={images}
+        showPreview={showPreview}
+        handleSubmit={ImagesHandleSubmit}
+        urls={urls}
+      />
+    </div>
   );
 }

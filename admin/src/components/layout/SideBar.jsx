@@ -4,8 +4,8 @@ import {
   AiOutlineUnorderedList,
   AiOutlineFileAdd,
   AiOutlineUsergroupAdd,
-  AiOutlineSetting,
   AiOutlineFolderAdd,
+  AiOutlineVideoCameraAdd,
 } from "react-icons/ai";
 import { HiOutlineNewspaper, HiOutlineClipboardList } from "react-icons/hi";
 import { Link } from "react-router-dom";
@@ -66,12 +66,12 @@ const SideBar = () => {
             <li className="px-5 hidden md:block">
               <div className="flex flex-row items-center mt-5 h-8">
                 <div className="text-sm font-light tracking-wide text-gray-400 uppercase">
-                  Settings
+                  Quảng cáo
                 </div>
               </div>
             </li>
-            <SidebarItem title="Settings" navLink="#">
-              <AiOutlineSetting className="w-5 h-5" />
+            <SidebarItem title="Quảng cáo" navLink="/ads">
+              <AiOutlineVideoCameraAdd className="w-5 h-5" />
             </SidebarItem>
           </ul>
           <p className="mb-14 px-5 py-3 hidden md:block text-center text-xs">

@@ -14,10 +14,10 @@ export const categories = [
 ];
 
 export const solutionCategory = [
-  { id: 1, link: "Chẩn đoán xét nghiệm bệnh động vật" },
-  { id: 2, link: "Kháng sinh đồ" },
-  { id: 3, link: "Các phép thử PCR" },
-  { id: 4, link: "Các phép thử ELISA" },
-  { id: 5, link: "Các phép thử huyết thanh học khác" },
-  { id: 6, link: "Phân lập vi sinh vật" },
+  { id: 1, link: "Chẩn-đoán-xét-nghiệm-bệnh-động-vật" },
+  { id: 2, link: "Kháng-sinh-đồ" },
+  { id: 3, link: "Các-phép-thử-PCR" },
+  { id: 4, link: "Các-phép-thử-ELISA" },
+  { id: 5, link: "Các-phép-thử-huyết-thanh-học-khác" },
+  { id: 6, link: "Phân-lập-vi-sinh-vật" },
 ];

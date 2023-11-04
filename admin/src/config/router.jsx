@@ -15,6 +15,10 @@ import InquiryDetail from "../pages/inquiry/InquiryDetail";
 import Solutions from "../pages/solutions/Solutions";
 import AddSolution from "../pages/solutions/AddSolution";
 import SolutionDetail from "../pages/solutions/SolutionDetail";
+import Ads from "../pages/ads/Ads";
+import EditProduct from "../pages/product/pages/EditProduct";
+import EditNews from "../pages/news/EditNews";
+import EditSolution from "../pages/solutions/EditSolution";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +43,10 @@ export const router = createBrowserRouter([
             element: <AddProduct />,
           },
           {
+            path: "/product/:productId/edit",
+            element: <EditProduct />,
+          },
+          {
             path: "/product/:productId",
             element: <ProductDetail />,
           },
@@ -55,6 +63,10 @@ export const router = createBrowserRouter([
             element: <NewsDetail />,
           },
           {
+            path: "/posts/:postID/edit",
+            element: <EditNews />,
+          },
+          {
             path: "/solutions",
             element: <Solutions />,
           },
@@ -67,12 +79,20 @@ export const router = createBrowserRouter([
             element: <SolutionDetail />,
           },
           {
+            path: "/solutions/:solutionID/edit",
+            element: <EditSolution />,
+          },
+          {
             path: "/inquiry",
             element: <InquiryList />,
           },
           {
             path: "/inquiry/:inquiryId",
             element: <InquiryDetail />,
+          },
+          {
+            path: "/ads",
+            element: <Ads />,
           },
         ],
       },

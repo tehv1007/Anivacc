@@ -72,8 +72,6 @@ const OnlineService = () => {
                 >
                   <div
                     className="block w-full h-full text-center text-white box-border border-b-0 overflow-hidden"
-                    // rel="nofollow"
-                    // href=""
                   >
                     <div className="relative p-0 w-32 h-12 border-0 transition-all duration-200">
                       <div className="w-[50px] h-[50px] p-0 rounded-none relative float-left border-0 text-white">

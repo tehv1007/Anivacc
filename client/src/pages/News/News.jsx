@@ -29,7 +29,7 @@ const News = ({ lang_code }) => {
       <div className="max-w-[1200px] mx-auto py-10">
         <div className="flex-col mx-auto px-[10px]">
           <h1 className="text-gray-700 text-center">
-            <span className="text-4xl font-medium text-left capitalize">
+            <span className="text-4xl font-medium text-left uppercase">
               {t("home_news")}
             </span>
           </h1>

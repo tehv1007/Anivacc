@@ -6,6 +6,8 @@ import "./index.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/grid";
+import "swiper/css/scrollbar";
 import "./i18n";
 
 const queryClient = new QueryClient();

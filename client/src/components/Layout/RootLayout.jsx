@@ -6,12 +6,12 @@ import OnlineService from "./FixComponent/OnlineService";
 
 export default function RootLayout({ cart, setCart, setLangCode, setPage }) {
   return (
-    <>
+    <main className="bg-gray-100">
       <NavBar setLangCode={setLangCode} setPage={setPage} />
       <Outlet />
       <Cart cart={cart} setCart={setCart} />
       <Footer />
       <OnlineService />
-    </>
+    </main>
   );
 }

@@ -10,7 +10,7 @@ export default function AdvantageImage() {
         src="/images/background/advantage.jpg"
         alt="Image"
       />
-      <h1 className="bg-white/30 font-montserrat text-blue-900 text-center text-5xl font-bold absolute top-2/3 left-1/2 transform translate-x-[-50%] translate-y-[-50%]">
+      <h1 className="bg-white/30 font-montserrat text-blue-900 text-center text-5xl font-bold absolute top-2/3 left-1/2 transform translate-x-[-50%] translate-y-[-50%] uppercase">
         {t("advantage_title")}
       </h1>
     </div>
